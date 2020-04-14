@@ -77,6 +77,10 @@ public class OverworldPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Cursor.visible)
+        {
+            Cursor.visible = false;
+        }
         if (!pauseMenu.activeSelf)
         {
             if (myPlayer.GetButtonDown("Pause") && !isMoving)
