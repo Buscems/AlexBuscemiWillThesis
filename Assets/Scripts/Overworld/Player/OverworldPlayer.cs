@@ -292,6 +292,7 @@ public class OverworldPlayer : MonoBehaviour
     {
         movementIsPlaying = true;
         isMoving = true;
+        anim.SetBool("isMoving", true);
 
         startPos = entity.position;
         timeToMove = 0;
@@ -304,6 +305,7 @@ public class OverworldPlayer : MonoBehaviour
             yield return null;
         }
 
+        anim.SetBool("isMoving", false);
         isMoving = false;
         yield return new WaitForSeconds(.0001f);
         movementIsPlaying = false;

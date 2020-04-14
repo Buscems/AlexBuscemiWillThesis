@@ -58,4 +58,9 @@ public class TitleButtons : MonoBehaviour
         SceneManager.LoadScene("Title");
     }
 
+    public void RestartGameScene()
+    {
+        SceneManager.LoadScene("Pablo");
+    }
+
 }

@@ -47,6 +47,9 @@ public class OverworldEnemy : MonoBehaviour
     public float moveDelay;
     public AudioSource noticeSound;
 
+    [Tooltip("This is a debug")]
+    public Animator restartFade;
+
     public bool hasDetectedPlayer;
     GameObject player;
     bool getReady;
@@ -397,6 +400,7 @@ public class OverworldEnemy : MonoBehaviour
             }
         }
         //start battle scene here
+        restartFade.SetTrigger("Fade");
 
     }
 
