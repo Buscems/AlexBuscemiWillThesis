@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Rewired;
 using Rewired.ControllerExtensions;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject inventoryStartButton;
     public GameObject partyStartButton;
     public GameObject saveStartButton;
+
+    public Animator quitFade;
 
     public Transform menuPivot;
     public float pivotInterval;
@@ -98,7 +101,7 @@ public class PauseMenu : MonoBehaviour
             yield return null;
         }
         rotateRight = false;
-        menuPivot.rotation = Quaternion.Euler(menuRotation.x, menuRotation.y, nextPivot);
+        menuRotation = new Vector3(menuRotation.x, menuRotation.y, nextPivot);
         es.SetSelectedGameObject(null);
         EndGoingRight();
     }
@@ -112,7 +115,7 @@ public class PauseMenu : MonoBehaviour
             yield return null;
         }
         rotateLeft = false;
-        menuPivot.rotation = Quaternion.Euler(menuRotation.x, menuRotation.y, nextPivot);
+        menuRotation = new Vector3(menuRotation.x, menuRotation.y, nextPivot);
         es.SetSelectedGameObject(null);
         EndGoingLeft();
     }
@@ -170,6 +173,7 @@ public class PauseMenu : MonoBehaviour
     {
         es.SetSelectedGameObject(null);
         Time.timeScale = 1;
+        menuRotation = Vector3.zero;
         this.gameObject.SetActive(false);
     }
 
@@ -181,13 +185,13 @@ public class PauseMenu : MonoBehaviour
 
     public void NotSure()
     {
-        es.SetSelectedGameObject(quitButton);
+        es.SetSelectedGameObject(saveStartButton);
         areYouSureMenu.SetActive(false);
     }
 
     public void Quit()
     {
-        Application.Quit();
+        quitFade.SetTrigger("Fade");
     }
 
     //[REWIRED METHODS]

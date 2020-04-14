@@ -52,4 +52,10 @@ public class TitleButtons : MonoBehaviour
         es.SetSelectedGameObject(startButton);
     }
 
+    public void QuitToMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Title");
+    }
+
 }
