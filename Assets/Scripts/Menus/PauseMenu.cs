@@ -27,7 +27,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject partyMenu;
     public GameObject saveMenu;
 
-    public Animator menuAnim;
+    public Transform menuPivot;
+    public float pivotInterval;
+    public float rotateSpeed;
+    bool rotateRight;
+    bool rotateLeft;
+    bool isRotating;
+    public Vector3 menuRotation;
 
     public enum ActiveMenu { Inventory, Party, Save }
     public ActiveMenu activeMenu;
@@ -54,62 +60,82 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (myPlayer.GetButtonDown("rb"))
+        menuPivot.eulerAngles = menuRotation;
+        Debug.Log("Active Menu: " + (int)activeMenu);
+        if (myPlayer.GetButtonDown("rb") && !isRotating)
         {
-            if(activeMenu == ActiveMenu.Inventory)
-            {
-                menuAnim.SetTrigger("ToParty");
-            }
-            if (activeMenu == ActiveMenu.Party)
-            {
-                menuAnim.SetTrigger("ToSave");
-            }
-            if (activeMenu == ActiveMenu.Save)
-            {
-                menuAnim.SetTrigger("ToInventory");
-            }
-            menuAnim.SetFloat("Blend", 1);
-            if (activeMenu != lastMenu)
-            {
-                activeMenu += 1;
-            }
-            else
-            {
-                activeMenu = firstMenu;
-            }
+            StartCoroutine("SwitchRight");
         }
-        if (myPlayer.GetButtonDown("lb"))
+        if (myPlayer.GetButtonDown("lb") && !isRotating)
         {
-            if (activeMenu == ActiveMenu.Inventory)
-            {
-                menuAnim.SetTrigger("ToSave");
-            }
-            if (activeMenu == ActiveMenu.Party)
-            {
-                menuAnim.SetTrigger("ToInventory");
-            }
-            if (activeMenu == ActiveMenu.Save)
-            {
-                menuAnim.SetTrigger("ToParty");
-            }
-            if (activeMenu != firstMenu)
-            {
-                activeMenu -= 1;
-            }
-            else
-            {
-                activeMenu = lastMenu;
-            }
+            StartCoroutine("SwitchLeft");
         }
+
+        if (rotateRight)
+        {
+            menuRotation += new Vector3(0, 0, -rotateSpeed * Time.unscaledDeltaTime);
+        }
+        if (rotateLeft)
+        {
+            menuRotation += new Vector3(0, 0, rotateSpeed * Time.unscaledDeltaTime);
+        }
+        Debug.Log(menuRotation.z);
     }
 
-    /*
-    IEnumerator TurnRight()
+    IEnumerator SwitchRight()
     {
-        inventoryMenu.transform.RotateAround(middlePoint.transform.position, Vector2.up, 20 * Time.deltaTime);
-        
+        isRotating = true;
+        float nextPivot = menuRotation.z - pivotInterval;
+        Debug.Log(nextPivot);
+        while(menuRotation.z > nextPivot)
+        {
+            rotateRight = true;
+            yield return null;
+        }
+        rotateRight = false;
+        Debug.Log("It worked");
+        menuPivot.rotation = Quaternion.Euler(menuRotation.x, menuRotation.y, nextPivot);
+        EndGoingRight();
     }
-    */
+    IEnumerator SwitchLeft()
+    {
+        isRotating = true;
+        float nextPivot = menuRotation.z + pivotInterval;
+        while (menuRotation.z < nextPivot)
+        {
+            rotateLeft = true;
+            yield return null;
+        }
+        rotateLeft = false;
+        menuPivot.rotation = Quaternion.Euler(menuRotation.x, menuRotation.y, nextPivot);
+        EndGoingLeft();
+    }
+
+    void EndGoingRight()
+    {
+        if (activeMenu != lastMenu)
+        {
+            activeMenu += 1;
+        }
+        else
+        {
+            activeMenu = firstMenu;
+        }
+        isRotating = false;
+    }
+    void EndGoingLeft()
+    {
+        if (activeMenu != firstMenu)
+        {
+            activeMenu -= 1;
+        }
+        else
+        {
+            activeMenu = lastMenu;
+        }
+        isRotating = false;
+    }
+
     public void ResumeGame()
     {
         es.SetSelectedGameObject(null);

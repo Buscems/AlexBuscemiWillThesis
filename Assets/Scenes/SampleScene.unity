@@ -4685,7 +4685,6 @@ GameObject:
   - component: {fileID: 1129124424}
   - component: {fileID: 1129124425}
   - component: {fileID: 1129124426}
-  - component: {fileID: 1129124427}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -4740,33 +4739,15 @@ MonoBehaviour:
   notSureButton: {fileID: 0}
   quitButton: {fileID: 0}
   inventoryMenu: {fileID: 1645352966}
-  inventoryAnim: {fileID: 0}
   partyMenu: {fileID: 39585952}
-  partyAnim: {fileID: 0}
   saveMenu: {fileID: 1637098442}
-  saveAnim: {fileID: 0}
+  menuPivot: {fileID: 499093579}
+  pivotInterval: 120
+  rotateSpeed: 80
+  menuRotation: {x: 0, y: 0, z: 0}
   activeMenu: 0
   firstMenu: 0
   lastMenu: 2
---- !u!95 &1129124427
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1129124423}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8de3c019e8faee54499baf5121b2420d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1227518051
 GameObject:
   m_ObjectHideFlags: 0

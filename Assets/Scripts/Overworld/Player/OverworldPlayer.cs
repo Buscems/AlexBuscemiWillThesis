@@ -198,7 +198,7 @@ public class OverworldPlayer : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         es.SetSelectedGameObject(resumeButton);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     void CheckForObstacles()
