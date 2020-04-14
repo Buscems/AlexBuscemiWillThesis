@@ -27,6 +27,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject partyMenu;
     public GameObject saveMenu;
 
+    public GameObject inventoryStartButton;
+    public GameObject partyStartButton;
+    public GameObject saveStartButton;
+
     public Transform menuPivot;
     public float pivotInterval;
     public float rotateSpeed;
@@ -61,14 +65,16 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         menuPivot.eulerAngles = menuRotation;
-        Debug.Log("Active Menu: " + (int)activeMenu);
-        if (myPlayer.GetButtonDown("rb") && !isRotating)
+        if (!areYouSureMenu.activeSelf)
         {
-            StartCoroutine("SwitchRight");
-        }
-        if (myPlayer.GetButtonDown("lb") && !isRotating)
-        {
-            StartCoroutine("SwitchLeft");
+            if (myPlayer.GetButtonDown("rb") && !isRotating)
+            {
+                StartCoroutine("SwitchRight");
+            }
+            if (myPlayer.GetButtonDown("lb") && !isRotating)
+            {
+                StartCoroutine("SwitchLeft");
+            }
         }
 
         if (rotateRight)
@@ -79,7 +85,6 @@ public class PauseMenu : MonoBehaviour
         {
             menuRotation += new Vector3(0, 0, rotateSpeed * Time.unscaledDeltaTime);
         }
-        Debug.Log(menuRotation.z);
     }
 
     IEnumerator SwitchRight()
@@ -93,8 +98,8 @@ public class PauseMenu : MonoBehaviour
             yield return null;
         }
         rotateRight = false;
-        Debug.Log("It worked");
         menuPivot.rotation = Quaternion.Euler(menuRotation.x, menuRotation.y, nextPivot);
+        es.SetSelectedGameObject(null);
         EndGoingRight();
     }
     IEnumerator SwitchLeft()
@@ -108,6 +113,7 @@ public class PauseMenu : MonoBehaviour
         }
         rotateLeft = false;
         menuPivot.rotation = Quaternion.Euler(menuRotation.x, menuRotation.y, nextPivot);
+        es.SetSelectedGameObject(null);
         EndGoingLeft();
     }
 
@@ -121,6 +127,18 @@ public class PauseMenu : MonoBehaviour
         {
             activeMenu = firstMenu;
         }
+        switch (activeMenu)
+        {
+            case ActiveMenu.Inventory:
+                es.SetSelectedGameObject(inventoryStartButton);
+                break;
+            case ActiveMenu.Party:
+                es.SetSelectedGameObject(partyStartButton);
+                break;
+            case ActiveMenu.Save:
+                es.SetSelectedGameObject(saveStartButton);
+                break;
+        }
         isRotating = false;
     }
     void EndGoingLeft()
@@ -132,6 +150,18 @@ public class PauseMenu : MonoBehaviour
         else
         {
             activeMenu = lastMenu;
+        }
+        switch (activeMenu)
+        {
+            case ActiveMenu.Inventory:
+                es.SetSelectedGameObject(inventoryStartButton);
+                break;
+            case ActiveMenu.Party:
+                es.SetSelectedGameObject(partyStartButton);
+                break;
+            case ActiveMenu.Save:
+                es.SetSelectedGameObject(saveStartButton);
+                break;
         }
         isRotating = false;
     }
