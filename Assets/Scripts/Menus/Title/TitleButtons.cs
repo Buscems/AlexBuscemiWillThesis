@@ -24,7 +24,10 @@ public class TitleButtons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Cursor.visible)
+        {
+            Cursor.visible = false;
+        }
     }
 
     public void StartButton()
