@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1117109702943311626}
   - component: {fileID: 1117109702943311627}
   - component: {fileID: 1117109702943311624}
+  - component: {fileID: -5928129541893856117}
   m_Layer: 0
   m_Name: Title Goop
   m_TagString: Untagged
@@ -102,3 +103,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5928129541893856117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117109702943311625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2e9bcc8551b4b209e04f6573f49e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  speedMin: 0.5
+  speedMax: 5
+  color: 0
+  direction: {x: 0, y: 0, z: 0}
+  animator: {fileID: 1117109702943311624}

@@ -13,11 +13,8 @@ public class TitleGoop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, 60);
         speed = Random.Range(speedMin, speedMax);
-        spawner = GameObject.FindWithTag("TitleSpawner");
-
-        animator.SetInteger("Color", color);
-       
     }
 
     // Update is called once per frame

@@ -12,7 +12,7 @@ public class TitleSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = Random.Range(timerMin, timerMax);
+        timer = Random.Range(timerMin, 3);
         direction = Random.Range(0, 2);
         color = Random.Range(0, 3);
     }
