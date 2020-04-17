@@ -47,8 +47,9 @@ public class OverworldEnemy : MonoBehaviour
     public float moveDelay;
     public AudioSource noticeSound;
 
-    [Tooltip("This is a debug")]
-    public Animator restartFade;
+    [Tooltip("This is for starting the battle scene")]
+    public string transitionName;
+    public Animator transitionFade;
 
     public bool hasDetectedPlayer;
     GameObject player;
@@ -57,6 +58,8 @@ public class OverworldEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        transitionFade = GameObject.Find(transitionName).GetComponent<Animator>();
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -400,7 +403,8 @@ public class OverworldEnemy : MonoBehaviour
             }
         }
         //start battle scene here
-        restartFade.SetTrigger("Fade");
+        yield return new WaitForSeconds(.5f);
+        transitionFade.SetTrigger("Fade");
 
     }
 
