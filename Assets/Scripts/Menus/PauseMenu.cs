@@ -94,7 +94,6 @@ public class PauseMenu : MonoBehaviour
     {
         isRotating = true;
         float nextPivot = menuRotation.z - pivotInterval;
-        Debug.Log(nextPivot);
         while(menuRotation.z > nextPivot)
         {
             rotateRight = true;

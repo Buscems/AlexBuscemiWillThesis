@@ -55,9 +55,14 @@ public class OverworldEnemy : MonoBehaviour
     GameObject player;
     bool getReady;
 
+    public string enemyTriggerName;
+    public TurnOffEnemies turnOffEnemies;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        turnOffEnemies = GameObject.Find(enemyTriggerName).GetComponent<TurnOffEnemies>();
 
         transitionFade = GameObject.Find(transitionName).GetComponent<Animator>();
 
@@ -405,6 +410,7 @@ public class OverworldEnemy : MonoBehaviour
         //start battle scene here
         yield return new WaitForSeconds(.5f);
         transitionFade.SetTrigger("Fade");
+        yield return new WaitForSeconds(.5f);
 
     }
 
