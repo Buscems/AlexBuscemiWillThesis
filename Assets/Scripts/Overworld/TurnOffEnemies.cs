@@ -52,12 +52,25 @@ public class TurnOffEnemies : MonoBehaviour
 
     public void TurnEnemiesOff()
     {
-        foreach (GameObject g in enemies)
+        if (enemies.Count > 0)
         {
-            if (g != battlingEnemy)
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (enemies[i] != battlingEnemy)
+                {
+                    enemies[i].SetActive(false);
+                }
+            }
+            /*
+            foreach (GameObject g in enemies)
             {
                 g.SetActive(false);
+                if (g != battlingEnemy)
+                {
+                    
+                }
             }
+            */
         }
     }
 

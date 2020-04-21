@@ -411,7 +411,10 @@ public class OverworldEnemy : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         transitionFade.SetTrigger("Fade");
         yield return new WaitForSeconds(.5f);
-
+        turnOffEnemies.battlingEnemy = this.gameObject;
+        turnOffEnemies.TurnEnemiesOff();
+        GameControl.currentState = GameControl.GameState.Combat;
+        this.GetComponent<OverworldEnemy>().enabled = false;
     }
 
 }

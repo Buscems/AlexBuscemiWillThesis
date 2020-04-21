@@ -81,6 +81,10 @@ public class OverworldPlayer : MonoBehaviour
         {
             Cursor.visible = false;
         }
+        if(GameControl.currentState == GameControl.GameState.Combat)
+        {
+            this.GetComponent<OverworldPlayer>().enabled = false;
+        }
         if (!pauseMenu.activeSelf)
         {
             if (myPlayer.GetButtonDown("Pause") && !isMoving)
@@ -106,10 +110,8 @@ public class OverworldPlayer : MonoBehaviour
                     {
                         direction.x = 0;
                     }
-
                     if (direction != Vector2.zero)
                     {
-
                         if (direction.x < 0)
                         {
                             currentDirection = Direction.West;
