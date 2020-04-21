@@ -112,6 +112,24 @@ Tilemap:
       m_TileColorIndex: 5
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
+  - first: {x: 1, y: -2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 23
+      m_TileSpriteIndex: 23
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 5
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
+  - first: {x: 2, y: -2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 24
+      m_TileSpriteIndex: 24
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 5
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
   - first: {x: -2, y: -1, z: 0}
     second:
       serializedVersion: 2
@@ -340,6 +358,10 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 21b91ba758f566949ba5b2efb221d084, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 30522d521c2c00742a243b037962dc0d, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 45ab4ab01c3b54f14ad92c56f959ba09, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 1ca032ceb714d4cc1b8c4e8e19d73f82, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: -6898612011796699580, guid: 4d133ec0f5efc4b4c9303dc1b1beecca,
@@ -408,8 +430,14 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 7566207870363312774, guid: 4d133ec0f5efc4b4c9303dc1b1beecca,
       type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -8849827874391226669, guid: 56cfa735b1f9c574fbad95d30053c1c5,
+      type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 7754471690104072890, guid: 56cfa735b1f9c574fbad95d30053c1c5,
+      type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 23
+  - m_RefCount: 25
     m_Data:
       e00: 1
       e01: 0
@@ -438,7 +466,7 @@ Tilemap:
     m_Data: {r: -5.477585, g: -5.477585, b: -5.477585, a: -5.477585}
   - m_RefCount: 0
     m_Data: {r: -5.672714, g: -5.672714, b: -5.672714, a: -5.672714}
-  - m_RefCount: 23
+  - m_RefCount: 25
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
