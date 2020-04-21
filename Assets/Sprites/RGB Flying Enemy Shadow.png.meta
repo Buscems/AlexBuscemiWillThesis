@@ -1,109 +1,13 @@
 fileFormatVersion: 2
-guid: 56cfa735b1f9c574fbad95d30053c1c5
+guid: f514dd29d63564740b20f664afac5956
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8849827874391226669
-    second: RGB Grass Tiles Corners_0
+      213: -6949669753201740510
+    second: RGB Flying Enemy Shadow_0
   - first:
-      213: 7754471690104072890
-    second: RGB Grass Tiles Corners_1
-  - first:
-      213: -6474043011894674329
-    second: RGB Grass Tiles Corners_2
-  - first:
-      213: 6257881604210456482
-    second: RGB Grass Tiles Corners_3
-  - first:
-      213: -2881767828130031372
-    second: RGB Grass Tiles Corners_4
-  - first:
-      213: -1721735535736947305
-    second: RGB Grass Tiles Corners_5
-  - first:
-      213: -62620438110505898
-    second: RGB Grass Tiles Corners_6
-  - first:
-      213: 6188499442966614972
-    second: RGB Grass Tiles Corners_7
-  - first:
-      213: 1981906131681766475
-    second: RGB Grass Tiles Corners_8
-  - first:
-      213: 4976980572419002871
-    second: RGB Grass Tiles Corners_9
-  - first:
-      213: -726246854768517985
-    second: RGB Grass Tiles Corners_10
-  - first:
-      213: -4506961635220659140
-    second: RGB Grass Tiles Corners_11
-  - first:
-      213: -22581972225561178
-    second: RGB Grass Tiles Corners_12
-  - first:
-      213: -1486297222792073742
-    second: RGB Grass Tiles Corners_13
-  - first:
-      213: 1119737481770427277
-    second: RGB Grass Tiles Corners_14
-  - first:
-      213: 3215986030978297361
-    second: RGB Grass Tiles Corners_15
-  - first:
-      213: -7475235484827257040
-    second: RGB Grass Tiles Corners_16
-  - first:
-      213: -8334642501844461249
-    second: RGB Grass Tiles Corners_17
-  - first:
-      213: -2686890234578940782
-    second: RGB Grass Tiles Corners_18
-  - first:
-      213: -3584929369940769960
-    second: RGB Grass Tiles Corners_19
-  - first:
-      213: -604804628309450525
-    second: RGB Grass Tiles Corners_20
-  - first:
-      213: -7687208421153220393
-    second: RGB Grass Tiles Corners_21
-  - first:
-      213: 2792615336376233775
-    second: RGB Grass Tiles Corners_22
-  - first:
-      213: 7121905111784810796
-    second: RGB Grass Tiles Corners_23
-  - first:
-      213: -1233722608126145806
-    second: RGB Grass Tiles Corners_24
-  - first:
-      213: 4865155527667658391
-    second: RGB Grass Tiles Corners_25
-  - first:
-      213: -1024727861075401925
-    second: RGB Grass Tiles Corners_26
-  - first:
-      213: -5368948754838132000
-    second: RGB Grass Tiles Corners_27
-  - first:
-      213: -8455560780137564434
-    second: RGB Grass Tiles Corners_28
-  - first:
-      213: -452724163584694722
-    second: RGB Grass Tiles Corners_29
-  - first:
-      213: -8967240556342632839
-    second: RGB Grass Tiles Corners_30
-  - first:
-      213: -7424120855493116115
-    second: RGB Grass Tiles Corners_31
-  - first:
-      213: 2979524847380776362
-    second: RGB Grass Tiles Corners_0
-  - first:
-      213: 770146853863426454
-    second: RGB Grass Tiles Corners_1
+      213: 93031466282875661
+    second: RGB Flying Enemy Shadow_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -188,7 +92,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RGB Grass Tiles Corners_0
+      name: RGB Flying Enemy Shadow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -202,14 +106,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d68f87cf681f2580800000000000000
-      internalID: -8849827874391226669
+      spriteID: 225322e2e20dd8f90800000000000000
+      internalID: -6949669753201740510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RGB Grass Tiles Corners_1
+      name: RGB Flying Enemy Shadow_1
       rect:
         serializedVersion: 2
         x: 64
@@ -223,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abae97dcaea6d9b60800000000000000
-      internalID: 7754471690104072890
+      spriteID: d0b79bc20a38a4100800000000000000
+      internalID: 93031466282875661
       vertices: []
       indices: 
       edges: []
