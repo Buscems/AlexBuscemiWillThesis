@@ -46,6 +46,33 @@ public class OverworldPlayer : MonoBehaviour
     public GameObject resumeButton;
     public EventSystem es;
 
+    [Header("Goop Controller")]
+    [HideInInspector]
+    public int tierOneRedGoopAmount;
+    [HideInInspector]
+    public int tierTwoRedGoopAmount;
+    [HideInInspector]
+    public int tierThreeRedGoopAmount;
+    [HideInInspector]
+    public int tierOneGreenGoopAmount;
+    [HideInInspector]
+    public int tierTwoGreenGoopAmount;
+    [HideInInspector]
+    public int tierThreeGreenGoopAmount;
+    [HideInInspector]
+    public int tierOneBlueGoopAmount;
+    [HideInInspector]
+    public int tierTwoBlueGoopAmount;
+    [HideInInspector]
+    public int tierThreeBlueGoopAmount;
+
+    public int partyRedGoopPower;
+    public int partyGreenGoopPower;
+    public int partyBlueGoopPower;
+
+    List<GameObject> redGoopParty;
+    List<GameObject> greenGoopParty;
+    List<GameObject> blueGoopParty;
 
     //[HideInInspector]
     public bool hasBeenDetectedByEnemy;
@@ -61,6 +88,13 @@ public class OverworldPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if (PlayerPrefs.GetString("HasPlayed") != null)
+        {
+            tierOneRedGoopAmount = 1;
+            tierOneGreenGoopAmount = 1;
+            tierOneBlueGoopAmount = 1;
+        }
 
         pauseMenu.SetActive(false);
 

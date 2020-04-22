@@ -61,16 +61,6 @@ public class TurnOffEnemies : MonoBehaviour
                     enemies[i].SetActive(false);
                 }
             }
-            /*
-            foreach (GameObject g in enemies)
-            {
-                g.SetActive(false);
-                if (g != battlingEnemy)
-                {
-                    
-                }
-            }
-            */
         }
     }
 
