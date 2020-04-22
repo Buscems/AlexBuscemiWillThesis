@@ -1,7 +1,55 @@
 fileFormatVersion: 2
 guid: a23f2a12eba329e4d991557f66be3a89
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5390947419604672490
+    second: RGB Basic Shockwave attack_0
+  - first:
+      213: 9039908027779063041
+    second: RGB Basic Shockwave attack_1
+  - first:
+      213: -1407557103954444955
+    second: RGB Basic Shockwave attack_2
+  - first:
+      213: 2121249724262280219
+    second: RGB Basic Shockwave attack_3
+  - first:
+      213: 3273431010256623807
+    second: RGB Basic Shockwave attack_4
+  - first:
+      213: -4271783876476496983
+    second: RGB Basic Shockwave attack_5
+  - first:
+      213: -6981976360606965265
+    second: RGB Basic Shockwave attack_6
+  - first:
+      213: 7209425321925767290
+    second: RGB Basic Shockwave attack_7
+  - first:
+      213: -8160415843884880310
+    second: RGB Basic Shockwave attack_8
+  - first:
+      213: 8138475133190550429
+    second: RGB Basic Shockwave attack_9
+  - first:
+      213: 8747699845103051743
+    second: RGB Basic Shockwave attack_10
+  - first:
+      213: 3492438925000474595
+    second: RGB Basic Shockwave attack_11
+  - first:
+      213: 6025310527910382823
+    second: RGB Basic Shockwave attack_12
+  - first:
+      213: 4692514034734519622
+    second: RGB Basic Shockwave attack_13
+  - first:
+      213: 8080249025178454658
+    second: RGB Basic Shockwave attack_14
+  - first:
+      213: 5322486523444190331
+    second: RGB Basic Shockwave attack_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +79,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,12 +88,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,7 +111,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -72,7 +132,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: RGB Basic Shockwave attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610a7a362e18f25b0800000000000000
+      internalID: -5390947419604672490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Basic Shockwave attack_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d19fda474347d70800000000000000
+      internalID: 9039908027779063041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Basic Shockwave attack_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56db7b1854a577ce0800000000000000
+      internalID: -1407557103954444955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Basic Shockwave attack_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c6c86a261307d10800000000000000
+      internalID: 2121249724262280219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
