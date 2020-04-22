@@ -4,6 +4,7 @@ using UnityEngine;
 using Rewired;
 using Rewired.ControllerExtensions;
 using UnityEditor;
+using UnityEditor.Animations;
 
 public class BaseGoop : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class BaseGoop : MonoBehaviour
     [Header("Rewired")]
     [Tooltip("Number identifier for each player, must be above 0")]
     public int playerNum;
+
+    [Tooltip("0 = Red\n1 = Green\n2 = Blue\n3 = Yellow\n4 = Pink\n5 = Purple\n6 = Orange\n7 = White")]
+    public AnimatorController[] tierOneGoopColor;
+    [Tooltip("0 = Red\n1 = Green\n2 = Blue\n3 = Yellow\n4 = Pink\n5 = Purple\n6 = Orange\n7 = White")]
+    public AnimatorController[] tierTwoGoopColor;
 
     public enum Direction { North, South, East, West }
     [Header("Movement")]
@@ -32,6 +38,12 @@ public class BaseGoop : MonoBehaviour
     [Header("Classes")]
     public Class currentClass;
 
+    [Header("Tier Level")]
+    public GameObject thisTierOneGoop;
+    public GameObject thisTierTwoGoop;
+
+    
+
     private void Awake()
     {
         //Rewired Code
@@ -43,8 +55,90 @@ public class BaseGoop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //for test
+        PlayerPrefs.SetString("Player1Color", "Red");
+        switch (playerNum)
+        {
+            case 1:
+                switch (PlayerPrefs.GetString("Player1Color"))
+                {
+                    case "Red":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        break;
+
+                    case "Green":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        break;
+
+                    case "Blue":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        break;
+                }
+                break;
+            case 2:
+                switch (PlayerPrefs.GetString("Player2Color"))
+                {
+                    case "Red":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        break;
+
+                    case "Green":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        break;
+
+                    case "Blue":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        break;
+                }
+                break;
+            case 3:
+                switch (PlayerPrefs.GetString("Player3Color"))
+                {
+                    case "Red":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        break;
+
+                    case "Green":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        break;
+
+                    case "Blue":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        break;
+                }
+                break;
+            case 4:
+                switch (PlayerPrefs.GetString("Player4Color"))
+                {
+                    case "Red":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        break;
+
+                    case "Green":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        break;
+
+                    case "Blue":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        break;
+                }
+                break;
+        }
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        anim = transform.GetChild(0).GetComponent<Animator>();
+        thisTierTwoGoop.SetActive(false);
     }
 
     // Update is called once per frame

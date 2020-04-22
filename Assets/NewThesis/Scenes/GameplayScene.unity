@@ -6432,7 +6432,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636157318}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35ccf88653ef4d94e8f86c43075df6ae, type: 3}
   m_Name: 
@@ -6444,6 +6444,14 @@ MonoBehaviour:
   speed: 0
   direction: {x: 0, y: 0}
   sr: {fileID: 0}
+  red: {r: 0.8235294, g: 0.44705883, b: 0.44705883, a: 1}
+  green: {r: 0.44705883, g: 0.8235294, b: 0.4745098, a: 1}
+  blue: {r: 0.44705883, g: 0.57254905, b: 0.8235294, a: 1}
+  yellow: {r: 0.9137255, g: 0.91764706, b: 0.28235295, a: 1}
+  pink: {r: 0.84705883, g: 0.45882353, b: 0.64705884, a: 1}
+  purple: {r: 0.72156864, g: 0.45882353, b: 0.84705883, a: 1}
+  orange: {r: 0.85882354, g: 0.60784316, b: 0.32941177, a: 1}
+  white: {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 1}
 --- !u!1 &745144910
 GameObject:
   m_ObjectHideFlags: 0
@@ -6641,6 +6649,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 1
+  tierOneGoopColor:
+  - {fileID: 9100000, guid: 99cf392f74e0448f4a6c71572a4f4a68, type: 2}
+  - {fileID: 9100000, guid: 75c513fceb7954a91ac875b075c447f7, type: 2}
+  - {fileID: 9100000, guid: 02deaef51ae414f3c80bafeaf953acf6, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tierTwoGoopColor:
+  - {fileID: 9100000, guid: b504a2ed4bbe64d6caa7dabb41aa1b2a, type: 2}
+  - {fileID: 9100000, guid: 721ef475d3b144aacabd755ecd19f006, type: 2}
+  - {fileID: 9100000, guid: 74b37b9cbe6f949feaed4daeb63fd019, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentDirection: 0
   direction: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
@@ -8020,7 +8046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1772966136
 SpriteRenderer:
   m_ObjectHideFlags: 0

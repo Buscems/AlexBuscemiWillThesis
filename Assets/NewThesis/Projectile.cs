@@ -29,6 +29,7 @@ public class Projectile : MonoBehaviour
     public Color blue;
     public Color yellow;
     public Color pink;
+    public Color purple;
     public Color orange;
     public Color white;
 
