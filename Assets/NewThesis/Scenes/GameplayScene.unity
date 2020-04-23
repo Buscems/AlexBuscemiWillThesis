@@ -6673,6 +6673,8 @@ MonoBehaviour:
   isMoving: 0
   speed: 5
   currentClass: 0
+  thisTierOneGoop: {fileID: 745144910}
+  thisTierTwoGoop: {fileID: 1772966135}
 --- !u!1 &1223829515
 GameObject:
   m_ObjectHideFlags: 0

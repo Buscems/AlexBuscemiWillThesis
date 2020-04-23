@@ -38,9 +38,18 @@ public class BaseGoop : MonoBehaviour
     [Header("Classes")]
     public Class currentClass;
 
+    public float tierOneKnightAttackDelay;
+    public float tierTwoKnightAttackDelay;
+    public float tierOneRogueAttackDelay;
+    public float tierTwoRogueAttackDelay;
+    public float tierOneWitchAttackDelay;
+    public float tierTwoWitchAttackDelay;
+
     [Header("Tier Level")]
     public GameObject thisTierOneGoop;
     public GameObject thisTierTwoGoop;
+
+    bool tierTwo;
 
     
 
@@ -55,87 +64,7 @@ public class BaseGoop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //for test
-        PlayerPrefs.SetString("Player1Color", "Red");
-        switch (playerNum)
-        {
-            case 1:
-                switch (PlayerPrefs.GetString("Player1Color"))
-                {
-                    case "Red":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
-                        break;
-
-                    case "Green":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
-                        break;
-
-                    case "Blue":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
-                        break;
-                }
-                break;
-            case 2:
-                switch (PlayerPrefs.GetString("Player2Color"))
-                {
-                    case "Red":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
-                        break;
-
-                    case "Green":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
-                        break;
-
-                    case "Blue":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
-                        break;
-                }
-                break;
-            case 3:
-                switch (PlayerPrefs.GetString("Player3Color"))
-                {
-                    case "Red":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
-                        break;
-
-                    case "Green":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
-                        break;
-
-                    case "Blue":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
-                        break;
-                }
-                break;
-            case 4:
-                switch (PlayerPrefs.GetString("Player4Color"))
-                {
-                    case "Red":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
-                        break;
-
-                    case "Green":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
-                        break;
-
-                    case "Blue":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
-                        break;
-                }
-                break;
-        }
+        GoopSetter();
         rb = GetComponent<Rigidbody2D>();
         anim = transform.GetChild(0).GetComponent<Animator>();
         thisTierTwoGoop.SetActive(false);
@@ -224,6 +153,131 @@ public class BaseGoop : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + velocity * speed *  Time.deltaTime);
+    }
+
+    IEnumerator Attack()
+    {
+        switch (currentClass)
+        {
+            case Class.Knight:
+                if (tierTwo)
+                {
+
+                }
+                else
+                {
+
+                }
+                break;
+            case Class.Rogue:
+                if (tierTwo)
+                {
+
+                }
+                else
+                {
+
+                }
+                break;
+            case Class.Witch:
+                if (tierTwo)
+                {
+
+                }
+                else
+                {
+
+                }
+                break;
+        }
+
+        
+
+    }
+
+    void GoopSetter()
+    {
+        //for test
+        PlayerPrefs.SetString("Player1Color", "Blue");
+        switch (playerNum)
+        {
+            case 1:
+                switch (PlayerPrefs.GetString("Player1Color"))
+                {
+                    case "Red":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        break;
+
+                    case "Green":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        break;
+
+                    case "Blue":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        break;
+                }
+                break;
+            case 2:
+                switch (PlayerPrefs.GetString("Player2Color"))
+                {
+                    case "Red":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        break;
+
+                    case "Green":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        break;
+
+                    case "Blue":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        break;
+                }
+                break;
+            case 3:
+                switch (PlayerPrefs.GetString("Player3Color"))
+                {
+                    case "Red":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        break;
+
+                    case "Green":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        break;
+
+                    case "Blue":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        break;
+                }
+                break;
+            case 4:
+                switch (PlayerPrefs.GetString("Player4Color"))
+                {
+                    case "Red":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        break;
+
+                    case "Green":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        break;
+
+                    case "Blue":
+                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
+                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        break;
+                }
+                break;
+        }
     }
 
     //[REWIRED METHODS]
