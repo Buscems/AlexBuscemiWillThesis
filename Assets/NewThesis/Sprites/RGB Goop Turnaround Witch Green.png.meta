@@ -1,0 +1,967 @@
+fileFormatVersion: 2
+guid: a8285da566c1744348296c691b14d0bd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7747615341702233855
+    second: RGB Goop Turnaround Witch Green_0
+  - first:
+      213: -4327328118766949
+    second: RGB Goop Turnaround Witch Green_1
+  - first:
+      213: -4613710476879082563
+    second: RGB Goop Turnaround Witch Green_2
+  - first:
+      213: 1937027572184306356
+    second: RGB Goop Turnaround Witch Green_3
+  - first:
+      213: 6758865755692665783
+    second: RGB Goop Turnaround Witch Green_4
+  - first:
+      213: 4336078909271768226
+    second: RGB Goop Turnaround Witch Green_5
+  - first:
+      213: 1069175367969747198
+    second: RGB Goop Turnaround Witch Green_6
+  - first:
+      213: -3639662803440163336
+    second: RGB Goop Turnaround Witch Green_7
+  - first:
+      213: 7376121027417475530
+    second: RGB Goop Turnaround Witch Green_8
+  - first:
+      213: 901143116359014762
+    second: RGB Goop Turnaround Witch Green_9
+  - first:
+      213: -6479328941907093602
+    second: RGB Goop Turnaround Witch Green_10
+  - first:
+      213: -2873556006509098064
+    second: RGB Goop Turnaround Witch Green_11
+  - first:
+      213: 2296113641922544891
+    second: RGB Goop Turnaround Witch Green_12
+  - first:
+      213: -1159299875786750525
+    second: RGB Goop Turnaround Witch Green_13
+  - first:
+      213: 1607615414603370442
+    second: RGB Goop Turnaround Witch Green_14
+  - first:
+      213: 3865526884970910086
+    second: RGB Goop Turnaround Witch Green_15
+  - first:
+      213: -7776953611959834578
+    second: RGB Goop Turnaround Witch Green_16
+  - first:
+      213: -8149773518299881169
+    second: RGB Goop Turnaround Witch Green_17
+  - first:
+      213: 2314752066224281630
+    second: RGB Goop Turnaround Witch Green_18
+  - first:
+      213: 3917256500478494233
+    second: RGB Goop Turnaround Witch Green_19
+  - first:
+      213: 4895159032488507850
+    second: RGB Goop Turnaround Witch Green_20
+  - first:
+      213: -5109070023406846669
+    second: RGB Goop Turnaround Witch Green_21
+  - first:
+      213: 6000924379012833129
+    second: RGB Goop Turnaround Witch Green_22
+  - first:
+      213: -237771861216668671
+    second: RGB Goop Turnaround Witch Green_23
+  - first:
+      213: 1427505207472363300
+    second: RGB Goop Turnaround Witch Green_24
+  - first:
+      213: -8856644800944197292
+    second: RGB Goop Turnaround Witch Green_25
+  - first:
+      213: -7868325272905442878
+    second: RGB Goop Turnaround Witch Green_26
+  - first:
+      213: -95971697935060973
+    second: RGB Goop Turnaround Witch Green_27
+  - first:
+      213: 7145018440324756655
+    second: RGB Goop Turnaround Witch Green_28
+  - first:
+      213: 2113241582926323094
+    second: RGB Goop Turnaround Witch Green_29
+  - first:
+      213: -1594241964147750361
+    second: RGB Goop Turnaround Witch Green_30
+  - first:
+      213: -484420597128368434
+    second: RGB Goop Turnaround Witch Green_31
+  - first:
+      213: -2156182882002302522
+    second: RGB Goop Turnaround Witch Green_0
+  - first:
+      213: -8821028450985359949
+    second: RGB Goop Turnaround Witch Green_1
+  - first:
+      213: 8571149297656743532
+    second: RGB Goop Turnaround Witch Green_2
+  - first:
+      213: 510097853703669512
+    second: RGB Goop Turnaround Witch Green_3
+  - first:
+      213: -6032632738602621368
+    second: RGB Goop Turnaround Witch Green_4
+  - first:
+      213: -1237545815690262205
+    second: RGB Goop Turnaround Witch Green_5
+  - first:
+      213: 2864759129906555273
+    second: RGB Goop Turnaround Witch Green_6
+  - first:
+      213: -1508954957401311735
+    second: RGB Goop Turnaround Witch Green_7
+  - first:
+      213: 1121108229001873691
+    second: RGB Goop Turnaround Witch Green_8
+  - first:
+      213: 497891461151129820
+    second: RGB Goop Turnaround Witch Green_9
+  - first:
+      213: -106618615730823370
+    second: RGB Goop Turnaround Witch Green_10
+  - first:
+      213: 8359542891995484102
+    second: RGB Goop Turnaround Witch Green_11
+  - first:
+      213: 1145877276419374732
+    second: RGB Goop Turnaround Witch Green_12
+  - first:
+      213: 8440553569523491498
+    second: RGB Goop Turnaround Witch Green_13
+  - first:
+      213: 3061691170738397850
+    second: RGB Goop Turnaround Witch Green_14
+  - first:
+      213: -5676540686269022196
+    second: RGB Goop Turnaround Witch Green_15
+  - first:
+      213: 6699941024490507142
+    second: RGB Goop Turnaround Witch Green_16
+  - first:
+      213: -1354365886552741812
+    second: RGB Goop Turnaround Witch Green_17
+  - first:
+      213: 5894844884575564066
+    second: RGB Goop Turnaround Witch Green_18
+  - first:
+      213: -2042628566758004348
+    second: RGB Goop Turnaround Witch Green_19
+  - first:
+      213: -1392829609710098304
+    second: RGB Goop Turnaround Witch Green_20
+  - first:
+      213: -2020807966003157570
+    second: RGB Goop Turnaround Witch Green_21
+  - first:
+      213: -7516078060042293747
+    second: RGB Goop Turnaround Witch Green_22
+  - first:
+      213: 4835401807451003725
+    second: RGB Goop Turnaround Witch Green_23
+  - first:
+      213: 7087746574805581149
+    second: RGB Goop Turnaround Witch Green_24
+  - first:
+      213: 8466709279573901832
+    second: RGB Goop Turnaround Witch Green_25
+  - first:
+      213: 1314395126295438218
+    second: RGB Goop Turnaround Witch Green_26
+  - first:
+      213: 1849273874980230405
+    second: RGB Goop Turnaround Witch Green_27
+  - first:
+      213: 5200306971222032430
+    second: RGB Goop Turnaround Witch Green_28
+  - first:
+      213: 2799777293780683976
+    second: RGB Goop Turnaround Witch Green_29
+  - first:
+      213: -6234171608208066925
+    second: RGB Goop Turnaround Witch Green_30
+  - first:
+      213: -2571237901173315665
+    second: RGB Goop Turnaround Witch Green_31
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9897fb713b312e0800000000000000
+      internalID: -2156182882002302522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b547611c59659580800000000000000
+      internalID: -8821028450985359949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c664ba3dfd6d2f670800000000000000
+      internalID: 8571149297656743532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80742ba9b4b341700800000000000000
+      internalID: 510097853703669512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 846e23b8c78c74ca0800000000000000
+      internalID: -6032632738602621368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 349c28e23aa53dee0800000000000000
+      internalID: -1237545815690262205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9892321204ba1c720800000000000000
+      internalID: 2864759129906555273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 906b706067d1f0be0800000000000000
+      internalID: -1508954957401311735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b198c609ef9fe8f00800000000000000
+      internalID: 1121108229001873691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd00d9e55add8e600800000000000000
+      internalID: 497891461151129820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f9be21fe6358ef0800000000000000
+      internalID: -106618615730823370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf480238ff030470800000000000000
+      internalID: 8359542891995484102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8e3b21df49f6ef00800000000000000
+      internalID: 1145877276419374732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa26a1360ced22570800000000000000
+      internalID: 8440553569523491498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92efc3f5ef4d7a20800000000000000
+      internalID: 3061691170738397850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0002e94250e831b0800000000000000
+      internalID: -5676540686269022196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68bc2dc2dd8fafc50800000000000000
+      internalID: 6699941024490507142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_17
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c48ed14e663543de0800000000000000
+      internalID: -1354365886552741812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_18
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 221b727b032bec150800000000000000
+      internalID: 5894844884575564066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_19
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489e25e042027a3e0800000000000000
+      internalID: -2042628566758004348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_20
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 088659879dcabace0800000000000000
+      internalID: -1392829609710098304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_21
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb52a139cd5a4f3e0800000000000000
+      internalID: -2020807966003157570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_22
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e621783d681b790800000000000000
+      internalID: -7516078060042293747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_23
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b1667235cca1340800000000000000
+      internalID: 4835401807451003725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_24
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d374115fbbc5260800000000000000
+      internalID: 7087746574805581149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_25
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80281813b3bcf7570800000000000000
+      internalID: 8466709279573901832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_26
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a832855476bad3210800000000000000
+      internalID: 1314395126295438218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_27
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5055b9a9ac0f9a910800000000000000
+      internalID: 1849273874980230405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_28
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e204dae43a33b2840800000000000000
+      internalID: 5200306971222032430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_29
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc80066d9ecad620800000000000000
+      internalID: 2799777293780683976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_30
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396beefc3f5cb79a0800000000000000
+      internalID: -6234171608208066925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Witch Green_31
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa72b8b70c0215cd0800000000000000
+      internalID: -2571237901173315665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

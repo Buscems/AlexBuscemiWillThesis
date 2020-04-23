@@ -1,0 +1,967 @@
+fileFormatVersion: 2
+guid: 60f64bc8b9b3941d8b4ca0878b52e9da
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3462352896880240944
+    second: RGB Goop Turnaround Knight Blue_0
+  - first:
+      213: 4780562488900303953
+    second: RGB Goop Turnaround Knight Blue_1
+  - first:
+      213: 3082708862489410806
+    second: RGB Goop Turnaround Knight Blue_2
+  - first:
+      213: 3723009118749340221
+    second: RGB Goop Turnaround Knight Blue_3
+  - first:
+      213: -8315104186577612221
+    second: RGB Goop Turnaround Knight Blue_4
+  - first:
+      213: -4666834791309954971
+    second: RGB Goop Turnaround Knight Blue_5
+  - first:
+      213: -9052040132202543946
+    second: RGB Goop Turnaround Knight Blue_6
+  - first:
+      213: -3234420990069154389
+    second: RGB Goop Turnaround Knight Blue_7
+  - first:
+      213: 2345098384164358051
+    second: RGB Goop Turnaround Knight Blue_8
+  - first:
+      213: 8117798103453430351
+    second: RGB Goop Turnaround Knight Blue_9
+  - first:
+      213: -4148965911431994345
+    second: RGB Goop Turnaround Knight Blue_10
+  - first:
+      213: 8002271963039141503
+    second: RGB Goop Turnaround Knight Blue_11
+  - first:
+      213: -1001175855177590635
+    second: RGB Goop Turnaround Knight Blue_12
+  - first:
+      213: -6340599600381491610
+    second: RGB Goop Turnaround Knight Blue_13
+  - first:
+      213: -4700684430701944145
+    second: RGB Goop Turnaround Knight Blue_14
+  - first:
+      213: 2471057494548711286
+    second: RGB Goop Turnaround Knight Blue_15
+  - first:
+      213: 145626857721986882
+    second: RGB Goop Turnaround Knight Blue_16
+  - first:
+      213: -4952452063675873917
+    second: RGB Goop Turnaround Knight Blue_17
+  - first:
+      213: -2362957414105618529
+    second: RGB Goop Turnaround Knight Blue_18
+  - first:
+      213: 6400134519631536743
+    second: RGB Goop Turnaround Knight Blue_19
+  - first:
+      213: -6262467058410995310
+    second: RGB Goop Turnaround Knight Blue_20
+  - first:
+      213: 4467833370359050238
+    second: RGB Goop Turnaround Knight Blue_21
+  - first:
+      213: 3117219232774860939
+    second: RGB Goop Turnaround Knight Blue_22
+  - first:
+      213: 191536332948892042
+    second: RGB Goop Turnaround Knight Blue_23
+  - first:
+      213: 7437332978846496037
+    second: RGB Goop Turnaround Knight Blue_24
+  - first:
+      213: -1394842899389409636
+    second: RGB Goop Turnaround Knight Blue_25
+  - first:
+      213: 4131178981858216714
+    second: RGB Goop Turnaround Knight Blue_26
+  - first:
+      213: -2304112458240042304
+    second: RGB Goop Turnaround Knight Blue_27
+  - first:
+      213: 2939128880446904775
+    second: RGB Goop Turnaround Knight Blue_28
+  - first:
+      213: -295006142381037805
+    second: RGB Goop Turnaround Knight Blue_29
+  - first:
+      213: -7122149832644214910
+    second: RGB Goop Turnaround Knight Blue_30
+  - first:
+      213: -8163980883845000191
+    second: RGB Goop Turnaround Knight Blue_31
+  - first:
+      213: 6676815570572063219
+    second: RGB Goop Turnaround Knight Blue_0
+  - first:
+      213: 8460033926615183244
+    second: RGB Goop Turnaround Knight Blue_1
+  - first:
+      213: 2830821813623523528
+    second: RGB Goop Turnaround Knight Blue_2
+  - first:
+      213: -5347629789097193131
+    second: RGB Goop Turnaround Knight Blue_3
+  - first:
+      213: 3825856756579741681
+    second: RGB Goop Turnaround Knight Blue_4
+  - first:
+      213: -5774096837854622440
+    second: RGB Goop Turnaround Knight Blue_5
+  - first:
+      213: 5956227500752320689
+    second: RGB Goop Turnaround Knight Blue_6
+  - first:
+      213: -7358759730237157362
+    second: RGB Goop Turnaround Knight Blue_7
+  - first:
+      213: 7946249444787931030
+    second: RGB Goop Turnaround Knight Blue_8
+  - first:
+      213: 178784300151870845
+    second: RGB Goop Turnaround Knight Blue_9
+  - first:
+      213: -3719105184788108905
+    second: RGB Goop Turnaround Knight Blue_10
+  - first:
+      213: 4096850373671837048
+    second: RGB Goop Turnaround Knight Blue_11
+  - first:
+      213: -2546488891681834951
+    second: RGB Goop Turnaround Knight Blue_12
+  - first:
+      213: -933156784326159692
+    second: RGB Goop Turnaround Knight Blue_13
+  - first:
+      213: 3280307974503977004
+    second: RGB Goop Turnaround Knight Blue_14
+  - first:
+      213: 8406235015142082848
+    second: RGB Goop Turnaround Knight Blue_15
+  - first:
+      213: 6381573498991449807
+    second: RGB Goop Turnaround Knight Blue_16
+  - first:
+      213: 1258019373134288437
+    second: RGB Goop Turnaround Knight Blue_17
+  - first:
+      213: -6616885158151136238
+    second: RGB Goop Turnaround Knight Blue_18
+  - first:
+      213: 3284633500394429875
+    second: RGB Goop Turnaround Knight Blue_19
+  - first:
+      213: -5459908255596285762
+    second: RGB Goop Turnaround Knight Blue_20
+  - first:
+      213: -22259937350515170
+    second: RGB Goop Turnaround Knight Blue_21
+  - first:
+      213: 7485020778369315976
+    second: RGB Goop Turnaround Knight Blue_22
+  - first:
+      213: 782352587716693266
+    second: RGB Goop Turnaround Knight Blue_23
+  - first:
+      213: -918660133784439398
+    second: RGB Goop Turnaround Knight Blue_24
+  - first:
+      213: 2825652653311031886
+    second: RGB Goop Turnaround Knight Blue_25
+  - first:
+      213: 1756047222084927078
+    second: RGB Goop Turnaround Knight Blue_26
+  - first:
+      213: -7843562290957056429
+    second: RGB Goop Turnaround Knight Blue_27
+  - first:
+      213: -5806240928743793838
+    second: RGB Goop Turnaround Knight Blue_28
+  - first:
+      213: 62945781413587779
+    second: RGB Goop Turnaround Knight Blue_29
+  - first:
+      213: -1036702150218542185
+    second: RGB Goop Turnaround Knight Blue_30
+  - first:
+      213: 2346164982511058677
+    second: RGB Goop Turnaround Knight Blue_31
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f1bebad260d8ac50800000000000000
+      internalID: 6676815570572063219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8fa6a77804186570800000000000000
+      internalID: 8460033926615183244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8057fe079194720800000000000000
+      internalID: 2830821813623523528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551909e2a0769c5b0800000000000000
+      internalID: -5347629789097193131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ffa679237c281530800000000000000
+      internalID: 3825856756579741681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81d08f8b4894edfa0800000000000000
+      internalID: -5774096837854622440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b831cfba55c8a250800000000000000
+      internalID: 5956227500752320689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e00d3c3830f60e990800000000000000
+      internalID: -7358759730237157362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697ca3dd4cfb64e60800000000000000
+      internalID: 7946249444787931030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7518fdaf5b2b7200800000000000000
+      internalID: 178784300151870845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79924620a85136cc0800000000000000
+      internalID: -3719105184788108905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87dd2a475bfead830800000000000000
+      internalID: 4096850373671837048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93873da48dd09acd0800000000000000
+      internalID: -2546488891681834951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b25e7649d2cc03f0800000000000000
+      internalID: -933156784326159692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c20d03619bef58d20800000000000000
+      internalID: 3280307974503977004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0298ef74532f8a470800000000000000
+      internalID: 8406235015142082848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc69e6b4947ef8850800000000000000
+      internalID: 6381573498991449807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_17
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5369a3064f1657110800000000000000
+      internalID: 1258019373134288437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_18
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21cd8d4a10a1c24a0800000000000000
+      internalID: -6616885158151136238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_19
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd9b5014cc559d20800000000000000
+      internalID: 3284633500394429875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_20
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0f5fe8e528a34b0800000000000000
+      internalID: -5459908255596285762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_21
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16008574bae0bff0800000000000000
+      internalID: -22259937350515170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_22
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 884fe179db220e760800000000000000
+      internalID: 7485020778369315976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_23
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21d06ff88897bda00800000000000000
+      internalID: 782352587716693266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_24
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a953770c9734043f0800000000000000
+      internalID: -918660133784439398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_25
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a7e330e1cb63720800000000000000
+      internalID: 2825652653311031886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_26
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66efe2105abbe5810800000000000000
+      internalID: 1756047222084927078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_27
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3560bd147a1162390800000000000000
+      internalID: -7843562290957056429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_28
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25b54e953a61c6fa0800000000000000
+      internalID: -5806240928743793838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_29
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b244dcad0afd000800000000000000
+      internalID: 62945781413587779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_30
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793175613e4ec91f0800000000000000
+      internalID: -1036702150218542185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Goop Turnaround Knight Blue_31
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe380ffe904f8020800000000000000
+      internalID: 2346164982511058677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
