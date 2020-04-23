@@ -6820,17 +6820,17 @@ MonoBehaviour:
   attackDirection: {x: 0, y: 0}
   tierOneKnightAttackDelay: 0.5
   tierTwoKnightAttackDelay: 0
-  tierOneRogueAttackDelay: 0
+  tierOneRogueAttackDelay: 0.2
   tierTwoRogueAttackDelay: 0
   tierOneWitchAttackDelay: 0
   tierTwoWitchAttackDelay: 0
-  tierOneKnightProjectileSpeed: 12
+  tierOneKnightProjectileSpeed: 10
   tierTwoKnightProjectileSpeed: 0
-  tierOneRogueProjectileSpeed: 0
+  tierOneRogueProjectileSpeed: 15
   tierTwoRogueProjectileSpeed: 0
   thisTierOneGoop: {fileID: 745144910}
   thisTierTwoGoop: {fileID: 1772966135}
-  switchCooldown: 0
+  switchCooldown: 3
 --- !u!1 &1223829515
 GameObject:
   m_ObjectHideFlags: 0

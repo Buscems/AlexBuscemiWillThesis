@@ -65,6 +65,7 @@ public class BaseGoop : MonoBehaviour
 
     [Header("Switching Classes")]
     public float switchCooldown;
+    bool isSwitching;
     
 
     private void Awake()
@@ -190,36 +191,6 @@ public class BaseGoop : MonoBehaviour
 
     void ClassController()
     {
-        if (myPlayer.GetButtonDown("SwitchRight"))
-        {
-            switch (currentClass)
-            {
-                case Class.Knight:
-                    currentClass = Class.Rogue;
-                    break;
-                case Class.Rogue:
-                    currentClass = Class.Witch;
-                    break;
-                case Class.Witch:
-                    currentClass = Class.Knight;
-                    break;
-            }
-        }
-        if (myPlayer.GetButtonDown("SwitchLeft"))
-        {
-            switch (currentClass)
-            {
-                case Class.Knight:
-                    currentClass = Class.Witch;
-                    break;
-                case Class.Rogue:
-                    currentClass = Class.Knight;
-                    break;
-                case Class.Witch:
-                    currentClass = Class.Rogue;
-                    break;
-            }
-        }
         switch (currentClass)
         {
             case Class.Knight:
@@ -232,6 +203,54 @@ public class BaseGoop : MonoBehaviour
                 anim.SetInteger("Class", 2);
                 break;
         }
+        if (!isSwitching)
+        {
+            if (myPlayer.GetButtonDown("SwitchRight"))
+            {
+                StartCoroutine(SwitchClass(0));
+            }
+            if (myPlayer.GetButtonDown("SwitchLeft"))
+            {
+                StartCoroutine(SwitchClass(1));
+            }
+        }
+    }
+
+    IEnumerator SwitchClass(int direction)
+    {
+        isSwitching = true;
+        if (direction == 0)
+        {
+            switch (currentClass)
+            {
+                case Class.Knight:
+                    currentClass = Class.Rogue;
+                    break;
+                case Class.Rogue:
+                    currentClass = Class.Witch;
+                    break;
+                case Class.Witch:
+                    currentClass = Class.Knight;
+                    break;
+            }
+        }
+        if (direction == 1)
+        {
+            switch (currentClass)
+            {
+                case Class.Knight:
+                    currentClass = Class.Witch;
+                    break;
+                case Class.Rogue:
+                    currentClass = Class.Knight;
+                    break;
+                case Class.Witch:
+                    currentClass = Class.Rogue;
+                    break;
+            }
+        }
+        yield return new WaitForSeconds(switchCooldown);
+        isSwitching = false;
     }
 
     IEnumerator Attack()
@@ -242,7 +261,7 @@ public class BaseGoop : MonoBehaviour
             case Class.Knight:
                 if (!tierTwo)
                 {
-                    var bp = Instantiate(basicProjectile, rb.position + attackDirection, Quaternion.identity);
+                    var bp = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
                     var projScript = bp.GetComponent<Projectile>();
                     projScript.direction = this.attackDirection;
                     projScript.projectileColor = projScript.colors[goopColor];
@@ -258,7 +277,13 @@ public class BaseGoop : MonoBehaviour
             case Class.Rogue:
                 if (!tierTwo)
                 {
-
+                    var bp = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
+                    var projScript = bp.GetComponent<Projectile>();
+                    projScript.direction = this.attackDirection;
+                    projScript.projectileColor = projScript.colors[goopColor];
+                    projScript.speed = tierOneRogueProjectileSpeed;
+                    projScript.currentClass = Projectile.Class.Rogue;
+                    attackDelay = tierOneRogueAttackDelay;
                 }
                 else
                 {

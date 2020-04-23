@@ -28,8 +28,8 @@ public class Projectile : MonoBehaviour
     [HideInInspector]
     public Color projectileColor;
 
-    public Vector2 distanceMoved;
-    public Vector2 startPoint;
+    Vector2 distanceMoved;
+    Vector2 startPoint;
 
     public float knightDistance;
     public float rogueDistance;
@@ -57,9 +57,15 @@ public class Projectile : MonoBehaviour
                 break;
         }
         sr.color = projectileColor;
+        if(direction == Vector2.zero)
+        {
+            direction = Vector2.down;
+        }
         transform.up = direction;
 
         startPoint = rb.position;
+
+        StartCoroutine(DestroyObject());
 
     }
 

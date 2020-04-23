@@ -1,7 +1,151 @@
 fileFormatVersion: 2
 guid: ccb0df2322a1ad5459ce6cf00fc2e972
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 445268217623261735
+    second: RGB Basic Arrow attack_0
+  - first:
+      213: -6186044827262456324
+    second: RGB Basic Arrow attack_1
+  - first:
+      213: -8237099692798504852
+    second: RGB Basic Arrow attack_2
+  - first:
+      213: -1471199183792869860
+    second: RGB Basic Arrow attack_3
+  - first:
+      213: 5844964931129777976
+    second: RGB Basic Arrow attack_4
+  - first:
+      213: -8596187792820858818
+    second: RGB Basic Arrow attack_5
+  - first:
+      213: 3861201593292249235
+    second: RGB Basic Arrow attack_6
+  - first:
+      213: 1894748152417840970
+    second: RGB Basic Arrow attack_7
+  - first:
+      213: 8859930602192863222
+    second: RGB Basic Arrow attack_8
+  - first:
+      213: 3433727000856717454
+    second: RGB Basic Arrow attack_9
+  - first:
+      213: 6349771982475505791
+    second: RGB Basic Arrow attack_10
+  - first:
+      213: -6040767808208566799
+    second: RGB Basic Arrow attack_11
+  - first:
+      213: 2920047214021737038
+    second: RGB Basic Arrow attack_12
+  - first:
+      213: -5889129561951619960
+    second: RGB Basic Arrow attack_13
+  - first:
+      213: -4515373084261543778
+    second: RGB Basic Arrow attack_14
+  - first:
+      213: 914795455096519596
+    second: RGB Basic Arrow attack_15
+  - first:
+      213: -2211501413814057894
+    second: RGB Basic Arrow attack_16
+  - first:
+      213: 912207911379327516
+    second: RGB Basic Arrow attack_17
+  - first:
+      213: -7754411542644055418
+    second: RGB Basic Arrow attack_18
+  - first:
+      213: -2804574169979159884
+    second: RGB Basic Arrow attack_19
+  - first:
+      213: -3868370350525071792
+    second: RGB Basic Arrow attack_20
+  - first:
+      213: -7594570253188265581
+    second: RGB Basic Arrow attack_21
+  - first:
+      213: -44842471725091706
+    second: RGB Basic Arrow attack_22
+  - first:
+      213: -5010750707753375139
+    second: RGB Basic Arrow attack_23
+  - first:
+      213: -5239575268841943862
+    second: RGB Basic Arrow attack_24
+  - first:
+      213: 6135847105129555618
+    second: RGB Basic Arrow attack_25
+  - first:
+      213: -3797218518431975821
+    second: RGB Basic Arrow attack_26
+  - first:
+      213: -4193906240759789681
+    second: RGB Basic Arrow attack_27
+  - first:
+      213: -7048576493520213003
+    second: RGB Basic Arrow attack_28
+  - first:
+      213: -2097791807073072548
+    second: RGB Basic Arrow attack_29
+  - first:
+      213: 4759956805664716496
+    second: RGB Basic Arrow attack_30
+  - first:
+      213: 5625034372608853265
+    second: RGB Basic Arrow attack_31
+  - first:
+      213: 8874414253247611035
+    second: RGB Basic Arrow attack_32
+  - first:
+      213: -6444334769858798682
+    second: RGB Basic Arrow attack_33
+  - first:
+      213: 2381221219763864284
+    second: RGB Basic Arrow attack_34
+  - first:
+      213: -2819273560238969778
+    second: RGB Basic Arrow attack_35
+  - first:
+      213: 2924135842237537816
+    second: RGB Basic Arrow attack_36
+  - first:
+      213: 8958056424217582723
+    second: RGB Basic Arrow attack_37
+  - first:
+      213: -4009425313204333262
+    second: RGB Basic Arrow attack_38
+  - first:
+      213: 4803341601911061879
+    second: RGB Basic Arrow attack_39
+  - first:
+      213: 4318038597936758135
+    second: RGB Basic Arrow attack_40
+  - first:
+      213: -2989795424966212201
+    second: RGB Basic Arrow attack_41
+  - first:
+      213: -5478361014292318755
+    second: RGB Basic Arrow attack_42
+  - first:
+      213: -5151330580917833477
+    second: RGB Basic Arrow attack_43
+  - first:
+      213: -6989870573134111005
+    second: RGB Basic Arrow attack_44
+  - first:
+      213: 2676305002079095143
+    second: RGB Basic Arrow attack_45
+  - first:
+      213: 434124453507230478
+    second: RGB Basic Arrow attack_46
+  - first:
+      213: 8139641137767643783
+    second: RGB Basic Arrow attack_47
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +175,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,12 +184,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,7 +207,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -72,7 +228,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: RGB Basic Arrow attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722b435b519ed2600800000000000000
+      internalID: 445268217623261735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Basic Arrow attack_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfde0623101c62aa0800000000000000
+      internalID: -6186044827262456324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Basic Arrow attack_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c60144fa871ffad80800000000000000
+      internalID: -8237099692798504852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Basic Arrow attack_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e6e281320459be0800000000000000
+      internalID: -1471199183792869860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Basic Arrow attack_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f1b9c03ac7d1150800000000000000
+      internalID: 5844964931129777976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Basic Arrow attack_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e301d5a3fb434b880800000000000000
+      internalID: -8596187792820858818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Basic Arrow attack_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3985b5e346eb59530800000000000000
+      internalID: 3861201593292249235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RGB Basic Arrow attack_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4f61b3e76f7b4a10800000000000000
+      internalID: 1894748152417840970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
