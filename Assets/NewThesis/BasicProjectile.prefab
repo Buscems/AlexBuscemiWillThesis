@@ -115,6 +115,8 @@ MonoBehaviour:
   - {r: 0.85882354, g: 0.60784316, b: 0.32941177, a: 1}
   - {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 1}
   projectileColor: {r: 0, g: 0, b: 0, a: 0}
+  knightDistance: 5
+  rogueDistance: 3
 --- !u!50 &3342832252715227108
 Rigidbody2D:
   serializedVersion: 4

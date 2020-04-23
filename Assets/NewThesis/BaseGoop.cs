@@ -62,6 +62,9 @@ public class BaseGoop : MonoBehaviour
 
     bool tierTwo;
     bool attacking;
+
+    [Header("Switching Classes")]
+    public float switchCooldown;
     
 
     private void Awake()
@@ -92,6 +95,8 @@ public class BaseGoop : MonoBehaviour
         {
             StartCoroutine("Attack");
         }
+
+        ClassController();
 
     }
 
@@ -180,6 +185,52 @@ public class BaseGoop : MonoBehaviour
                         break;
                 }
             }
+        }
+    }
+
+    void ClassController()
+    {
+        if (myPlayer.GetButtonDown("SwitchRight"))
+        {
+            switch (currentClass)
+            {
+                case Class.Knight:
+                    currentClass = Class.Rogue;
+                    break;
+                case Class.Rogue:
+                    currentClass = Class.Witch;
+                    break;
+                case Class.Witch:
+                    currentClass = Class.Knight;
+                    break;
+            }
+        }
+        if (myPlayer.GetButtonDown("SwitchLeft"))
+        {
+            switch (currentClass)
+            {
+                case Class.Knight:
+                    currentClass = Class.Witch;
+                    break;
+                case Class.Rogue:
+                    currentClass = Class.Knight;
+                    break;
+                case Class.Witch:
+                    currentClass = Class.Rogue;
+                    break;
+            }
+        }
+        switch (currentClass)
+        {
+            case Class.Knight:
+                anim.SetInteger("Class", 0);
+                break;
+            case Class.Rogue:
+                anim.SetInteger("Class", 1);
+                break;
+            case Class.Witch:
+                anim.SetInteger("Class", 2);
+                break;
         }
     }
 

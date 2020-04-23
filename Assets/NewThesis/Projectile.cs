@@ -28,6 +28,14 @@ public class Projectile : MonoBehaviour
     [HideInInspector]
     public Color projectileColor;
 
+    public Vector2 distanceMoved;
+    public Vector2 startPoint;
+
+    public float knightDistance;
+    public float rogueDistance;
+
+    float maxDistance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,9 +46,11 @@ public class Projectile : MonoBehaviour
         {
             case Class.Knight:
                 sr.sprite = knightSprite;
+                maxDistance = knightDistance;
                 break;
             case Class.Rogue:
                 sr.sprite = rogueSprite;
+                maxDistance = rogueDistance;
                 break;
             case Class.Witch:
                 sr.sprite = witchSprite;
@@ -49,12 +59,14 @@ public class Projectile : MonoBehaviour
         sr.color = projectileColor;
         transform.up = direction;
 
+        startPoint = rb.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        distanceMoved = rb.position - startPoint;
     }
 
     private void FixedUpdate()
@@ -68,6 +80,16 @@ public class Projectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    IEnumerator DestroyObject()
+    {
+        while(distanceMoved.magnitude < maxDistance)
+        {
+            yield return null;
+        }
+        Destroy(this.gameObject);
+
     }
 
 }
