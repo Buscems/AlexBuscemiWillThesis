@@ -24,14 +24,9 @@ public class Projectile : MonoBehaviour
     [HideInInspector]
     public SpriteRenderer sr;
 
-    public Color red;
-    public Color green;
-    public Color blue;
-    public Color yellow;
-    public Color pink;
-    public Color purple;
-    public Color orange;
-    public Color white;
+    public Color[] colors;
+    [HideInInspector]
+    public Color projectileColor;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +46,7 @@ public class Projectile : MonoBehaviour
                 sr.sprite = witchSprite;
                 break;
         }
-
+        sr.color = projectileColor;
         transform.up = direction;
 
     }
@@ -65,6 +60,14 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Boundaries")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }

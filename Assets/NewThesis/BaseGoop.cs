@@ -21,6 +21,7 @@ public class BaseGoop : MonoBehaviour
     public AnimatorController[] tierOneGoopColor;
     [Tooltip("0 = Red\n1 = Green\n2 = Blue\n3 = Yellow\n4 = Pink\n5 = Purple\n6 = Orange\n7 = White")]
     public AnimatorController[] tierTwoGoopColor;
+    int goopColor;
 
     public enum Direction { North, South, East, West }
     [Header("Movement")]
@@ -38,19 +39,29 @@ public class BaseGoop : MonoBehaviour
     [Header("Classes")]
     public Class currentClass;
 
+    public GameObject basicProjectile;
+    [SerializeField]
+    Vector2 attackDirection;
+
     public float tierOneKnightAttackDelay;
     public float tierTwoKnightAttackDelay;
     public float tierOneRogueAttackDelay;
     public float tierTwoRogueAttackDelay;
     public float tierOneWitchAttackDelay;
     public float tierTwoWitchAttackDelay;
+    float attackDelay;
+
+    public float tierOneKnightProjectileSpeed;
+    public float tierTwoKnightProjectileSpeed;
+    public float tierOneRogueProjectileSpeed;
+    public float tierTwoRogueProjectileSpeed;
 
     [Header("Tier Level")]
     public GameObject thisTierOneGoop;
     public GameObject thisTierTwoGoop;
 
     bool tierTwo;
-
+    bool attacking;
     
 
     private void Awake()
@@ -65,6 +76,8 @@ public class BaseGoop : MonoBehaviour
     void Start()
     {
         GoopSetter();
+        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[goopColor];
+        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[goopColor];
         rb = GetComponent<Rigidbody2D>();
         anim = transform.GetChild(0).GetComponent<Animator>();
         thisTierTwoGoop.SetActive(false);
@@ -73,14 +86,30 @@ public class BaseGoop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Movement();
+
+        if (myPlayer.GetButtonDown("Attack") && !attacking)
+        {
+            StartCoroutine("Attack");
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + velocity * speed *  Time.deltaTime);
+    }
+
+    void Movement()
+    {
         direction = new Vector2(myPlayer.GetAxis("MoveHorizontal"), myPlayer.GetAxis("MoveVertical"));
         velocity = new Vector2(myPlayer.GetAxis("MoveHorizontal"), myPlayer.GetAxis("MoveVertical"));
 
-        if(velocity.x > 0.5f)
+        if (velocity.x > 0.5f)
         {
             velocity.x = 1;
         }
-        else if(velocity.x < -0.5f)
+        else if (velocity.x < -0.5f)
         {
             velocity.x = -1;
         }
@@ -89,7 +118,7 @@ public class BaseGoop : MonoBehaviour
             velocity.x = 0;
         }
 
-        if(velocity.y > 0.5f)
+        if (velocity.y > 0.5f)
         {
             velocity.y = 1;
         }
@@ -116,18 +145,22 @@ public class BaseGoop : MonoBehaviour
             if (direction.x < 0)
             {
                 currentDirection = Direction.West;
+                attackDirection = Vector2.left;
             }
             if (direction.x > 0)
             {
                 currentDirection = Direction.East;
+                attackDirection = Vector2.right;
             }
             if (direction.y < 0)
             {
                 currentDirection = Direction.South;
+                attackDirection = Vector2.down;
             }
             if (direction.y > 0)
             {
                 currentDirection = Direction.North;
+                attackDirection = Vector2.up;
             }
             if (anim != null)
             {
@@ -150,19 +183,21 @@ public class BaseGoop : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + velocity * speed *  Time.deltaTime);
-    }
-
     IEnumerator Attack()
     {
+        attacking = true;
         switch (currentClass)
         {
             case Class.Knight:
-                if (tierTwo)
+                if (!tierTwo)
                 {
-
+                    var bp = Instantiate(basicProjectile, rb.position + attackDirection, Quaternion.identity);
+                    var projScript = bp.GetComponent<Projectile>();
+                    projScript.direction = this.attackDirection;
+                    projScript.projectileColor = projScript.colors[goopColor];
+                    projScript.speed = tierOneKnightProjectileSpeed;
+                    projScript.currentClass = Projectile.Class.Knight;
+                    attackDelay = tierOneKnightAttackDelay;
                 }
                 else
                 {
@@ -170,7 +205,7 @@ public class BaseGoop : MonoBehaviour
                 }
                 break;
             case Class.Rogue:
-                if (tierTwo)
+                if (!tierTwo)
                 {
 
                 }
@@ -180,7 +215,7 @@ public class BaseGoop : MonoBehaviour
                 }
                 break;
             case Class.Witch:
-                if (tierTwo)
+                if (!tierTwo)
                 {
 
                 }
@@ -191,8 +226,8 @@ public class BaseGoop : MonoBehaviour
                 break;
         }
 
-        
-
+        yield return new WaitForSeconds(attackDelay);
+        attacking = false;
     }
 
     void GoopSetter()
@@ -205,18 +240,15 @@ public class BaseGoop : MonoBehaviour
                 switch (PlayerPrefs.GetString("Player1Color"))
                 {
                     case "Red":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        goopColor = 0;
                         break;
 
                     case "Green":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        goopColor = 1;
                         break;
 
                     case "Blue":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        goopColor = 2;
                         break;
                 }
                 break;
@@ -224,18 +256,15 @@ public class BaseGoop : MonoBehaviour
                 switch (PlayerPrefs.GetString("Player2Color"))
                 {
                     case "Red":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        goopColor = 0;
                         break;
 
                     case "Green":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        goopColor = 1;
                         break;
 
                     case "Blue":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        goopColor = 2;
                         break;
                 }
                 break;
@@ -243,18 +272,15 @@ public class BaseGoop : MonoBehaviour
                 switch (PlayerPrefs.GetString("Player3Color"))
                 {
                     case "Red":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        goopColor = 0;
                         break;
 
                     case "Green":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        goopColor = 1;
                         break;
 
                     case "Blue":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        goopColor = 2;
                         break;
                 }
                 break;
@@ -262,18 +288,15 @@ public class BaseGoop : MonoBehaviour
                 switch (PlayerPrefs.GetString("Player4Color"))
                 {
                     case "Red":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[0];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[0];
+                        goopColor = 0;
                         break;
 
                     case "Green":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[1];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[1];
+                        goopColor = 1;
                         break;
 
                     case "Blue":
-                        thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[2];
-                        thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[2];
+                        goopColor = 2;
                         break;
                 }
                 break;
