@@ -20,8 +20,11 @@ public class Projectile : MonoBehaviour
     public Vector2 direction;
     [HideInInspector]
     public SpriteRenderer sr;
-    public BoxCollider2D[] colliders;
+    public PolygonCollider2D knightAttackCollider;
+    public BoxCollider2D rogueAttackCollider;
     public CircleCollider2D witchAttackCollider;
+
+    public float knightScale;
 
     public Color[] colors;
     [HideInInspector]
@@ -45,10 +48,8 @@ public class Projectile : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
-        for(int i = 0; i < colliders.Length; i++)
-        {
-            colliders[i].enabled = false;
-        }
+        knightAttackCollider.enabled = false;
+        rogueAttackCollider.enabled = true;
         witchAttackCollider.enabled = false;
 
         switch (currentClass)
@@ -56,12 +57,13 @@ public class Projectile : MonoBehaviour
             case Class.Knight:
                 anim.SetInteger("Class", 0);
                 maxDistance = knightDistance;
-                colliders[0].enabled = true;
+                knightAttackCollider.enabled = true;
+                transform.localScale = new Vector2(knightScale, knightScale);
                 break;
             case Class.Rogue:
                 anim.SetInteger("Class", 1);
                 maxDistance = rogueDistance;
-                colliders[1].enabled = true;
+                rogueAttackCollider.enabled = true;
                 break;
             case Class.Witch:
                 anim.SetInteger("Class", 2);
