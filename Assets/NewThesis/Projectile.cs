@@ -35,6 +35,8 @@ public class Projectile : MonoBehaviour
     public float rogueDistance;
 
     float maxDistance;
+    [HideInInspector]
+    public int playerNum;
 
     // Start is called before the first frame update
     void Start()
@@ -80,11 +82,29 @@ public class Projectile : MonoBehaviour
         rb.MovePosition(rb.position + direction * speed * Time.deltaTime);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Boundaries")
         {
             Destroy(this.gameObject);
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Yert");
+            if (collision.transform.parent.GetComponent<BaseGoop>().playerNum != playerNum)
+            {
+                var ps = collision.transform.parent.GetComponent<BaseGoop>();
+                if (!ps.hasBeenHit)
+                {
+                    ps.StartCoroutine(ps.GetHit());
+                    ps.knockbackDirection = this.direction;
+                }
+            }
         }
     }
 

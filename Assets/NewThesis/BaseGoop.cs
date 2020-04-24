@@ -40,6 +40,7 @@ public class BaseGoop : MonoBehaviour
     public Class currentClass;
 
     public GameObject basicProjectile;
+    public int rogueKnifeAmount;
     [SerializeField]
     Vector2 attackDirection;
 
@@ -66,7 +67,19 @@ public class BaseGoop : MonoBehaviour
     [Header("Switching Classes")]
     public float switchCooldown;
     bool isSwitching;
-    
+
+    [Header("Getting Hit")]
+    public int maxHealth;
+    int health;
+    public float invincibilityTime;
+    [HideInInspector]
+    public bool hasBeenHit;
+    Animator flashAnim;
+    bool knockback;
+    public float knockbackSpeed;
+    [HideInInspector]
+    public Vector2 knockbackDirection;
+    public float knockbackDuration;
 
     private void Awake()
     {
@@ -79,11 +92,13 @@ public class BaseGoop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = maxHealth;
         GoopSetter();
         thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[goopColor];
         thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[goopColor];
         rb = GetComponent<Rigidbody2D>();
         anim = transform.GetChild(0).GetComponent<Animator>();
+        flashAnim = GetComponent<Animator>();
         thisTierTwoGoop.SetActive(false);
     }
 
@@ -99,16 +114,33 @@ public class BaseGoop : MonoBehaviour
 
         ClassController();
 
+        //animation stuff
+        flashAnim.SetBool("hasBeenHit", hasBeenHit);
+
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + velocity * speed *  Time.deltaTime);
+        if (!knockback)
+        {
+            rb.MovePosition(rb.position + velocity * speed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            rb.MovePosition(rb.position + knockbackDirection * knockbackSpeed * Time.fixedDeltaTime);
+        }
     }
 
     void Movement()
     {
-        direction = new Vector2(myPlayer.GetAxis("MoveHorizontal"), myPlayer.GetAxis("MoveVertical"));
+        if(Mathf.Abs(myPlayer.GetAxis("DirectionHorizontal")) > 0 || Mathf.Abs(myPlayer.GetAxis("DirectionVertical")) > 0)
+        {
+            direction = new Vector2(myPlayer.GetAxis("DirectionHorizontal"), myPlayer.GetAxis("DirectionVertical"));
+        }
+        else
+        {
+            direction = velocity;
+        }
         velocity = new Vector2(myPlayer.GetAxis("MoveHorizontal"), myPlayer.GetAxis("MoveVertical"));
 
         if (velocity.x > 0.5f)
@@ -267,6 +299,7 @@ public class BaseGoop : MonoBehaviour
                     projScript.projectileColor = projScript.colors[goopColor];
                     projScript.speed = tierOneKnightProjectileSpeed;
                     projScript.currentClass = Projectile.Class.Knight;
+                    projScript.playerNum = this.playerNum;
                     attackDelay = tierOneKnightAttackDelay;
                 }
                 else
@@ -277,12 +310,19 @@ public class BaseGoop : MonoBehaviour
             case Class.Rogue:
                 if (!tierTwo)
                 {
-                    var bp = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
-                    var projScript = bp.GetComponent<Projectile>();
-                    projScript.direction = this.attackDirection;
-                    projScript.projectileColor = projScript.colors[goopColor];
-                    projScript.speed = tierOneRogueProjectileSpeed;
-                    projScript.currentClass = Projectile.Class.Rogue;
+                    for (int i = 0; i < rogueKnifeAmount; i++)
+                    {
+                        var bp = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
+                        var projScript = bp.GetComponent<Projectile>();
+                        if (direction == Vector2.right) 
+                        {
+                            projScript.direction = attackDirection + new Vector2(0, i);
+                        }
+                        projScript.projectileColor = projScript.colors[goopColor];
+                        projScript.speed = tierOneRogueProjectileSpeed;
+                        projScript.currentClass = Projectile.Class.Rogue;
+                        projScript.playerNum = this.playerNum;
+                    }
                     attackDelay = tierOneRogueAttackDelay;
                 }
                 else
@@ -377,6 +417,35 @@ public class BaseGoop : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    
+
+    public IEnumerator GetHit()
+    {
+        hasBeenHit = true;
+        switch (currentClass)
+        {
+            case Class.Knight:
+
+                break;
+            case Class.Rogue:
+
+                break;
+            case Class.Witch:
+
+                break;
+        }
+        StartCoroutine(Knockback());
+        yield return new WaitForSeconds(invincibilityTime);
+        hasBeenHit = false;
+    }
+
+    IEnumerator Knockback()
+    {
+        knockback = true;
+        yield return new WaitForSeconds(knockbackDuration);
+        knockback = false;
     }
 
     //[REWIRED METHODS]
