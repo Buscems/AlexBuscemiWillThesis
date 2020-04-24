@@ -12,7 +12,10 @@ GameObject:
   - component: {fileID: 3342832252715227113}
   - component: {fileID: 3342832252715227111}
   - component: {fileID: 3342832252715227108}
-  - component: {fileID: 3342832252715227109}
+  - component: {fileID: 1539123584}
+  - component: {fileID: 1539123585}
+  - component: {fileID: 1539123586}
+  - component: {fileID: 1539123587}
   m_Layer: 0
   m_Name: BasicProjectile
   m_TagString: Attack
@@ -73,8 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6907526465310391364, guid: fa8b4e1b455a74a70a3c569f4f4c2ce4,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3342832252715227111
@@ -98,15 +100,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentClass: 0
-  knightSprite: {fileID: -6907526465310391364, guid: fa8b4e1b455a74a70a3c569f4f4c2ce4,
-    type: 3}
-  rogueSprite: {fileID: 21300000, guid: d36e5a1ba98e04e6881a403823cc79b6, type: 3}
-  witchSprite: {fileID: 3217789658586821104, guid: 1965c21015e12408985ed3bc9cef3349,
+  magicExplosion: {fileID: 3412245740504644971, guid: 0b87c9eeccf264b978a8087deb25a7c5,
     type: 3}
   speed: 0
   direction: {x: 0, y: 0}
   sr: {fileID: 0}
-  colliders: []
+  colliders:
+  - {fileID: 1539123584}
+  - {fileID: 1539123585}
+  witchAttackCollider: {fileID: 1539123586}
   colors:
   - {r: 0.8235294, g: 0.44705883, b: 0.44705883, a: 1}
   - {r: 0.44705883, g: 0.8235294, b: 0.4745098, a: 1}
@@ -119,6 +121,7 @@ MonoBehaviour:
   projectileColor: {r: 0, g: 0, b: 0, a: 0}
   knightDistance: 6
   rogueDistance: 3
+  witchDistance: 15
   playerNum: 0
 --- !u!50 &3342832252715227108
 Rigidbody2D:
@@ -141,7 +144,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &3342832252715227109
+--- !u!61 &1539123584
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +157,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004901886, y: 0.48039293}
+  m_Offset: {x: -0.0025968105, y: 0.11097598}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -165,5 +168,66 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.87254906, y: 0.5490179}
+  m_Size: {x: 0.24026522, y: 0.12157965}
   m_EdgeRadius: 0
+--- !u!61 &1539123585
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3342832252715227112}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0042812377, y: -0.0014270544}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14088282, y: 0.43772054}
+  m_EdgeRadius: 0
+--- !u!58 &1539123586
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3342832252715227112}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
+--- !u!95 &1539123587
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3342832252715227112}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 433b9da5c6d1838419bc366a3f0cea17, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

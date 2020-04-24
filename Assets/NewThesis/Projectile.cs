@@ -10,12 +10,9 @@ public class Projectile : MonoBehaviour
     [HideInInspector]
     public Class currentClass;
 
-    [Header("Knight Stuff")]
-    public Sprite knightSprite;
-    [Header("Rogue Stuff")]
-    public Sprite rogueSprite;
-    [Header("Witch Stuff")]
-    public Sprite witchSprite;
+    public GameObject magicExplosion;
+
+    Animator anim;
     Rigidbody2D rb;
     [HideInInspector]
     public float speed;
@@ -24,6 +21,7 @@ public class Projectile : MonoBehaviour
     [HideInInspector]
     public SpriteRenderer sr;
     public BoxCollider2D[] colliders;
+    public CircleCollider2D witchAttackCollider;
 
     public Color[] colors;
     [HideInInspector]
@@ -34,6 +32,7 @@ public class Projectile : MonoBehaviour
 
     public float knightDistance;
     public float rogueDistance;
+    public float witchDistance;
 
     float maxDistance;
     [HideInInspector]
@@ -44,27 +43,30 @@ public class Projectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         for(int i = 0; i < colliders.Length; i++)
         {
             colliders[i].enabled = false;
         }
+        witchAttackCollider.enabled = false;
 
         switch (currentClass)
         {
             case Class.Knight:
-                sr.sprite = knightSprite;
+                anim.SetInteger("Class", 0);
                 maxDistance = knightDistance;
                 colliders[0].enabled = true;
                 break;
             case Class.Rogue:
-                sr.sprite = rogueSprite;
+                anim.SetInteger("Class", 1);
                 maxDistance = rogueDistance;
                 colliders[1].enabled = true;
                 break;
             case Class.Witch:
-                sr.sprite = witchSprite;
-                colliders[2].enabled = true;
+                anim.SetInteger("Class", 2);
+                maxDistance = witchDistance;
+                witchAttackCollider.enabled = true;
                 break;
         }
         sr.color = projectileColor;
@@ -104,7 +106,6 @@ public class Projectile : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Yert");
             if (collision.transform.parent.GetComponent<BaseGoop>().playerNum != playerNum)
             {
                 var ps = collision.transform.parent.GetComponent<BaseGoop>();
@@ -113,8 +114,8 @@ public class Projectile : MonoBehaviour
                     ps.StartCoroutine(ps.GetHit());
                     ps.knockbackDirection = this.direction;
                 }
+                Destroy(this.gameObject);
             }
-            Destroy(this.gameObject);
         }
     }
 
@@ -126,6 +127,16 @@ public class Projectile : MonoBehaviour
         }
         Destroy(this.gameObject);
 
+    }
+
+    private void OnDestroy()
+    {
+        if(currentClass == Class.Witch)
+        {
+            var explosion = Instantiate(magicExplosion, transform.position, Quaternion.identity);
+            explosion.GetComponent<MagicExplosion>().playerNum = this.playerNum;
+            explosion.GetComponent<SpriteRenderer>().color = projectileColor;
+        }
     }
 
 }

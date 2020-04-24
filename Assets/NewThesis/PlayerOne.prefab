@@ -241,18 +241,21 @@ MonoBehaviour:
   tierTwoKnightAttackDelay: 0
   tierOneRogueAttackDelay: 0.2
   tierTwoRogueAttackDelay: 0
-  tierOneWitchAttackDelay: 0
+  tierOneWitchAttackDelay: 1.5
   tierTwoWitchAttackDelay: 0
   tierOneKnightProjectileSpeed: 10
   tierTwoKnightProjectileSpeed: 0
   tierOneRogueProjectileSpeed: 15
   tierTwoRogueProjectileSpeed: 0
+  tierOneWitchProjectileSpeed: 5
+  tierTwoWitchProjectileSpeed: 0
   thisTierOneGoop: {fileID: 874131941218850908}
   thisTierTwoGoop: {fileID: 874131942355454693}
   switchCooldown: 3
   maxHealth: 100
   invincibilityTime: 1
   hasBeenHit: 0
+  hasBeenHitByExplosion: 0
   knockbackSpeed: 12
   knockbackDirection: {x: 0, y: 0}
   knockbackDuration: 0.2

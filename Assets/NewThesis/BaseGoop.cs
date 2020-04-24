@@ -113,7 +113,12 @@ public class BaseGoop : MonoBehaviour
         {
             StartCoroutine("Attack");
         }
-
+        /*
+        if (!attacking)
+        {
+            StartCoroutine("Attack");
+        }
+        */
         ClassController();
 
         //animation stuff
@@ -465,6 +470,7 @@ public class BaseGoop : MonoBehaviour
     public IEnumerator GetHit()
     {
         hasBeenHit = true;
+        Debug.Log("Yert");
         switch (currentClass)
         {
             case Class.Knight:
