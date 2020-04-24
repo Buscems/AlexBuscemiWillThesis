@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.12
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1538,8 +1538,6 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 4593407640689395860, guid: 98c2aca0cb686432fa0ccd3fea55f76b,
-        type: 3}
     - sprite: {fileID: -145747053363314029, guid: 98c2aca0cb686432fa0ccd3fea55f76b,
         type: 3}
     - sprite: {fileID: 876241053549943988, guid: 98c2aca0cb686432fa0ccd3fea55f76b,
@@ -4943,6 +4941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 0
+  particles: {fileID: 3412245740259213784}
 --- !u!58 &5105972510753768524
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -119,8 +119,8 @@ MonoBehaviour:
   - {r: 0.85882354, g: 0.60784316, b: 0.32941177, a: 1}
   - {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 1}
   projectileColor: {r: 0, g: 0, b: 0, a: 0}
-  knightDistance: 6
-  rogueDistance: 3
+  knightDistance: 7
+  rogueDistance: 4.5
   witchDistance: 15
   playerNum: 0
 --- !u!50 &3342832252715227108

@@ -6,11 +6,12 @@ public class MagicExplosion : MonoBehaviour
 {
 
     public int playerNum;
+    public ParticleSystem particles;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        particles.startColor = this.GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame

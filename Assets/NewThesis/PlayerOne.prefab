@@ -231,7 +231,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   isMoving: 0
-  speed: 5
+  speed: 6
   currentClass: 0
   basicProjectile: {fileID: 3342832252715227112, guid: 37170d0c83feca44db943a2bb18445a8,
     type: 3}
@@ -241,13 +241,13 @@ MonoBehaviour:
   tierTwoKnightAttackDelay: 0
   tierOneRogueAttackDelay: 0.2
   tierTwoRogueAttackDelay: 0
-  tierOneWitchAttackDelay: 1.5
+  tierOneWitchAttackDelay: 1
   tierTwoWitchAttackDelay: 0
-  tierOneKnightProjectileSpeed: 10
+  tierOneKnightProjectileSpeed: 12
   tierTwoKnightProjectileSpeed: 0
-  tierOneRogueProjectileSpeed: 15
+  tierOneRogueProjectileSpeed: 16
   tierTwoRogueProjectileSpeed: 0
-  tierOneWitchProjectileSpeed: 5
+  tierOneWitchProjectileSpeed: 8
   tierTwoWitchProjectileSpeed: 0
   thisTierOneGoop: {fileID: 874131941218850908}
   thisTierTwoGoop: {fileID: 874131942355454693}
@@ -255,7 +255,6 @@ MonoBehaviour:
   maxHealth: 100
   invincibilityTime: 1
   hasBeenHit: 0
-  hasBeenHitByExplosion: 0
   knockbackSpeed: 12
   knockbackDirection: {x: 0, y: 0}
   knockbackDuration: 0.2
