@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
     public Vector2 direction;
     [HideInInspector]
     public SpriteRenderer sr;
+    public BoxCollider2D[] colliders;
 
     public Color[] colors;
     [HideInInspector]
@@ -44,18 +45,26 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
 
+        for(int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].enabled = false;
+        }
+
         switch (currentClass)
         {
             case Class.Knight:
                 sr.sprite = knightSprite;
                 maxDistance = knightDistance;
+                colliders[0].enabled = true;
                 break;
             case Class.Rogue:
                 sr.sprite = rogueSprite;
                 maxDistance = rogueDistance;
+                colliders[1].enabled = true;
                 break;
             case Class.Witch:
                 sr.sprite = witchSprite;
+                colliders[2].enabled = true;
                 break;
         }
         sr.color = projectileColor;
@@ -105,6 +114,7 @@ public class Projectile : MonoBehaviour
                     ps.knockbackDirection = this.direction;
                 }
             }
+            Destroy(this.gameObject);
         }
     }
 

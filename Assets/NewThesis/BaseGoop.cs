@@ -56,6 +56,8 @@ public class BaseGoop : MonoBehaviour
     public float tierTwoKnightProjectileSpeed;
     public float tierOneRogueProjectileSpeed;
     public float tierTwoRogueProjectileSpeed;
+    public float tierOneWitchProjectileSpeed;
+    public float tierTwoWitchProjectileSpeed;
 
     [Header("Tier Level")]
     public GameObject thisTierOneGoop;
@@ -350,7 +352,14 @@ public class BaseGoop : MonoBehaviour
             case Class.Witch:
                 if (!tierTwo)
                 {
-
+                    var bp = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
+                    var projScript = bp.GetComponent<Projectile>();
+                    projScript.direction = this.attackDirection;
+                    projScript.projectileColor = projScript.colors[goopColor];
+                    projScript.speed = tierOneWitchProjectileSpeed;
+                    projScript.currentClass = Projectile.Class.Witch;
+                    projScript.playerNum = this.playerNum;
+                    attackDelay = tierOneWitchAttackDelay;
                 }
                 else
                 {
@@ -366,7 +375,10 @@ public class BaseGoop : MonoBehaviour
     void GoopSetter()
     {
         //for test
-        PlayerPrefs.SetString("Player1Color", "Purple");
+        PlayerPrefs.SetString("Player1Color", "Red");
+        PlayerPrefs.SetString("Player2Color", "Blue");
+        PlayerPrefs.SetString("Player3Color", "Green");
+        PlayerPrefs.SetString("Player4Color", "Yellow");
         switch (playerNum)
         {
             case 1:
@@ -382,6 +394,9 @@ public class BaseGoop : MonoBehaviour
 
                     case "Blue":
                         goopColor = 2;
+                        break;
+                    case "Yellow":
+                        goopColor = 3;
                         break;
                 }
                 break;
@@ -399,6 +414,9 @@ public class BaseGoop : MonoBehaviour
                     case "Blue":
                         goopColor = 2;
                         break;
+                    case "Yellow":
+                        goopColor = 3;
+                        break;
                 }
                 break;
             case 3:
@@ -415,6 +433,9 @@ public class BaseGoop : MonoBehaviour
                     case "Blue":
                         goopColor = 2;
                         break;
+                    case "Yellow":
+                        goopColor = 3;
+                        break;
                 }
                 break;
             case 4:
@@ -430,6 +451,9 @@ public class BaseGoop : MonoBehaviour
 
                     case "Blue":
                         goopColor = 2;
+                        break;
+                    case "Yellow":
+                        goopColor = 3;
                         break;
                 }
                 break;
