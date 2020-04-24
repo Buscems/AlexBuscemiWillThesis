@@ -107,7 +107,7 @@ public class BaseGoop : MonoBehaviour
     {
         Movement();
 
-        if (myPlayer.GetButtonDown("Attack") && !attacking)
+        if (myPlayer.GetButton("Attack") && !attacking)
         {
             StartCoroutine("Attack");
         }
@@ -312,11 +312,28 @@ public class BaseGoop : MonoBehaviour
                 {
                     for (int i = 0; i < rogueKnifeAmount; i++)
                     {
+                        float newDir = 0;
+                        switch (i)
+                        {
+                            case 0:
+                                newDir = 0;
+                                break;
+                            case 1:
+                                newDir = .5f;
+                                break;
+                            case 2:
+                                newDir = -.5f;
+                                break;
+                        }
                         var bp = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
                         var projScript = bp.GetComponent<Projectile>();
-                        if (direction == Vector2.right) 
+                        if(attackDirection == Vector2.down || attackDirection == Vector2.up)
                         {
-                            projScript.direction = attackDirection + new Vector2(0, i);
+                            projScript.direction = attackDirection + new Vector2(newDir, 0);
+                        }
+                        else if (attackDirection == Vector2.right || attackDirection == Vector2.left)
+                        {
+                            projScript.direction = attackDirection + new Vector2(0, newDir);
                         }
                         projScript.projectileColor = projScript.colors[goopColor];
                         projScript.speed = tierOneRogueProjectileSpeed;
@@ -349,7 +366,7 @@ public class BaseGoop : MonoBehaviour
     void GoopSetter()
     {
         //for test
-        PlayerPrefs.SetString("Player1Color", "Blue");
+        PlayerPrefs.SetString("Player1Color", "Purple");
         switch (playerNum)
         {
             case 1:
