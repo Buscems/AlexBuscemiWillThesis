@@ -51,7 +51,6 @@ public class BaseGoop : MonoBehaviour
     public int tierTwoDamageDealt;
     public int tierTwoDamageTaken;
 
-
     public enum Class { Knight, Rogue, Witch }
     [Header("Classes")]
     public Class currentClass;
@@ -70,19 +69,15 @@ public class BaseGoop : MonoBehaviour
     public bool canGoLeft;
 
     public float tierOneKnightAttackDelay;
-    public float tierTwoKnightAttackDelay;
     public float tierOneRogueAttackDelay;
-    public float tierTwoRogueAttackDelay;
     public float tierOneWitchAttackDelay;
-    public float tierTwoWitchAttackDelay;
+    public float tierTwoAttackDelay;
     float attackDelay;
 
     public float tierOneKnightProjectileSpeed;
-    public float tierTwoKnightProjectileSpeed;
     public float tierOneRogueProjectileSpeed;
-    public float tierTwoRogueProjectileSpeed;
     public float tierOneWitchProjectileSpeed;
-    public float tierTwoWitchProjectileSpeed;
+    public float tierTwoProjectileSpeed;
 
     [Header("Tier Level")]
     public GameObject thisTierOneGoop;

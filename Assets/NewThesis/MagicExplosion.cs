@@ -7,6 +7,8 @@ public class MagicExplosion : MonoBehaviour
 
     public int playerNum;
     public ParticleSystem particles;
+    [HideInInspector]
+    public bool tierTwo;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,14 @@ public class MagicExplosion : MonoBehaviour
                     var ps = collision.transform.parent.GetComponent<BaseGoop>();
                     if (!ps.hasBeenHit)
                     {
-                        ps.StartCoroutine(ps.GetHit(2));
+                        if (!tierTwo)
+                        {
+                            ps.StartCoroutine(ps.GetHit(2));
+                        }
+                        else
+                        {
+                            ps.StartCoroutine(ps.GetHit(3));
+                        }
                         ps.knockbackDirection = (collision.transform.position - transform.position).normalized;
                     }
                 }

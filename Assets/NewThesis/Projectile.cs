@@ -38,6 +38,7 @@ public class Projectile : MonoBehaviour
     public float knightDistance;
     public float rogueDistance;
     public float witchDistance;
+    public float tierTwoDistance;
 
     float maxDistance;
     [HideInInspector]
@@ -51,28 +52,41 @@ public class Projectile : MonoBehaviour
         anim = GetComponent<Animator>();
 
         knightAttackCollider.enabled = false;
-        rogueAttackCollider.enabled = true;
+        rogueAttackCollider.enabled = false;
         witchAttackCollider.enabled = false;
 
-        switch (currentClass)
+        if (!thisPlayer.tierTwo)
         {
-            case Class.Knight:
-                anim.SetInteger("Class", 0);
-                maxDistance = knightDistance;
-                knightAttackCollider.enabled = true;
-                transform.localScale = new Vector2(knightScale, knightScale);
-                break;
-            case Class.Rogue:
-                anim.SetInteger("Class", 1);
-                maxDistance = rogueDistance;
-                rogueAttackCollider.enabled = true;
-                break;
-            case Class.Witch:
-                anim.SetInteger("Class", 2);
-                maxDistance = witchDistance;
-                witchAttackCollider.enabled = true;
-                break;
+            switch (currentClass)
+            {
+                case Class.Knight:
+                    anim.SetInteger("Class", 0);
+                    maxDistance = knightDistance;
+                    knightAttackCollider.enabled = true;
+                    transform.localScale = new Vector2(knightScale, knightScale);
+                    break;
+                case Class.Rogue:
+                    anim.SetInteger("Class", 1);
+                    maxDistance = rogueDistance;
+                    rogueAttackCollider.enabled = true;
+                    break;
+                case Class.Witch:
+                    anim.SetInteger("Class", 2);
+                    maxDistance = witchDistance;
+                    witchAttackCollider.enabled = true;
+                    break;
+            }
         }
+        else
+        {
+            anim.SetInteger("Class", 3);
+            maxDistance = tierTwoDistance;
+            witchAttackCollider.enabled = true;
+            transform.localScale = new Vector2(knightScale, knightScale);
+        }
+
+
+
         sr.color = projectileColor;
         if(direction == Vector2.zero)
         {
@@ -190,7 +204,13 @@ public class Projectile : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(currentClass == Class.Witch)
+        if(currentClass == Class.Witch && !thisPlayer.tierTwo)
+        {
+            var explosion = Instantiate(magicExplosion, transform.position, Quaternion.identity);
+            explosion.GetComponent<MagicExplosion>().playerNum = this.playerNum;
+            explosion.GetComponent<SpriteRenderer>().color = projectileColor;
+        }
+        if (thisPlayer.tierTwo)
         {
             var explosion = Instantiate(magicExplosion, transform.position, Quaternion.identity);
             explosion.GetComponent<MagicExplosion>().playerNum = this.playerNum;
