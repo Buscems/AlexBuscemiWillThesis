@@ -231,17 +231,13 @@ MonoBehaviour:
   canGoRight: 0
   canGoLeft: 0
   tierOneKnightAttackDelay: 0.5
-  tierTwoKnightAttackDelay: 0
   tierOneRogueAttackDelay: 0.2
-  tierTwoRogueAttackDelay: 0
   tierOneWitchAttackDelay: 1
-  tierTwoWitchAttackDelay: 0
+  tierTwoAttackDelay: 0
   tierOneKnightProjectileSpeed: 12
-  tierTwoKnightProjectileSpeed: 0
   tierOneRogueProjectileSpeed: 16
-  tierTwoRogueProjectileSpeed: 0
   tierOneWitchProjectileSpeed: 8
-  tierTwoWitchProjectileSpeed: 0
+  tierTwoProjectileSpeed: 14
   thisTierOneGoop: {fileID: 874131941218850908}
   thisTierTwoGoop: {fileID: 874131942355454693}
   tierTwo: 0
@@ -260,7 +256,7 @@ MonoBehaviour:
   isSpawning: 0
   maxMana: 100
   mana: 0
-  manaGainPerSecond: 20
+  manaGainPerSecond: 2
   manaGainPerHit: 1
   manaGainWhenHit: 5
   manaLossOnDeath: 50

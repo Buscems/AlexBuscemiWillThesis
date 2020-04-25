@@ -123,6 +123,7 @@ MonoBehaviour:
   knightDistance: 7
   rogueDistance: 4.5
   witchDistance: 50
+  tierTwoDistance: 15
   playerNum: 0
 --- !u!50 &3342832252715227108
 Rigidbody2D:
