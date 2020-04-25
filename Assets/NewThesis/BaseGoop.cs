@@ -583,8 +583,74 @@ public class BaseGoop : MonoBehaviour
                 for (int i = 0; i < rogueKnifeAmount; i++)
                 {
                     float newDir = 0;
-                    var bp2 = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
-                    var projScript2 = bp2.GetComponent<Projectile>();
+                    var bp = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
+                    var projScript = bp.GetComponent<Projectile>();
+                    if(attackDirection == Vector2.down || attackDirection == Vector2.up)
+                    {
+                        if (transform.position.x > 0)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    bp.layer = 15;
+                                    break;
+                                case 1:
+                                    
+                                    break;
+                                case 2:
+                                    bp.layer = 15;
+                                    break;
+                            }
+                        }
+                        if (transform.position.x < 0)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    bp.layer = 15;
+                                    break;
+                                case 1:
+                                    bp.layer = 15;
+                                    break;
+                                case 2:
+                                    
+                                    break;
+                            }
+                        }
+                    }
+                    else if (attackDirection == Vector2.right || attackDirection == Vector2.left)
+                    {
+                        if (transform.position.y > 0)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    bp.layer = 16;
+                                    break;
+                                case 1:
+                                    
+                                    break;
+                                case 2:
+                                    bp.layer = 16;
+                                    break;
+                            }
+                        }
+                        if (transform.position.y < 0)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    bp.layer = 16;
+                                    break;
+                                case 1:
+                                    bp.layer = 16;
+                                    break;
+                                case 2:
+                                    
+                                    break;
+                            }
+                        }
+                    }
                     switch (i)
                     {
                         case 0:
@@ -599,17 +665,16 @@ public class BaseGoop : MonoBehaviour
                     }
                     if (attackDirection == Vector2.down || attackDirection == Vector2.up)
                     {
-                        projScript2.direction = attackDirection + new Vector2(newDir, 0);
+                        projScript.direction = attackDirection + new Vector2(newDir, 0);
                     }
                     else if (attackDirection == Vector2.right || attackDirection == Vector2.left)
                     {
-                        projScript2.direction = attackDirection + new Vector2(0, newDir);
+                        projScript.direction = attackDirection + new Vector2(0, newDir);
                     }
-                    projScript2.projectileColor = projScript2.colors[goopColor];
-                    projScript2.speed = tierOneRogueProjectileSpeed;
-                    projScript2.currentClass = Projectile.Class.Rogue;
-                    projScript2.thisPlayer = this.GetComponent<BaseGoop>();
-                    projScript2.playerNum = this.playerNum;
+                    projScript.projectileColor = projScript.colors[goopColor];
+                    projScript.speed = tierTwoProjectileSpeed;
+                    projScript.thisPlayer = this.GetComponent<BaseGoop>();
+                    projScript.playerNum = this.playerNum;
                 }
             }
             yield return new WaitForSeconds(attackDelay);

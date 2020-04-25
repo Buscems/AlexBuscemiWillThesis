@@ -215,6 +215,7 @@ public class Projectile : MonoBehaviour
             var explosion = Instantiate(magicExplosion, transform.position, Quaternion.identity);
             explosion.GetComponent<MagicExplosion>().playerNum = this.playerNum;
             explosion.GetComponent<SpriteRenderer>().color = projectileColor;
+            explosion.GetComponent<MagicExplosion>().tierTwo = true;
         }
     }
 
