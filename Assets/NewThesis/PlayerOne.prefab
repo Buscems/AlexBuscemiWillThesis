@@ -204,7 +204,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: dacafc5327db3436a9d7ebf3454d8491, type: 2}
   - {fileID: 9100000, guid: 54e24669b57154f2b94d78b611422bd7, type: 2}
   - {fileID: 9100000, guid: d54dc098b1b1f49598abb599ccd280ee, type: 2}
-  currentDirection: 0
+  currentDirection: 1
   direction: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   isMoving: 0
@@ -233,7 +233,7 @@ MonoBehaviour:
   tierOneKnightAttackDelay: 0.5
   tierOneRogueAttackDelay: 0.2
   tierOneWitchAttackDelay: 1
-  tierTwoAttackDelay: 0
+  tierTwoAttackDelay: 0.8
   tierOneKnightProjectileSpeed: 12
   tierOneRogueProjectileSpeed: 16
   tierOneWitchProjectileSpeed: 8
@@ -332,7 +332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874131942355454693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.21, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 874131941556801315}

@@ -322,6 +322,26 @@ public class BaseGoop : MonoBehaviour
         {
             direction.x = 0;
         }
+
+        if (anim != null)
+        {
+            switch (currentDirection)
+            {
+                case Direction.South:
+                    anim.SetFloat("Blend", 0);
+                    break;
+                case Direction.East:
+                    anim.SetFloat("Blend", 1);
+                    break;
+                case Direction.North:
+                    anim.SetFloat("Blend", 2);
+                    break;
+                case Direction.West:
+                    anim.SetFloat("Blend", 3);
+                    break;
+            }
+        }
+
         if (direction != Vector2.zero)
         {
             if (direction.x < 0)
@@ -343,24 +363,6 @@ public class BaseGoop : MonoBehaviour
             {
                 currentDirection = Direction.North;
                 attackDirection = Vector2.up;
-            }
-            if (anim != null)
-            {
-                switch (currentDirection)
-                {
-                    case Direction.South:
-                        anim.SetFloat("Blend", 0);
-                        break;
-                    case Direction.East:
-                        anim.SetFloat("Blend", 1);
-                        break;
-                    case Direction.North:
-                        anim.SetFloat("Blend", 2);
-                        break;
-                    case Direction.West:
-                        anim.SetFloat("Blend", 3);
-                        break;
-                }
             }
         }
     }
@@ -523,38 +525,37 @@ public class BaseGoop : MonoBehaviour
                         attackDelay = tierOneKnightAttackDelay;
                         break;
                     case Class.Rogue:
-                        if (!tierTwo)
-                            for (int i = 0; i < rogueKnifeAmount; i++)
+                        for (int i = 0; i < rogueKnifeAmount; i++)
+                        {
+                            float newDir = 0;
+                            var bp2 = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
+                            var projScript2 = bp2.GetComponent<Projectile>();
+                            switch (i)
                             {
-                                float newDir = 0;
-                                var bp2 = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
-                                var projScript2 = bp2.GetComponent<Projectile>();
-                                switch (i)
-                                {
-                                    case 0:
-                                        newDir = 0;
-                                        break;
-                                    case 1:
-                                        newDir = .5f;
-                                        break;
-                                    case 2:
-                                        newDir = -.5f;
-                                        break;
-                                }
-                                if (attackDirection == Vector2.down || attackDirection == Vector2.up)
-                                {
-                                    projScript2.direction = attackDirection + new Vector2(newDir, 0);
-                                }
-                                else if (attackDirection == Vector2.right || attackDirection == Vector2.left)
-                                {
-                                    projScript2.direction = attackDirection + new Vector2(0, newDir);
-                                }
-                                projScript2.projectileColor = projScript2.colors[goopColor];
-                                projScript2.speed = tierOneRogueProjectileSpeed;
-                                projScript2.currentClass = Projectile.Class.Rogue;
-                                projScript2.thisPlayer = this.GetComponent<BaseGoop>();
-                                projScript2.playerNum = this.playerNum;
+                                case 0:
+                                    newDir = 0;
+                                    break;
+                                case 1:
+                                    newDir = .5f;
+                                    break;
+                                case 2:
+                                    newDir = -.5f;
+                                    break;
                             }
+                            if (attackDirection == Vector2.down || attackDirection == Vector2.up)
+                            {
+                                projScript2.direction = attackDirection + new Vector2(newDir, 0);
+                            }
+                            else if (attackDirection == Vector2.right || attackDirection == Vector2.left)
+                            {
+                                projScript2.direction = attackDirection + new Vector2(0, newDir);
+                            }
+                            projScript2.projectileColor = projScript2.colors[goopColor];
+                            projScript2.speed = tierOneRogueProjectileSpeed;
+                            projScript2.currentClass = Projectile.Class.Rogue;
+                            projScript2.thisPlayer = this.GetComponent<BaseGoop>();
+                            projScript2.playerNum = this.playerNum;
+                        }
                         attackDelay = tierOneRogueAttackDelay;
                         break;
                     case Class.Witch:
@@ -675,6 +676,7 @@ public class BaseGoop : MonoBehaviour
                     projScript.speed = tierTwoProjectileSpeed;
                     projScript.thisPlayer = this.GetComponent<BaseGoop>();
                     projScript.playerNum = this.playerNum;
+                    attackDelay = tierTwoAttackDelay;
                 }
             }
             yield return new WaitForSeconds(attackDelay);
@@ -958,7 +960,18 @@ public class BaseGoop : MonoBehaviour
         }
         if (tierTwo)
         {
-            damageToBeTaken = tierTwoDamageTaken;
+            switch (classNum)
+            {
+                case 0:
+                    damageToBeTaken = knightDamage[0];
+                    break;
+                case 1:
+                    damageToBeTaken = rogueDamage[0];
+                    break;
+                case 2:
+                    damageToBeTaken = witchDamage[0];
+                    break;
+            }
         }
         health -= damageToBeTaken;
         if (!tierTwo)
