@@ -106,17 +106,61 @@ public class Projectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if (collision.gameObject.tag == "Attack")
+        {
+            if (collision.GetComponent<Projectile>().playerNum != playerNum)
+            {
+                var temp = collision.GetComponent<Projectile>();
+                switch (currentClass)
+                {
+                    case Class.Knight:
+                        if (temp.currentClass == Class.Witch)
+                        {
+                            Destroy(this.gameObject);
+                        }
+                            break;
+                    case Class.Rogue:
+                        if (temp.currentClass == Class.Knight)
+                        {
+                            Destroy(this.gameObject);
+                        }
+                        break;
+                    case Class.Witch:
+                        if (temp.currentClass == Class.Rogue)
+                        {
+                            Destroy(this.gameObject);
+                        }
+                        break;
+                }
+            }
+        }
         if (collision.gameObject.tag == "Player")
         {
-            if (collision.transform.parent.GetComponent<BaseGoop>().playerNum != playerNum)
+            if (!collision.transform.parent.GetComponent<BaseGoop>().isSpawning)
             {
-                var ps = collision.transform.parent.GetComponent<BaseGoop>();
-                if (!ps.hasBeenHit)
+                if (collision.transform.parent.GetComponent<BaseGoop>().playerNum != playerNum)
                 {
-                    ps.StartCoroutine(ps.GetHit());
-                    ps.knockbackDirection = this.direction;
+                    var ps = collision.transform.parent.GetComponent<BaseGoop>();
+                    if (!ps.hasBeenHit)
+                    {
+                        int classNumber = 0;
+                        switch (currentClass)
+                        {
+                            case Class.Knight:
+                                classNumber = 0;
+                                break;
+                            case Class.Rogue:
+                                classNumber = 1;
+                                break;
+                            case Class.Witch:
+                                classNumber = 2;
+                                break;
+                        }
+                        ps.StartCoroutine(ps.GetHit(classNumber));
+                        ps.knockbackDirection = this.direction;
+                    }
+                    Destroy(this.gameObject);
                 }
-                Destroy(this.gameObject);
             }
         }
     }

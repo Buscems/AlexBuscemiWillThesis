@@ -24,14 +24,16 @@ public class MagicExplosion : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (collision.transform.parent.GetComponent<BaseGoop>().playerNum != playerNum)
+            if (!collision.transform.parent.GetComponent<BaseGoop>().isSpawning)
             {
-                var ps = collision.transform.parent.GetComponent<BaseGoop>();
-                if (!ps.hasBeenHit)
+                if (collision.transform.parent.GetComponent<BaseGoop>().playerNum != playerNum)
                 {
-                    ps.StartCoroutine(ps.GetHit());
-                    //ps.hasBeenHitByExplosion = true;
-                    ps.knockbackDirection = (collision.transform.position - transform.position).normalized;
+                    var ps = collision.transform.parent.GetComponent<BaseGoop>();
+                    if (!ps.hasBeenHit)
+                    {
+                        ps.StartCoroutine(ps.GetHit(2));
+                        ps.knockbackDirection = (collision.transform.position - transform.position).normalized;
+                    }
                 }
             }
         }

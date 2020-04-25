@@ -241,10 +241,11 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   isMoving: 0
   speed: 7
+  reviveSpeed: 2
   joystickDeadzone: 0.2
-  lowDamage: 0
-  normalDamage: 0
-  highDamage: 0
+  knightDamage: 02000000050000000f000000
+  rogueDamage: 01000000030000000a000000
+  witchDamage: 030000000800000014000000
   currentClass: 0
   basicProjectile: {fileID: 3342832252715227112, guid: 37170d0c83feca44db943a2bb18445a8,
     type: 3}
@@ -284,6 +285,8 @@ MonoBehaviour:
   maxPoofTime: 0.5
   spawnTime: 3
   spawningOpacity: 0.25
+  healthBar: {fileID: 0}
+  manaBar: {fileID: 0}
 --- !u!50 &874131941556801312
 Rigidbody2D:
   serializedVersion: 4

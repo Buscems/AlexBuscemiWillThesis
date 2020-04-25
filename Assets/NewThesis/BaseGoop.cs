@@ -6,6 +6,7 @@ using Rewired.ControllerExtensions;
 using UnityEditor;
 using UnityEditor.Animations;
 using JetBrains.Annotations;
+using UnityEngine.UI;
 
 public class BaseGoop : MonoBehaviour
 {
@@ -35,15 +36,19 @@ public class BaseGoop : MonoBehaviour
     public bool isMoving;
     Animator anim;
     public float speed;
-
+    public float reviveSpeed;
+    [SerializeField]
+    float currentSpeed;
     public float joystickDeadzone;
 
     Rigidbody2D rb;
 
     [Header("Damage")]
-    public int lowDamage;
-    public int normalDamage;
-    public int highDamage;
+    public int[] knightDamage;
+    public int[] rogueDamage;
+    public int[] witchDamage;
+
+
 
     public enum Class { Knight, Rogue, Witch }
     [Header("Classes")]
@@ -94,6 +99,7 @@ public class BaseGoop : MonoBehaviour
     public float invincibilityTime;
     [HideInInspector]
     public bool hasBeenHit;
+    bool hitAnimation;
     Animator flashAnim;
     bool knockback;
     public float knockbackSpeed;
@@ -112,7 +118,12 @@ public class BaseGoop : MonoBehaviour
     [Header("Spawning")]
     public float spawnTime;
     public float spawningOpacity;
-    bool isSpawning;
+    [HideInInspector]
+    public bool isSpawning;
+
+    [Header("UI Stuff")]
+    public Image healthBar;
+    public Image manaBar;
 
     private void Awake()
     {
@@ -135,6 +146,8 @@ public class BaseGoop : MonoBehaviour
         thisTierTwoGoop.SetActive(false);
 
         StartCoroutine(SpawnPlayer());
+
+        healthBar.color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
 
         //poof timer
         currentPoofTimer = maxPoofTime;
@@ -160,17 +173,26 @@ public class BaseGoop : MonoBehaviour
             ClassController();
 
             //animation stuff
-            flashAnim.SetBool("hasBeenHit", hasBeenHit);
+            flashAnim.SetBool("hasBeenHit", hitAnimation);
 
             CheckForWall();
+
+            if (health <= 0)
+            {
+                StartCoroutine(SpawnPlayer());
+            }
+
         }
+
+        healthBar.fillAmount = (float)health / (float)maxHealth;
+
     }
 
     private void FixedUpdate()
     {
         if (!knockback)
         {
-            rb.MovePosition(rb.position + velocity * speed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + velocity * currentSpeed * Time.fixedDeltaTime);
         }
         else
         {
@@ -690,11 +712,10 @@ public class BaseGoop : MonoBehaviour
 
     
 
-    public IEnumerator GetHit()
+    public IEnumerator GetHit(int classNum)
     {
         hasBeenHit = true;
         int damageToBeTaken = 0;
-        /*
         switch (currentClass)
         {
             
@@ -702,13 +723,13 @@ public class BaseGoop : MonoBehaviour
                 switch (classNum)
                 {
                     case 0:
-                        damageToBeTaken = normalDamage;
+                        damageToBeTaken = knightDamage[1];
                         break;
                     case 1:
-                        damageToBeTaken = lowDamage;
+                        damageToBeTaken = rogueDamage[0];
                         break;
                     case 2:
-                        damageToBeTaken = highDamage;
+                        damageToBeTaken = witchDamage[2];
                         break;
                 }
                 break;
@@ -716,13 +737,13 @@ public class BaseGoop : MonoBehaviour
                 switch (classNum)
                 {
                     case 0:
-                        damageToBeTaken = highDamage;
+                        damageToBeTaken = knightDamage[2];
                         break;
                     case 1:
-                        damageToBeTaken = normalDamage;
+                        damageToBeTaken = rogueDamage[1];
                         break;
                     case 2:
-                        damageToBeTaken = lowDamage;
+                        damageToBeTaken = witchDamage[0];
                         break;
                 }
                 break;
@@ -730,21 +751,25 @@ public class BaseGoop : MonoBehaviour
                 switch (classNum)
                 {
                     case 0:
-                        damageToBeTaken = lowDamage;
+                        damageToBeTaken = knightDamage[0];
                         break;
                     case 1:
-                        damageToBeTaken = highDamage;
+                        damageToBeTaken = rogueDamage[2];
                         break;
                     case 2:
-                        damageToBeTaken = normalDamage;
+                        damageToBeTaken = witchDamage[1];
                         break;
                 }
                 break;
         }
-        */
         health -= damageToBeTaken;
+        if(health > 0)
+        {
+            hitAnimation = true;
+        }
         StartCoroutine(Knockback());
         yield return new WaitForSeconds(invincibilityTime);
+        hitAnimation = false;
         hasBeenHit = false;
     }
 
@@ -758,12 +783,26 @@ public class BaseGoop : MonoBehaviour
     IEnumerator SpawnPlayer()
     {
         isSpawning = true;
+        currentSpeed = reviveSpeed;
         anim.SetInteger("Class", 3);
         flashAnim.SetBool("Spawn", true);
         yield return new WaitForSeconds(spawnTime);
         flashAnim.SetBool("Spawn", false);
         int rand = Random.Range(0, 3);
-        anim.SetInteger("Class", rand);
+        switch (rand)
+        {
+            case 0:
+                currentClass = Class.Knight;
+                break;
+            case 1:
+                currentClass = Class.Rogue;
+                break;
+            case 2:
+                currentClass = Class.Witch;
+                break;
+        }
+        health = maxHealth;
+        currentSpeed = speed;
         isSpawning = false;
     }
 

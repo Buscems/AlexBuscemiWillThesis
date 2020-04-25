@@ -1767,7 +1767,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -4391,6 +4391,16 @@ PrefabInstance:
       propertyPath: playerNum
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 874131941556801313, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1447634481}
+    - target: {fileID: 874131941556801313, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
+        type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 1893083323}
     - target: {fileID: 874131941556801315, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5428,7 +5438,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -6690,6 +6700,16 @@ PrefabInstance:
       propertyPath: playerNum
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 874131941556801313, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1032679307}
+    - target: {fileID: 874131941556801313, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
+        type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 477026702}
     - target: {fileID: 874131941556801315, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7125,6 +7145,16 @@ PrefabInstance:
       propertyPath: playerNum
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 874131941556801313, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 615440529}
+    - target: {fileID: 874131941556801313, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
+        type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 1353300698}
     - target: {fileID: 874131941556801315, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12559,6 +12589,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 874131941556801313, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1368322994}
+    - target: {fileID: 874131941556801313, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
+        type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 69020615}
     - target: {fileID: 874131941556801315, guid: 1cf91bbbb37931a4dbb64c5337b5389e,
         type: 3}
       propertyPath: m_LocalPosition.x
