@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEditor.Animations;
 using JetBrains.Annotations;
 using UnityEngine.UI;
+using TMPro;
 
 public class BaseGoop : MonoBehaviour
 {
@@ -47,7 +48,8 @@ public class BaseGoop : MonoBehaviour
     public int[] knightDamage;
     public int[] rogueDamage;
     public int[] witchDamage;
-
+    public int tierTwoDamageDealt;
+    public int tierTwoDamageTaken;
 
 
     public enum Class { Knight, Rogue, Witch }
@@ -85,8 +87,9 @@ public class BaseGoop : MonoBehaviour
     [Header("Tier Level")]
     public GameObject thisTierOneGoop;
     public GameObject thisTierTwoGoop;
-
-    bool tierTwo;
+    [HideInInspector]
+    public bool tierTwo;
+    bool hasTransformed;
     bool attacking;
 
     [Header("Switching Classes")]
@@ -121,9 +124,26 @@ public class BaseGoop : MonoBehaviour
     [HideInInspector]
     public bool isSpawning;
 
+    [Header("Mana")]
+    public float maxMana;
+    [HideInInspector]
+    public float mana;
+    public float manaGainPerSecond;
+    public float manaGainPerHit;
+    public float manaGainWhenHit;
+    public float manaLossOnDeath;
+    public float tierTwoDuration;
+    float manaLossPerSecondTierTwo;
+
     [Header("UI Stuff")]
     public Image healthBar;
     public Image manaBar;
+
+    [Header("Pause")]
+    public GameObject pauseMenu;
+    public static int pauseNumber;
+    public TextMeshProUGUI pauseText;
+    public static bool isPaused;
 
     private void Awake()
     {
@@ -145,7 +165,15 @@ public class BaseGoop : MonoBehaviour
         flashAnim = GetComponent<Animator>();
         thisTierTwoGoop.SetActive(false);
 
+        tierTwo = false;
+        manaLossPerSecondTierTwo = maxMana / tierTwoDuration;
+
         StartCoroutine(SpawnPlayer());
+
+        if (pauseMenu.activeSelf)
+        {
+            pauseMenu.SetActive(false);
+        }
 
         healthBar.color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
 
@@ -156,35 +184,67 @@ public class BaseGoop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
-
-        if (!isSpawning)
+        if (!isPaused)
         {
-            if (myPlayer.GetButton("Attack") && !attacking)
+            Movement();
+
+            if (!isSpawning)
             {
-                StartCoroutine("Attack");
+                if (myPlayer.GetButton("Attack") && !attacking)
+                {
+                    StartCoroutine("Attack");
+                }
+                /*
+                if (!attacking)
+                {
+                    StartCoroutine("Attack");
+                }
+                */
+                if (!tierTwo)
+                {
+                    ClassController();
+                }
+
+                //animation stuff
+                flashAnim.SetBool("hasBeenHit", hitAnimation);
+
+                CheckForWall();
+
+                if (health <= 0)
+                {
+                    StartCoroutine(SpawnPlayer());
+                }
+
+                if (mana < maxMana && !tierTwo)
+                {
+                    mana += manaGainPerSecond * Time.deltaTime;
+                }
+
+                if (myPlayer.GetButtonDown("Transform") && mana >= maxMana)
+                {
+                    tierTwo = true;
+                }
+
+                if (tierTwo)
+                {
+                    TierTwo();
+                }
+
             }
-            /*
-            if (!attacking)
-            {
-                StartCoroutine("Attack");
-            }
-            */
-            ClassController();
-
-            //animation stuff
-            flashAnim.SetBool("hasBeenHit", hitAnimation);
-
-            CheckForWall();
-
-            if (health <= 0)
-            {
-                StartCoroutine(SpawnPlayer());
-            }
-
         }
 
+        Pause();
+
         healthBar.fillAmount = (float)health / (float)maxHealth;
+        manaBar.fillAmount = mana / maxMana;
+        if(mana < 0)
+        {
+            mana = 0;
+        }
+        if (mana > maxMana)
+        {
+            mana = maxMana;
+        }
 
     }
 
@@ -226,7 +286,8 @@ public class BaseGoop : MonoBehaviour
                 GameObject poof = Instantiate(walkPuff, transform.position, Quaternion.identity);
                 Vector3 size = poof.transform.eulerAngles / 3;
                 poof.transform.eulerAngles = size;
-                poof.GetComponent<ParticleSystem>().startColor = new Color(basicProjectile.GetComponent<Projectile>().colors[goopColor].r, basicProjectile.GetComponent<Projectile>().colors[goopColor].g, basicProjectile.GetComponent<Projectile>().colors[goopColor].b, poof.GetComponent<ParticleSystem>().startColor.a);
+                var poofMain = poof.GetComponent<ParticleSystem>().main;
+                poofMain.startColor = new Color(basicProjectile.GetComponent<Projectile>().colors[goopColor].r, basicProjectile.GetComponent<Projectile>().colors[goopColor].g, basicProjectile.GetComponent<Projectile>().colors[goopColor].b, poofMain.startColor.color.a);
                 currentPoofTimer = maxPoofTime;
             }
         }
@@ -309,6 +370,29 @@ public class BaseGoop : MonoBehaviour
         }
     }
 
+    void Pause()
+    {
+        if (myPlayer.GetButtonDown("Pause"))
+        {
+            if (!isPaused)
+            {
+                pauseNumber = this.playerNum;
+                pauseMenu.SetActive(true);
+                pauseText.color = new Color(basicProjectile.GetComponent<Projectile>().colors[goopColor].r, basicProjectile.GetComponent<Projectile>().colors[goopColor].g, basicProjectile.GetComponent<Projectile>().colors[goopColor].b, pauseText.color.a);
+                isPaused = true;
+                Time.timeScale = 0;
+            }
+            else if(isPaused && pauseNumber == this.playerNum)
+            {
+                pauseNumber = 0;
+                pauseMenu.SetActive(false);
+                pauseText.color = new Color(1, 1, 1, pauseText.color.a);
+                Time.timeScale = 1;
+                isPaused = false;
+            }
+        }
+    }
+
     void ClassController()
     {
         switch (currentClass)
@@ -334,6 +418,29 @@ public class BaseGoop : MonoBehaviour
                 StartCoroutine(SwitchClass(1));
             }
         }
+    }
+
+    void TierTwo()
+    {
+        mana -= manaLossPerSecondTierTwo * Time.deltaTime;
+        if (!hasTransformed)
+        {
+            thisTierOneGoop.SetActive(false);
+            thisTierTwoGoop.SetActive(true);
+            anim = thisTierTwoGoop.GetComponent<Animator>();
+            hasTransformed = true;
+        }
+
+        if(mana <= 0)
+        {
+            thisTierOneGoop.SetActive(true);
+            thisTierTwoGoop.SetActive(false);
+            mana = 0;
+            anim = thisTierOneGoop.GetComponent<Animator>();
+            hasTransformed = false;
+            tierTwo = false;
+        }
+
     }
 
     IEnumerator SwitchClass(int direction)
@@ -370,126 +477,146 @@ public class BaseGoop : MonoBehaviour
             }
         }
         var poof = Instantiate(swapPuff, transform.position, Quaternion.identity);
-        poof.GetComponent<ParticleSystem>().startColor = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+        var poofMain = poof.GetComponent<ParticleSystem>().main;
+        poofMain.startColor = basicProjectile.GetComponent<Projectile>().colors[goopColor];
         yield return new WaitForSeconds(switchCooldown);
         isSwitching = false;
     }
 
     IEnumerator Attack()
     {
-        if (attackDirection == Vector2.down && !canGoDown)
+        if (attackDirection == Vector2.down && !canGoDown && currentClass != Class.Witch)
         {
             //do nothing
         }
-        else if (attackDirection == Vector2.right && !canGoRight)
+        else if (attackDirection == Vector2.right && !canGoRight && currentClass != Class.Witch)
         {
             //do nothing
         }
-        else if (attackDirection == Vector2.up && !canGoUp)
+        else if (attackDirection == Vector2.up && !canGoUp && currentClass != Class.Witch)
         {
             //do nothing
         }
-        else if (attackDirection == Vector2.left && !canGoLeft)
+        else if (attackDirection == Vector2.left && !canGoLeft && currentClass != Class.Witch)
         {
             //do nothing
         }
         else
         {
             attacking = true;
-            switch (currentClass)
+            if (!tierTwo)
             {
-                case Class.Knight:
-                    if (!tierTwo)
-                    {
-                        var bp = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
-                        var projScript = bp.GetComponent<Projectile>();
-                        projScript.direction = this.attackDirection;
-                        projScript.projectileColor = projScript.colors[goopColor];
-                        projScript.speed = tierOneKnightProjectileSpeed;
-                        projScript.currentClass = Projectile.Class.Knight;
+                switch (currentClass)
+                {
+                    case Class.Knight:
+                        var bp1 = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
+                        var projScript1 = bp1.GetComponent<Projectile>();
+                        projScript1.direction = this.attackDirection;
+                        projScript1.projectileColor = projScript1.colors[goopColor];
+                        projScript1.speed = tierOneKnightProjectileSpeed;
+                        projScript1.currentClass = Projectile.Class.Knight;
+                        projScript1.thisPlayer = this.GetComponent<BaseGoop>();
                         if (attackDirection == Vector2.down || attackDirection == Vector2.up)
                         {
-                            bp.layer = 15;
+                            bp1.layer = 15;
                         }
                         else if (attackDirection == Vector2.right || attackDirection == Vector2.left)
                         {
-                            bp.layer = 16;
+                            bp1.layer = 16;
                         }
-                        projScript.playerNum = this.playerNum;
+                        projScript1.playerNum = this.playerNum;
                         attackDelay = tierOneKnightAttackDelay;
-                    }
-                    else
-                    {
-
-                    }
-                    break;
-                case Class.Rogue:
-                    if (!tierTwo)
-                    {
-                        for (int i = 0; i < rogueKnifeAmount; i++)
-                        {
-                            float newDir = 0;
-                            switch (i)
+                        break;
+                    case Class.Rogue:
+                        if (!tierTwo)
+                            for (int i = 0; i < rogueKnifeAmount; i++)
                             {
-                                case 0:
-                                    newDir = 0;
-                                    break;
-                                case 1:
-                                    newDir = .5f;
-                                    break;
-                                case 2:
-                                    newDir = -.5f;
-                                    break;
+                                float newDir = 0;
+                                var bp2 = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
+                                var projScript2 = bp2.GetComponent<Projectile>();
+                                switch (i)
+                                {
+                                    case 0:
+                                        newDir = 0;
+                                        break;
+                                    case 1:
+                                        newDir = .5f;
+                                        break;
+                                    case 2:
+                                        newDir = -.5f;
+                                        break;
+                                }
+                                if (attackDirection == Vector2.down || attackDirection == Vector2.up)
+                                {
+                                    projScript2.direction = attackDirection + new Vector2(newDir, 0);
+                                }
+                                else if (attackDirection == Vector2.right || attackDirection == Vector2.left)
+                                {
+                                    projScript2.direction = attackDirection + new Vector2(0, newDir);
+                                }
+                                projScript2.projectileColor = projScript2.colors[goopColor];
+                                projScript2.speed = tierOneRogueProjectileSpeed;
+                                projScript2.currentClass = Projectile.Class.Rogue;
+                                projScript2.thisPlayer = this.GetComponent<BaseGoop>();
+                                projScript2.playerNum = this.playerNum;
                             }
-                            var bp = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
-                            var projScript = bp.GetComponent<Projectile>();
-                            if (attackDirection == Vector2.down || attackDirection == Vector2.up)
-                            {
-                                projScript.direction = attackDirection + new Vector2(newDir, 0);
-                            }
-                            else if (attackDirection == Vector2.right || attackDirection == Vector2.left)
-                            {
-                                projScript.direction = attackDirection + new Vector2(0, newDir);
-                            }
-                            projScript.projectileColor = projScript.colors[goopColor];
-                            projScript.speed = tierOneRogueProjectileSpeed;
-                            projScript.currentClass = Projectile.Class.Rogue;
-                            projScript.playerNum = this.playerNum;
-                        }
                         attackDelay = tierOneRogueAttackDelay;
-                    }
-                    else
-                    {
-
-                    }
-                    break;
-                case Class.Witch:
-                    if (!tierTwo)
-                    {
-                        var bp = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
-                        var projScript = bp.GetComponent<Projectile>();
-                        projScript.direction = this.attackDirection;
-                        projScript.projectileColor = projScript.colors[goopColor];
-                        projScript.speed = tierOneWitchProjectileSpeed;
-                        projScript.currentClass = Projectile.Class.Witch;
+                        break;
+                    case Class.Witch:
+                        var bp3 = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
+                        var projScript3 = bp3.GetComponent<Projectile>();
+                        projScript3.direction = this.attackDirection;
+                        projScript3.projectileColor = projScript3.colors[goopColor];
+                        projScript3.speed = tierOneWitchProjectileSpeed;
+                        projScript3.currentClass = Projectile.Class.Witch;
+                        projScript3.thisPlayer = this.GetComponent<BaseGoop>();
                         if (attackDirection == Vector2.down || attackDirection == Vector2.up)
                         {
-                            bp.layer = 15;
+                            bp3.layer = 15;
                         }
                         else if (attackDirection == Vector2.right || attackDirection == Vector2.left)
                         {
-                            bp.layer = 16;
+                            bp3.layer = 16;
                         }
-                        projScript.playerNum = this.playerNum;
+                        projScript3.playerNum = this.playerNum;
                         attackDelay = tierOneWitchAttackDelay;
-                    }
-                    else
-                    {
-
-                    }
-                    break;
+                        break;
+                }
             }
-
+            else
+            {
+                for (int i = 0; i < rogueKnifeAmount; i++)
+                {
+                    float newDir = 0;
+                    var bp2 = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
+                    var projScript2 = bp2.GetComponent<Projectile>();
+                    switch (i)
+                    {
+                        case 0:
+                            newDir = 0;
+                            break;
+                        case 1:
+                            newDir = .5f;
+                            break;
+                        case 2:
+                            newDir = -.5f;
+                            break;
+                    }
+                    if (attackDirection == Vector2.down || attackDirection == Vector2.up)
+                    {
+                        projScript2.direction = attackDirection + new Vector2(newDir, 0);
+                    }
+                    else if (attackDirection == Vector2.right || attackDirection == Vector2.left)
+                    {
+                        projScript2.direction = attackDirection + new Vector2(0, newDir);
+                    }
+                    projScript2.projectileColor = projScript2.colors[goopColor];
+                    projScript2.speed = tierOneRogueProjectileSpeed;
+                    projScript2.currentClass = Projectile.Class.Rogue;
+                    projScript2.thisPlayer = this.GetComponent<BaseGoop>();
+                    projScript2.playerNum = this.playerNum;
+                }
+            }
             yield return new WaitForSeconds(attackDelay);
             attacking = false;
         }
@@ -716,53 +843,68 @@ public class BaseGoop : MonoBehaviour
     {
         hasBeenHit = true;
         int damageToBeTaken = 0;
-        switch (currentClass)
+        if (classNum != 3) 
         {
-            
-            case Class.Knight:
-                switch (classNum)
-                {
-                    case 0:
-                        damageToBeTaken = knightDamage[1];
-                        break;
-                    case 1:
-                        damageToBeTaken = rogueDamage[0];
-                        break;
-                    case 2:
-                        damageToBeTaken = witchDamage[2];
-                        break;
-                }
-                break;
-            case Class.Rogue:
-                switch (classNum)
-                {
-                    case 0:
-                        damageToBeTaken = knightDamage[2];
-                        break;
-                    case 1:
-                        damageToBeTaken = rogueDamage[1];
-                        break;
-                    case 2:
-                        damageToBeTaken = witchDamage[0];
-                        break;
-                }
-                break;
-            case Class.Witch:
-                switch (classNum)
-                {
-                    case 0:
-                        damageToBeTaken = knightDamage[0];
-                        break;
-                    case 1:
-                        damageToBeTaken = rogueDamage[2];
-                        break;
-                    case 2:
-                        damageToBeTaken = witchDamage[1];
-                        break;
-                }
-                break;
+            switch (currentClass)
+            {
+
+                case Class.Knight:
+                    switch (classNum)
+                    {
+                        case 0:
+                            damageToBeTaken = knightDamage[1];
+                            break;
+                        case 1:
+                            damageToBeTaken = rogueDamage[0];
+                            break;
+                        case 2:
+                            damageToBeTaken = witchDamage[2];
+                            break;
+                    }
+                    break;
+                case Class.Rogue:
+                    switch (classNum)
+                    {
+                        case 0:
+                            damageToBeTaken = knightDamage[2];
+                            break;
+                        case 1:
+                            damageToBeTaken = rogueDamage[1];
+                            break;
+                        case 2:
+                            damageToBeTaken = witchDamage[0];
+                            break;
+                    }
+                    break;
+                case Class.Witch:
+                    switch (classNum)
+                    {
+                        case 0:
+                            damageToBeTaken = knightDamage[0];
+                            break;
+                        case 1:
+                            damageToBeTaken = rogueDamage[2];
+                            break;
+                        case 2:
+                            damageToBeTaken = witchDamage[1];
+                            break;
+                    }
+                    break;
+            }
+        }
+        else
+        {
+            damageToBeTaken = tierTwoDamageDealt;
+        }
+        if (tierTwo)
+        {
+            damageToBeTaken = tierTwoDamageTaken;
         }
         health -= damageToBeTaken;
+        if (!tierTwo)
+        {
+            mana += manaGainWhenHit;
+        }
         if(health > 0)
         {
             hitAnimation = true;
@@ -784,6 +926,7 @@ public class BaseGoop : MonoBehaviour
     {
         isSpawning = true;
         currentSpeed = reviveSpeed;
+        mana -= manaLossOnDeath;
         anim.SetInteger("Class", 3);
         flashAnim.SetBool("Spawn", true);
         yield return new WaitForSeconds(spawnTime);

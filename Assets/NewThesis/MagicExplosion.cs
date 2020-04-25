@@ -11,7 +11,8 @@ public class MagicExplosion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        particles.startColor = this.GetComponent<SpriteRenderer>().color;
+        var main = particles.main;
+        main.startColor = this.GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame

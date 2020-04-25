@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     public enum Class { Knight, Rogue, Witch }
     [HideInInspector]
     public Class currentClass;
+    [HideInInspector]
+    public BaseGoop thisPlayer;
 
     public GameObject magicExplosion;
 
@@ -144,20 +146,31 @@ public class Projectile : MonoBehaviour
                     if (!ps.hasBeenHit)
                     {
                         int classNumber = 0;
-                        switch (currentClass)
+                        if (!thisPlayer.tierTwo)
                         {
-                            case Class.Knight:
-                                classNumber = 0;
-                                break;
-                            case Class.Rogue:
-                                classNumber = 1;
-                                break;
-                            case Class.Witch:
-                                classNumber = 2;
-                                break;
+                            switch (currentClass)
+                            {
+                                case Class.Knight:
+                                    classNumber = 0;
+                                    break;
+                                case Class.Rogue:
+                                    classNumber = 1;
+                                    break;
+                                case Class.Witch:
+                                    classNumber = 2;
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            classNumber = 3;
                         }
                         ps.StartCoroutine(ps.GetHit(classNumber));
                         ps.knockbackDirection = this.direction;
+                        if (!thisPlayer.tierTwo)
+                        {
+                            thisPlayer.mana += thisPlayer.manaGainPerHit;
+                        }
                     }
                     Destroy(this.gameObject);
                 }
