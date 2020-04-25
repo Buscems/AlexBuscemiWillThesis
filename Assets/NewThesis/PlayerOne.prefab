@@ -210,12 +210,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: 1
   controllerColors:
-  - {r: 0.38679248, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.764151, b: 0.0802335, a: 1}
   - {r: 0, g: 0.0812564, b: 0.6792453, a: 1}
   - {r: 0.98160696, g: 1, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.6897316, a: 1}
-  - {r: 0.71550894, g: 0, b: 1, a: 1}
+  - {r: 0.35748792, g: 0, b: 0.5, a: 1}
   - {r: 0.9245283, g: 0.46310198, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
   tierOneGoopColor:
@@ -250,7 +250,7 @@ MonoBehaviour:
     type: 3}
   rogueKnifeAmount: 3
   attackDirection: {x: 0, y: 0}
-  rayDistance: 0.1
+  rayDistance: 0.5
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 24576

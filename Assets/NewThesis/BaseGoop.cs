@@ -563,7 +563,7 @@ public class BaseGoop : MonoBehaviour
     void GoopSetter()
     {
         //for test
-        PlayerPrefs.SetString("Player1Color", "Green");
+        PlayerPrefs.SetString("Player1Color", "Red");
         PlayerPrefs.SetString("Player2Color", "Green");
         PlayerPrefs.SetString("Player3Color", "Blue");
         PlayerPrefs.SetString("Player4Color", "Yellow");
@@ -693,7 +693,6 @@ public class BaseGoop : MonoBehaviour
     public IEnumerator GetHit()
     {
         hasBeenHit = true;
-        Debug.Log("Yert");
         int damageToBeTaken = 0;
         /*
         switch (currentClass)
@@ -760,10 +759,9 @@ public class BaseGoop : MonoBehaviour
     {
         isSpawning = true;
         anim.SetInteger("Class", 3);
-        var sr = thisTierOneGoop.GetComponent<SpriteRenderer>();
-        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, spawningOpacity);
+        flashAnim.SetBool("Spawn", true);
         yield return new WaitForSeconds(spawnTime);
-        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
+        flashAnim.SetBool("Spawn", false);
         int rand = Random.Range(0, 3);
         anim.SetInteger("Class", rand);
         isSpawning = false;
