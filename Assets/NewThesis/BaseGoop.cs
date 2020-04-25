@@ -17,6 +17,8 @@ public class BaseGoop : MonoBehaviour
     [Header("Rewired")]
     [Tooltip("Number identifier for each player, must be above 0")]
     public int playerNum;
+    [Tooltip("0 = Red\n1 = Green\n2 = Blue\n3 = Yellow\n4 = Pink\n5 = Purple\n6 = Orange\n7 = White")]
+    public Color[] controllerColors;
 
     [Tooltip("0 = Red\n1 = Green\n2 = Blue\n3 = Yellow\n4 = Pink\n5 = Purple\n6 = Orange\n7 = White")]
     public AnimatorController[] tierOneGoopColor;
@@ -107,11 +109,17 @@ public class BaseGoop : MonoBehaviour
     public float maxPoofTime;
     private float currentPoofTimer;
 
+    [Header("Spawning")]
+    public float spawnTime;
+    public float spawningOpacity;
+    bool isSpawning;
+
     private void Awake()
     {
-        //Rewired Code
+        //Rewired Code + Goop bois
         myPlayer = ReInput.players.GetPlayer(playerNum - 1);
         ReInput.ControllerConnectedEvent += OnControllerConnected;
+        GoopSetter();
         CheckController(myPlayer);
     }
 
@@ -119,13 +127,14 @@ public class BaseGoop : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-        GoopSetter();
         thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController = tierOneGoopColor[goopColor];
         thisTierTwoGoop.GetComponent<Animator>().runtimeAnimatorController = tierTwoGoopColor[goopColor];
         rb = GetComponent<Rigidbody2D>();
-        anim = transform.GetChild(0).GetComponent<Animator>();
+        anim = thisTierOneGoop.GetComponent<Animator>();
         flashAnim = GetComponent<Animator>();
         thisTierTwoGoop.SetActive(false);
+
+        StartCoroutine(SpawnPlayer());
 
         //poof timer
         currentPoofTimer = maxPoofTime;
@@ -136,23 +145,25 @@ public class BaseGoop : MonoBehaviour
     {
         Movement();
 
-        if (myPlayer.GetButton("Attack") && !attacking)
+        if (!isSpawning)
         {
-            StartCoroutine("Attack");
+            if (myPlayer.GetButton("Attack") && !attacking)
+            {
+                StartCoroutine("Attack");
+            }
+            /*
+            if (!attacking)
+            {
+                StartCoroutine("Attack");
+            }
+            */
+            ClassController();
+
+            //animation stuff
+            flashAnim.SetBool("hasBeenHit", hasBeenHit);
+
+            CheckForWall();
         }
-        /*
-        if (!attacking)
-        {
-            StartCoroutine("Attack");
-        }
-        */
-        ClassController();
-
-        //animation stuff
-        flashAnim.SetBool("hasBeenHit", hasBeenHit);
-
-        CheckForWall();
-
     }
 
     private void FixedUpdate()
@@ -178,22 +189,26 @@ public class BaseGoop : MonoBehaviour
             direction = new Vector2(myPlayer.GetAxis("MoveHorizontal"), myPlayer.GetAxis("MoveVertical"));
         }
         velocity = new Vector2(myPlayer.GetAxis("MoveHorizontal"), myPlayer.GetAxis("MoveVertical"));
-        
-        //poof code
-        if (Mathf.Abs(velocity.x) > joystickDeadzone || Mathf.Abs(velocity.y) > joystickDeadzone)
-        {
-            
-        }
-        currentPoofTimer -= Time.deltaTime;
 
-        if (currentPoofTimer < 0)
+        if (!isSpawning)
         {
-            GameObject poof = Instantiate(walkPuff, transform.position, Quaternion.identity);
-            Vector3 size = poof.transform.eulerAngles / 3;
-            poof.transform.eulerAngles = size;
-            poof.GetComponent<ParticleSystem>().startColor = new Color(basicProjectile.GetComponent<Projectile>().colors[goopColor].r, basicProjectile.GetComponent<Projectile>().colors[goopColor].g, basicProjectile.GetComponent<Projectile>().colors[goopColor].b, poof.GetComponent<ParticleSystem>().startColor.a);
-            currentPoofTimer = maxPoofTime;
+            //poof code
+            if (Mathf.Abs(velocity.x) > joystickDeadzone || Mathf.Abs(velocity.y) > joystickDeadzone)
+            {
+
+            }
+            currentPoofTimer -= Time.deltaTime;
+
+            if (currentPoofTimer < 0)
+            {
+                GameObject poof = Instantiate(walkPuff, transform.position, Quaternion.identity);
+                Vector3 size = poof.transform.eulerAngles / 3;
+                poof.transform.eulerAngles = size;
+                poof.GetComponent<ParticleSystem>().startColor = new Color(basicProjectile.GetComponent<Projectile>().colors[goopColor].r, basicProjectile.GetComponent<Projectile>().colors[goopColor].g, basicProjectile.GetComponent<Projectile>().colors[goopColor].b, poof.GetComponent<ParticleSystem>().startColor.a);
+                currentPoofTimer = maxPoofTime;
+            }
         }
+
         if (velocity.x > joystickDeadzone)
         {
             velocity.x = 1;
@@ -548,9 +563,9 @@ public class BaseGoop : MonoBehaviour
     void GoopSetter()
     {
         //for test
-        PlayerPrefs.SetString("Player1Color", "Red");
-        PlayerPrefs.SetString("Player2Color", "Blue");
-        PlayerPrefs.SetString("Player3Color", "Green");
+        PlayerPrefs.SetString("Player1Color", "Green");
+        PlayerPrefs.SetString("Player2Color", "Green");
+        PlayerPrefs.SetString("Player3Color", "Blue");
         PlayerPrefs.SetString("Player4Color", "Yellow");
         switch (playerNum)
         {
@@ -560,16 +575,26 @@ public class BaseGoop : MonoBehaviour
                     case "Red":
                         goopColor = 0;
                         break;
-
                     case "Green":
                         goopColor = 1;
                         break;
-
                     case "Blue":
                         goopColor = 2;
                         break;
                     case "Yellow":
                         goopColor = 3;
+                        break;
+                    case "Pink":
+                        goopColor = 4;
+                        break;
+                    case "Purple":
+                        goopColor = 5;
+                        break;
+                    case "Orange":
+                        goopColor = 6;
+                        break;
+                    case "White":
+                        goopColor = 7;
                         break;
                 }
                 break;
@@ -579,16 +604,26 @@ public class BaseGoop : MonoBehaviour
                     case "Red":
                         goopColor = 0;
                         break;
-
                     case "Green":
                         goopColor = 1;
                         break;
-
                     case "Blue":
                         goopColor = 2;
                         break;
                     case "Yellow":
                         goopColor = 3;
+                        break;
+                    case "Pink":
+                        goopColor = 4;
+                        break;
+                    case "Purple":
+                        goopColor = 5;
+                        break;
+                    case "Orange":
+                        goopColor = 6;
+                        break;
+                    case "White":
+                        goopColor = 7;
                         break;
                 }
                 break;
@@ -598,16 +633,26 @@ public class BaseGoop : MonoBehaviour
                     case "Red":
                         goopColor = 0;
                         break;
-
                     case "Green":
                         goopColor = 1;
                         break;
-
                     case "Blue":
                         goopColor = 2;
                         break;
                     case "Yellow":
                         goopColor = 3;
+                        break;
+                    case "Pink":
+                        goopColor = 4;
+                        break;
+                    case "Purple":
+                        goopColor = 5;
+                        break;
+                    case "Orange":
+                        goopColor = 6;
+                        break;
+                    case "White":
+                        goopColor = 7;
                         break;
                 }
                 break;
@@ -617,16 +662,26 @@ public class BaseGoop : MonoBehaviour
                     case "Red":
                         goopColor = 0;
                         break;
-
                     case "Green":
                         goopColor = 1;
                         break;
-
                     case "Blue":
                         goopColor = 2;
                         break;
                     case "Yellow":
                         goopColor = 3;
+                        break;
+                    case "Pink":
+                        goopColor = 4;
+                        break;
+                    case "Purple":
+                        goopColor = 5;
+                        break;
+                    case "Orange":
+                        goopColor = 6;
+                        break;
+                    case "White":
+                        goopColor = 7;
                         break;
                 }
                 break;
@@ -701,6 +756,19 @@ public class BaseGoop : MonoBehaviour
         knockback = false;
     }
 
+    IEnumerator SpawnPlayer()
+    {
+        isSpawning = true;
+        anim.SetInteger("Class", 3);
+        var sr = thisTierOneGoop.GetComponent<SpriteRenderer>();
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, spawningOpacity);
+        yield return new WaitForSeconds(spawnTime);
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
+        int rand = Random.Range(0, 3);
+        anim.SetInteger("Class", rand);
+        isSpawning = false;
+    }
+
     //[REWIRED METHODS]
     //these two methods are for ReWired, if any of you guys have any questions about it I can answer them, but you don't need to worry about this for working on the game - Buscemi
     void OnControllerConnected(ControllerStatusChangedEventArgs arg)
@@ -714,18 +782,33 @@ public class BaseGoop : MonoBehaviour
         {
             var ds4 = joyStick.GetExtension<DualShock4Extension>();
             if (ds4 == null) continue;//skip this if not DualShock4
-            switch (playerNum)
+            ds4.SetLightColor(controllerColors[goopColor]);
+            /*
+            switch (goopColor)
             {
+                case 7:
+                    ds4.SetLightColor(basicProjectile.GetComponent<Projectile>().colors[7]);
+                    break;
+                case 6:
+                    ds4.SetLightColor(basicProjectile.GetComponent<Projectile>().colors[6]);
+                    break;
+                case 5:
+                    ds4.SetLightColor(basicProjectile.GetComponent<Projectile>().colors[5]);
+                    break;
                 case 4:
-                    ds4.SetLightColor(Color.yellow);
+                    ds4.SetLightColor(basicProjectile.GetComponent<Projectile>().colors[4]);
                     break;
                 case 3:
-                    ds4.SetLightColor(Color.green);
+                    ds4.SetLightColor(Color.yellow);
                     break;
                 case 2:
                     ds4.SetLightColor(Color.blue);
+                    Debug.Log("Yert");
                     break;
                 case 1:
+                    ds4.SetLightColor(Color.green);
+                    break;
+                case 0:
                     ds4.SetLightColor(Color.red);
                     break;
                 default:
@@ -733,6 +816,7 @@ public class BaseGoop : MonoBehaviour
                     Debug.LogError("Player Num is 0, please change to a number > 0");
                     break;
             }
+            */
         }
     }
 }

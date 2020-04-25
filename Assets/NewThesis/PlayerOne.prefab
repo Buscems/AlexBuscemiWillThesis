@@ -209,24 +209,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 1
+  controllerColors:
+  - {r: 0.38679248, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0.764151, b: 0.0802335, a: 1}
+  - {r: 0, g: 0.0812564, b: 0.6792453, a: 1}
+  - {r: 0.98160696, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.6897316, a: 1}
+  - {r: 0.71550894, g: 0, b: 1, a: 1}
+  - {r: 0.9245283, g: 0.46310198, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   tierOneGoopColor:
   - {fileID: 9100000, guid: 99cf392f74e0448f4a6c71572a4f4a68, type: 2}
   - {fileID: 9100000, guid: 75c513fceb7954a91ac875b075c447f7, type: 2}
   - {fileID: 9100000, guid: 02deaef51ae414f3c80bafeaf953acf6, type: 2}
   - {fileID: 9100000, guid: 0923143508c9045b390fd5c5ec288348, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9100000, guid: 58dcd23a9b0564f10a662c309d388732, type: 2}
+  - {fileID: 9100000, guid: df2cfc451d1bb4b11845c9e1d3858d2f, type: 2}
+  - {fileID: 9100000, guid: 347009d26aeda4d1c9ac9789b84a09ff, type: 2}
+  - {fileID: 9100000, guid: c0b9657fa6428456986e238d145c5ad4, type: 2}
   tierTwoGoopColor:
   - {fileID: 9100000, guid: b504a2ed4bbe64d6caa7dabb41aa1b2a, type: 2}
   - {fileID: 9100000, guid: 721ef475d3b144aacabd755ecd19f006, type: 2}
   - {fileID: 9100000, guid: 74b37b9cbe6f949feaed4daeb63fd019, type: 2}
   - {fileID: 9100000, guid: eb6fe3a6bca2d49d4951470d6df2ed0c, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9100000, guid: 24f326dac694240689bb041d113fef9b, type: 2}
+  - {fileID: 9100000, guid: dacafc5327db3436a9d7ebf3454d8491, type: 2}
+  - {fileID: 9100000, guid: 54e24669b57154f2b94d78b611422bd7, type: 2}
+  - {fileID: 9100000, guid: d54dc098b1b1f49598abb599ccd280ee, type: 2}
   currentDirection: 0
   direction: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
@@ -273,6 +282,8 @@ MonoBehaviour:
   swapPuff: {fileID: 1555602966978052, guid: 7d22f20c936df4022a0ca218664ef09d, type: 3}
   walkPuff: {fileID: 1712527220912024, guid: eb6f5883224fd4f1fba1647209183be2, type: 3}
   maxPoofTime: 0.5
+  spawnTime: 3
+  spawningOpacity: 0.25
 --- !u!50 &874131941556801312
 Rigidbody2D:
   serializedVersion: 4
