@@ -89,10 +89,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splats:
-  - {fileID: 6520339583072558400, guid: 52e332e94ee9940148fa5c6303dd1b35, type: 3}
-  - {fileID: 2384108896861145783, guid: 52e332e94ee9940148fa5c6303dd1b35, type: 3}
-  - {fileID: -6410282753786081562, guid: 52e332e94ee9940148fa5c6303dd1b35, type: 3}
-  - {fileID: -352458206622686509, guid: f8343cc9c26f14364ab501e0d92227b4, type: 3}
+  - {fileID: -4353639192301148585, guid: cf5356d8d59a64cd7a59ad20474e50fd, type: 3}
+  - {fileID: 7551862782582123770, guid: cf5356d8d59a64cd7a59ad20474e50fd, type: 3}
+  - {fileID: -4984127878480458052, guid: cf5356d8d59a64cd7a59ad20474e50fd, type: 3}
+  - {fileID: -5862244145495197917, guid: cf5356d8d59a64cd7a59ad20474e50fd, type: 3}
+  - {fileID: 7521732998875092269, guid: cf5356d8d59a64cd7a59ad20474e50fd, type: 3}
+  - {fileID: -2272757785051965656, guid: cf5356d8d59a64cd7a59ad20474e50fd, type: 3}
+  - {fileID: -30168324421176110, guid: cf5356d8d59a64cd7a59ad20474e50fd, type: 3}
+  - {fileID: 5881710912054366011, guid: cf5356d8d59a64cd7a59ad20474e50fd, type: 3}
   color: {r: 0, g: 0, b: 0, a: 0}
   isUI: 1
   sizeMin: 0.5

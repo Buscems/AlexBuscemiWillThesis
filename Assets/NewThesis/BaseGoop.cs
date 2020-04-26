@@ -938,7 +938,7 @@ public class BaseGoop : MonoBehaviour
                             GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
                             uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
                             uiSplat.GetComponent<SplatChooser>().isUI = true;
-                            uiSplat.transform.parent = uiCanvas.transform;
+                            uiSplat.transform.SetParent(uiCanvas.transform, false);
                             break;
                     }
                     break;
@@ -955,7 +955,7 @@ public class BaseGoop : MonoBehaviour
                             GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
                             uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
                             uiSplat.GetComponent<SplatChooser>().isUI = true;
-                            uiSplat.transform.parent = uiCanvas.transform;
+                            uiSplat.transform.SetParent(uiCanvas.transform, false);
                             break;
                         case 1:
                             damageToBeTaken = rogueDamage[1];
@@ -985,7 +985,7 @@ public class BaseGoop : MonoBehaviour
                             GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
                             uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
                             uiSplat.GetComponent<SplatChooser>().isUI = true;
-                            uiSplat.transform.parent = uiCanvas.transform;
+                            uiSplat.transform.SetParent(uiCanvas.transform, false);
                             break;
                         case 2:
                             damageToBeTaken = witchDamage[1];

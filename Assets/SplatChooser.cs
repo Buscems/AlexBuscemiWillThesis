@@ -34,7 +34,7 @@ public class SplatChooser : MonoBehaviour
     void Start()
     {
 
-        alpha = .75f;
+        
 
         int splatIndex = Random.Range(0, splats.Length);
         if (isUI)
@@ -44,7 +44,7 @@ public class SplatChooser : MonoBehaviour
             float size = Random.Range(sizeMin, sizeMax);
             float positionX = Random.Range(-xMinMax, xMinMax);
             float positionY = Random.Range(-yMinMax, yMinMax);
-
+            alpha = .6f;
             img.sprite = splats[splatIndex];
             img.color = new Color(color.r, color.g, color.b, alpha);
             img.rectTransform.localScale = new Vector3(size, size, size);
@@ -58,8 +58,9 @@ public class SplatChooser : MonoBehaviour
 
             float size = Random.Range(sizeMinGameLayer, sizeMaxGameLayer);
             transform.localScale = new Vector2(size, size);
+            alpha = .4f;
             sr.sprite = splats[splatIndex];
-            sr.color = color;
+            sr.color = new Color(color.r, color.g, color.b, alpha);
             disappearSpeed = disappearSpeedGameLayer;
             waitTime = waitGameLayer;
         }
