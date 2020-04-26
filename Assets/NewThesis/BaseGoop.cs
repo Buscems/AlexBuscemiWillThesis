@@ -39,6 +39,7 @@ public class BaseGoop : MonoBehaviour
     public bool isMoving;
     Animator anim;
     public float speed;
+    public float tierTwoSpeed;
     public float reviveSpeed;
     [SerializeField]
     float currentSpeed;
@@ -430,6 +431,7 @@ public class BaseGoop : MonoBehaviour
             thisTierOneGoop.SetActive(false);
             thisTierTwoGoop.SetActive(true);
             anim = thisTierTwoGoop.GetComponent<Animator>();
+            currentSpeed = tierTwoSpeed;
             hasTransformed = true;
         }
 
@@ -535,6 +537,72 @@ public class BaseGoop : MonoBehaviour
                             float newDir = 0;
                             var bp2 = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
                             var projScript2 = bp2.GetComponent<Projectile>();
+                            if (attackDirection == Vector2.down || attackDirection == Vector2.up)
+                            {
+                                if (transform.position.x > 0)
+                                {
+                                    switch (i)
+                                    {
+                                        case 0:
+                                            bp2.layer = 15;
+                                            break;
+                                        case 1:
+
+                                            break;
+                                        case 2:
+                                            bp2.layer = 15;
+                                            break;
+                                    }
+                                }
+                                if (transform.position.x < 0)
+                                {
+                                    switch (i)
+                                    {
+                                        case 0:
+                                            bp2.layer = 15;
+                                            break;
+                                        case 1:
+                                            bp2.layer = 15;
+                                            break;
+                                        case 2:
+
+                                            break;
+                                    }
+                                }
+                            }
+                            else if (attackDirection == Vector2.right || attackDirection == Vector2.left)
+                            {
+                                if (transform.position.y > 0)
+                                {
+                                    switch (i)
+                                    {
+                                        case 0:
+                                            bp2.layer = 16;
+                                            break;
+                                        case 1:
+
+                                            break;
+                                        case 2:
+                                            bp2.layer = 16;
+                                            break;
+                                    }
+                                }
+                                if (transform.position.y < 0)
+                                {
+                                    switch (i)
+                                    {
+                                        case 0:
+                                            bp2.layer = 16;
+                                            break;
+                                        case 1:
+                                            bp2.layer = 16;
+                                            break;
+                                        case 2:
+
+                                            break;
+                                    }
+                                }
+                            }
                             switch (i)
                             {
                                 case 0:
@@ -912,90 +980,99 @@ public class BaseGoop : MonoBehaviour
         int damageToBeTaken = 0;
         if (classNum != 3) 
         {
-            switch (currentClass)
+            if (!tierTwo)
             {
+                switch (currentClass)
+                {
 
-                case Class.Knight:
-                    switch (classNum)
-                    {
-                        case 0:
-                            damageToBeTaken = knightDamage[1];
+                    case Class.Knight:
+                        switch (classNum)
+                        {
+                            case 0:
+                                damageToBeTaken = knightDamage[1];
 
-                            GameObject gameSplat1 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-                            gameSplat1.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
-                            gameSplat1.GetComponent<SplatChooser>().isUI = false;
-                            break;
-                        case 1:
-                            damageToBeTaken = rogueDamage[0];
-                            break;
-                        case 2:
-                            damageToBeTaken = witchDamage[2];
+                                GameObject gameSplat1 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                                gameSplat1.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                                gameSplat1.GetComponent<SplatChooser>().isUI = false;
+                                break;
+                            case 1:
+                                damageToBeTaken = rogueDamage[0];
+                                break;
+                            case 2:
+                                damageToBeTaken = witchDamage[2];
 
-                            GameObject gameSplat2 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-                            gameSplat2.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
-                            gameSplat2.GetComponent<SplatChooser>().isUI = false;
+                                GameObject gameSplat2 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                                gameSplat2.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                                gameSplat2.GetComponent<SplatChooser>().isUI = false;
 
-                            GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-                            uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
-                            uiSplat.GetComponent<SplatChooser>().isUI = true;
-                            uiSplat.transform.SetParent(uiCanvas.transform, false);
-                            break;
-                    }
-                    break;
-                case Class.Rogue:
-                    switch (classNum)
-                    {
-                        case 0:
-                            damageToBeTaken = knightDamage[2];
+                                GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                                uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                                uiSplat.GetComponent<SplatChooser>().isUI = true;
+                                uiSplat.transform.SetParent(uiCanvas.transform, false);
+                                break;
+                        }
+                        break;
+                    case Class.Rogue:
+                        switch (classNum)
+                        {
+                            case 0:
+                                damageToBeTaken = knightDamage[2];
 
-                            GameObject gameSplat1 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-                            gameSplat1.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
-                            gameSplat1.GetComponent<SplatChooser>().isUI = false;
+                                GameObject gameSplat1 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                                gameSplat1.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                                gameSplat1.GetComponent<SplatChooser>().isUI = false;
 
-                            GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-                            uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
-                            uiSplat.GetComponent<SplatChooser>().isUI = true;
-                            uiSplat.transform.SetParent(uiCanvas.transform, false);
-                            break;
-                        case 1:
-                            damageToBeTaken = rogueDamage[1];
+                                GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                                uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                                uiSplat.GetComponent<SplatChooser>().isUI = true;
+                                uiSplat.transform.SetParent(uiCanvas.transform, false);
+                                break;
+                            case 1:
+                                damageToBeTaken = rogueDamage[1];
 
-                            GameObject gameSplat2 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-                            gameSplat2.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
-                            gameSplat2.GetComponent<SplatChooser>().isUI = false;
-                            break;
-                        case 2:
-                            damageToBeTaken = witchDamage[0];
-                            break;
-                    }
-                    break;
-                case Class.Witch:
-                    switch (classNum)
-                    {
-                        case 0:
-                            damageToBeTaken = knightDamage[0];
-                            break;
-                        case 1:
-                            damageToBeTaken = rogueDamage[2];
+                                GameObject gameSplat2 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                                gameSplat2.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                                gameSplat2.GetComponent<SplatChooser>().isUI = false;
+                                break;
+                            case 2:
+                                damageToBeTaken = witchDamage[0];
+                                break;
+                        }
+                        break;
+                    case Class.Witch:
+                        switch (classNum)
+                        {
+                            case 0:
+                                damageToBeTaken = knightDamage[0];
+                                break;
+                            case 1:
+                                damageToBeTaken = rogueDamage[2];
 
-                            GameObject gameSplat1 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-                            gameSplat1.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
-                            gameSplat1.GetComponent<SplatChooser>().isUI = false;
+                                GameObject gameSplat1 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                                gameSplat1.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                                gameSplat1.GetComponent<SplatChooser>().isUI = false;
 
-                            GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-                            uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
-                            uiSplat.GetComponent<SplatChooser>().isUI = true;
-                            uiSplat.transform.SetParent(uiCanvas.transform, false);
-                            break;
-                        case 2:
-                            damageToBeTaken = witchDamage[1];
+                                GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                                uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                                uiSplat.GetComponent<SplatChooser>().isUI = true;
+                                uiSplat.transform.SetParent(uiCanvas.transform, false);
+                                break;
+                            case 2:
+                                damageToBeTaken = witchDamage[1];
 
-                            GameObject gameSplat2 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-                            gameSplat2.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
-                            gameSplat2.GetComponent<SplatChooser>().isUI = false;
-                            break;
-                    }
-                    break;
+                                GameObject gameSplat2 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                                gameSplat2.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                                gameSplat2.GetComponent<SplatChooser>().isUI = false;
+                                break;
+                        }
+                        break;
+                }
+            }
+            else
+            {
+                GameObject gameSplat1 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                gameSplat1.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                gameSplat1.GetComponent<SplatChooser>().isUI = false;
             }
         }
         else
@@ -1042,6 +1119,12 @@ public class BaseGoop : MonoBehaviour
     IEnumerator SpawnPlayer()
     {
         isSpawning = true;
+        if (tierTwo)
+        {
+            thisTierOneGoop.SetActive(true);
+            thisTierTwoGoop.SetActive(false);
+            tierTwo = false;
+        }
         currentSpeed = reviveSpeed;
         mana -= manaLossOnDeath;
         anim.SetInteger("Class", 3);

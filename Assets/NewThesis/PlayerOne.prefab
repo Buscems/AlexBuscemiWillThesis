@@ -210,6 +210,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   isMoving: 0
   speed: 7
+  tierTwoSpeed: 9
   reviveSpeed: 2
   currentSpeed: 0
   joystickDeadzone: 0.2
@@ -234,7 +235,7 @@ MonoBehaviour:
   tierOneKnightAttackDelay: 0.5
   tierOneRogueAttackDelay: 0.2
   tierOneWitchAttackDelay: 1
-  tierTwoAttackDelay: 0.8
+  tierTwoAttackDelay: 0.7
   tierOneKnightProjectileSpeed: 12
   tierOneRogueProjectileSpeed: 16
   tierOneWitchProjectileSpeed: 8

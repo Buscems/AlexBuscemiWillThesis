@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     public Class currentClass;
     [HideInInspector]
     public BaseGoop thisPlayer;
+    bool tierTwo;
 
     public GameObject magicExplosion;
 
@@ -55,7 +56,12 @@ public class Projectile : MonoBehaviour
         rogueAttackCollider.enabled = false;
         witchAttackCollider.enabled = false;
 
-        if (!thisPlayer.tierTwo)
+        if (thisPlayer.tierTwo)
+        {
+            tierTwo = true;
+        }
+
+        if (!tierTwo)
         {
             switch (currentClass)
             {
@@ -127,26 +133,29 @@ public class Projectile : MonoBehaviour
             if (collision.GetComponent<Projectile>().playerNum != playerNum)
             {
                 var temp = collision.GetComponent<Projectile>();
-                switch (currentClass)
+                if (!tierTwo)
                 {
-                    case Class.Knight:
-                        if (temp.currentClass == Class.Witch)
-                        {
-                            Destroy(this.gameObject);
-                        }
+                    switch (currentClass)
+                    {
+                        case Class.Knight:
+                            if (temp.currentClass == Class.Witch)
+                            {
+                                Destroy(this.gameObject);
+                            }
                             break;
-                    case Class.Rogue:
-                        if (temp.currentClass == Class.Knight)
-                        {
-                            Destroy(this.gameObject);
-                        }
-                        break;
-                    case Class.Witch:
-                        if (temp.currentClass == Class.Rogue)
-                        {
-                            Destroy(this.gameObject);
-                        }
-                        break;
+                        case Class.Rogue:
+                            if (temp.currentClass == Class.Knight)
+                            {
+                                Destroy(this.gameObject);
+                            }
+                            break;
+                        case Class.Witch:
+                            if (temp.currentClass == Class.Rogue)
+                            {
+                                Destroy(this.gameObject);
+                            }
+                            break;
+                    }
                 }
             }
         }
@@ -160,7 +169,7 @@ public class Projectile : MonoBehaviour
                     if (!ps.hasBeenHit)
                     {
                         int classNumber = 0;
-                        if (!thisPlayer.tierTwo)
+                        if (!tierTwo)
                         {
                             switch (currentClass)
                             {
@@ -181,7 +190,7 @@ public class Projectile : MonoBehaviour
                         }
                         ps.StartCoroutine(ps.GetHit(classNumber));
                         ps.knockbackDirection = this.direction;
-                        if (!thisPlayer.tierTwo)
+                        if (!tierTwo)
                         {
                             thisPlayer.mana += thisPlayer.manaGainPerHit;
                         }
@@ -199,18 +208,17 @@ public class Projectile : MonoBehaviour
             yield return null;
         }
         Destroy(this.gameObject);
-
     }
 
     private void OnDestroy()
     {
-        if(currentClass == Class.Witch && !thisPlayer.tierTwo)
+        if(currentClass == Class.Witch && !tierTwo)
         {
             var explosion = Instantiate(magicExplosion, transform.position, Quaternion.identity);
             explosion.GetComponent<MagicExplosion>().playerNum = this.playerNum;
             explosion.GetComponent<SpriteRenderer>().color = projectileColor;
         }
-        if (thisPlayer.tierTwo)
+        if (tierTwo)
         {
             var explosion = Instantiate(magicExplosion, transform.position, Quaternion.identity);
             explosion.GetComponent<MagicExplosion>().playerNum = this.playerNum;
