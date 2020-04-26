@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1e7134af71995448212c4da764fd94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiCanvas: {fileID: 0}
   playerNum: 1
   controllerColors:
   - {r: 1, g: 0, b: 0, a: 1}
@@ -251,6 +252,8 @@ MonoBehaviour:
   swapPuff: {fileID: 1555602966978052, guid: 7d22f20c936df4022a0ca218664ef09d, type: 3}
   walkPuff: {fileID: 1712527220912024, guid: eb6f5883224fd4f1fba1647209183be2, type: 3}
   maxPoofTime: 0.05
+  goopSplat: {fileID: 3253290694032064482, guid: f07535ee7ab496a4093fb69494ceab4c,
+    type: 3}
   spawnTime: 3
   spawningOpacity: 0.25
   isSpawning: 0

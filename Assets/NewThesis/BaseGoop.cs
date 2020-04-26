@@ -12,6 +12,8 @@ using TMPro;
 public class BaseGoop : MonoBehaviour
 {
 
+    public GameObject uiCanvas;
+
     //the following is in order to use rewired
     [Tooltip("Reference for using rewired")]
     [HideInInspector]
@@ -112,6 +114,9 @@ public class BaseGoop : MonoBehaviour
     [Header("Poof Timer")]
     public float maxPoofTime;
     private float currentPoofTimer;
+
+    [Header("Effects - Splat")]
+    public GameObject goopSplat;
 
     [Header("Spawning")]
     public float spawnTime;
@@ -915,12 +920,25 @@ public class BaseGoop : MonoBehaviour
                     {
                         case 0:
                             damageToBeTaken = knightDamage[1];
+
+                            GameObject gameSplat1 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                            gameSplat1.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                            gameSplat1.GetComponent<SplatChooser>().isUI = false;
                             break;
                         case 1:
                             damageToBeTaken = rogueDamage[0];
                             break;
                         case 2:
                             damageToBeTaken = witchDamage[2];
+
+                            GameObject gameSplat2 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                            gameSplat2.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                            gameSplat2.GetComponent<SplatChooser>().isUI = false;
+
+                            GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                            uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                            uiSplat.GetComponent<SplatChooser>().isUI = true;
+                            uiSplat.transform.parent = uiCanvas.transform;
                             break;
                     }
                     break;
@@ -929,9 +947,22 @@ public class BaseGoop : MonoBehaviour
                     {
                         case 0:
                             damageToBeTaken = knightDamage[2];
+
+                            GameObject gameSplat1 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                            gameSplat1.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                            gameSplat1.GetComponent<SplatChooser>().isUI = false;
+
+                            GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                            uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                            uiSplat.GetComponent<SplatChooser>().isUI = true;
+                            uiSplat.transform.parent = uiCanvas.transform;
                             break;
                         case 1:
                             damageToBeTaken = rogueDamage[1];
+
+                            GameObject gameSplat2 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                            gameSplat2.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                            gameSplat2.GetComponent<SplatChooser>().isUI = false;
                             break;
                         case 2:
                             damageToBeTaken = witchDamage[0];
@@ -946,9 +977,22 @@ public class BaseGoop : MonoBehaviour
                             break;
                         case 1:
                             damageToBeTaken = rogueDamage[2];
+
+                            GameObject gameSplat1 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                            gameSplat1.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                            gameSplat1.GetComponent<SplatChooser>().isUI = false;
+
+                            GameObject uiSplat = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                            uiSplat.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                            uiSplat.GetComponent<SplatChooser>().isUI = true;
+                            uiSplat.transform.parent = uiCanvas.transform;
                             break;
                         case 2:
                             damageToBeTaken = witchDamage[1];
+
+                            GameObject gameSplat2 = Instantiate(goopSplat, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                            gameSplat2.GetComponent<SplatChooser>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+                            gameSplat2.GetComponent<SplatChooser>().isUI = false;
                             break;
                     }
                     break;
