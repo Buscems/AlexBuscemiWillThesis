@@ -1263,7 +1263,7 @@ public class BaseGoop : MonoBehaviour
         {
             killSections[lastPlayerThatHitThis - 1].transform.GetChild(players[lastPlayerThatHitThis - 1].currentKills).GetComponent<Image>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
             killSections[lastPlayerThatHitThis - 1].transform.GetChild(players[lastPlayerThatHitThis - 1].currentKills).transform.GetChild(1).GetComponent<ParticleSystem>().Play();
-            players[lastPlayerThatHitThis - 1].StartCoroutine(PlayHitParticles());
+            players[lastPlayerThatHitThis - 1].DoTheParticle();
             players[lastPlayerThatHitThis - 1].currentKills++;
         }
         currentSpeed = reviveSpeed;
@@ -1302,6 +1302,11 @@ public class BaseGoop : MonoBehaviour
             gameHasStarted = true;
         }
         isSpawning = false;
+    }
+
+    public void DoTheParticle()
+    {
+        StartCoroutine(PlayHitParticles());
     }
 
     public IEnumerator PlayHitParticles()
