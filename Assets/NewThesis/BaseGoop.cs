@@ -1256,7 +1256,7 @@ public class BaseGoop : MonoBehaviour
         //adding kills to a player
         if (gameHasStarted)
         {
-            killSections[lastPlayerThatHitThis - 1].transform.GetChild(players[lastPlayerThatHitThis - 1].currentKills).GetComponent<Image>().color = controllerColors[goopColor];
+            killSections[lastPlayerThatHitThis - 1].transform.GetChild(players[lastPlayerThatHitThis - 1].currentKills).GetComponent<Image>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
             players[lastPlayerThatHitThis - 1].currentKills++;
         }
         currentSpeed = reviveSpeed;
