@@ -125,6 +125,8 @@ public class BaseGoop : MonoBehaviour
     public float[] vibrationamount;
     public float[] vibrationDuration;
 
+    public ParticleSystem hitParticles;
+
     [Header("Effects - Puffs")]
     public GameObject swapPuff;
     public GameObject walkPuff;
@@ -256,7 +258,10 @@ public class BaseGoop : MonoBehaviour
             }
         }
 
-        Pause();
+        if (GameplayController.countdownOver)
+        {
+            Pause();
+        }
 
         healthBar.fillAmount = (float)health / (float)maxHealth;
         manaBar.fillAmount = mana / maxMana;
@@ -779,11 +784,11 @@ public class BaseGoop : MonoBehaviour
         }
     }
 
-    public void KnightProjectile()
+    public void KnightProjectile(Vector2 lastDirection)
     {
-        var bp1 = Instantiate(basicProjectile, rb.position + (attackDirection / 2), Quaternion.identity);
+        var bp1 = Instantiate(basicProjectile, rb.position + (lastDirection / 2), Quaternion.identity);
         var projScript1 = bp1.GetComponent<Projectile>();
-        projScript1.direction = this.attackDirection;
+        projScript1.direction = lastDirection;
         projScript1.isKnightProjectile = true;
         projScript1.projectileColor = projScript1.colors[goopColor];
         projScript1.speed = tierOneKnightProjectileSpeed;
@@ -1257,13 +1262,25 @@ public class BaseGoop : MonoBehaviour
         if (gameHasStarted)
         {
             killSections[lastPlayerThatHitThis - 1].transform.GetChild(players[lastPlayerThatHitThis - 1].currentKills).GetComponent<Image>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+            killSections[lastPlayerThatHitThis - 1].transform.GetChild(players[lastPlayerThatHitThis - 1].currentKills).transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+            players[lastPlayerThatHitThis - 1].StartCoroutine(PlayHitParticles());
             players[lastPlayerThatHitThis - 1].currentKills++;
         }
         currentSpeed = reviveSpeed;
         mana -= manaLossOnDeath;
         anim.SetInteger("Class", 3);
         flashAnim.SetBool("Spawn", true);
-        yield return new WaitForSeconds(spawnTime);
+        if (gameHasStarted)
+        {
+            yield return new WaitForSeconds(spawnTime);
+        }
+        else
+        {
+            while (!GameplayController.countdownOver)
+            {
+                yield return null;
+            }
+        }
         flashAnim.SetBool("Spawn", false);
         int rand = Random.Range(0, 3);
         switch (rand)
@@ -1285,6 +1302,18 @@ public class BaseGoop : MonoBehaviour
             gameHasStarted = true;
         }
         isSpawning = false;
+    }
+
+    public IEnumerator PlayHitParticles()
+    {
+        Debug.Log(playerNum);
+        hitParticles.transform.SetParent(null);
+        var partMain = hitParticles.main;
+        partMain.startColor = basicProjectile.GetComponent<Projectile>().colors[goopColor];
+        hitParticles.Play();
+        yield return new WaitForSeconds(1f);
+        hitParticles.transform.position = this.transform.position;
+        hitParticles.transform.SetParent(this.transform);
     }
 
     //[REWIRED METHODS]

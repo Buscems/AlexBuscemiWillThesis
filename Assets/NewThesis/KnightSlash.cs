@@ -54,7 +54,7 @@ public class KnightSlash : MonoBehaviour
 
     public void SpawnSlash()
     {
-        thisPlayer.KnightProjectile();
+        thisPlayer.KnightProjectile(this.direction);
     }
 
     public void DestroyThisObject()
