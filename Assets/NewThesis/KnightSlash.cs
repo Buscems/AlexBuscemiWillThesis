@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicExplosion : MonoBehaviour
+public class KnightSlash : MonoBehaviour
 {
-
-    public int playerNum;
-    public ParticleSystem particles;
     [HideInInspector]
-    public bool tierTwo;
+    public BaseGoop thisPlayer;
+
+    [HideInInspector]
+    public int playerNum;
+
+    [HideInInspector]
+    public Vector2 direction;
 
     // Start is called before the first frame update
     void Start()
     {
-        var main = particles.main;
-        main.startColor = this.GetComponent<SpriteRenderer>().color;
+        if (direction == Vector2.zero)
+        {
+            direction = Vector2.down;
+        }
+        transform.up = -direction;
     }
 
     // Update is called once per frame
@@ -34,23 +40,24 @@ public class MagicExplosion : MonoBehaviour
                     var ps = collision.transform.parent.GetComponent<BaseGoop>();
                     if (!ps.hasBeenHit)
                     {
+                        ps.hitBySlash = true;
+                        ps.slashHitColor = this.GetComponent<SpriteRenderer>().color;
                         ps.lastPlayerThatHitThis = this.playerNum;
-                        if (!tierTwo)
-                        {
-                            ps.StartCoroutine(ps.GetHit(2));
-                        }
-                        else
-                        {
-                            ps.StartCoroutine(ps.GetHit(3));
-                        }
-                        ps.knockbackDirection = (collision.transform.position - transform.position).normalized;
+                        ps.StartCoroutine(ps.GetHit(0));
+                        ps.knockbackDirection = this.direction;
+                        thisPlayer.mana += thisPlayer.manaGainPerHit;
                     }
                 }
             }
         }
     }
 
-    public void DestroyThis()
+    public void SpawnSlash()
+    {
+        thisPlayer.KnightProjectile();
+    }
+
+    public void DestroyThisObject()
     {
         Destroy(this.gameObject);
     }

@@ -101,7 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentClass: 0
   thisPlayer: {fileID: 0}
+  rotationSpeed: -720
   magicExplosion: {fileID: 3412245740504644971, guid: 0b87c9eeccf264b978a8087deb25a7c5,
+    type: 3}
+  starExplosion: {fileID: 6351068128771966860, guid: df930ea11d1db4b779b785f0c5bfbf56,
     type: 3}
   speed: 0
   direction: {x: 0, y: 0}
@@ -120,8 +123,17 @@ MonoBehaviour:
   - {r: 0.85882354, g: 0.60784316, b: 0.32941177, a: 1}
   - {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 1}
   projectileColor: {r: 0, g: 0, b: 0, a: 0}
-  knightDistance: 7
-  rogueDistance: 4.5
+  outlineColors:
+  - {r: 1, g: 0.6313726, b: 0.6313726, a: 1}
+  - {r: 0.6313726, g: 1, b: 0.65882355, a: 1}
+  - {r: 0.6313726, g: 0.7411765, b: 1, a: 1}
+  - {r: 0.99607843, g: 1, b: 0.57254905, a: 1}
+  - {r: 1, g: 0.6313726, b: 0.8117647, a: 1}
+  - {r: 0.8666667, g: 0.5882353, b: 1, a: 1}
+  - {r: 1, g: 0.77254903, b: 0.52156866, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  knightDistance: 10
+  rogueDistance: 5
   witchDistance: 50
   tierTwoDistance: 15
   playerNum: 0

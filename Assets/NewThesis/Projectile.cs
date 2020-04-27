@@ -13,7 +13,10 @@ public class Projectile : MonoBehaviour
     public BaseGoop thisPlayer;
     bool tierTwo;
 
+    public float rotationSpeed;
+
     public GameObject magicExplosion;
+    public GameObject starExplosion;
 
     Animator anim;
     Rigidbody2D rb;
@@ -28,10 +31,13 @@ public class Projectile : MonoBehaviour
     public CircleCollider2D witchAttackCollider;
 
     public float knightScale;
+    public bool isKnightProjectile;
 
     public Color[] colors;
     [HideInInspector]
     public Color projectileColor;
+
+    public Color[] outlineColors;
 
     Vector2 distanceMoved;
     Vector2 startPoint;
@@ -56,7 +62,7 @@ public class Projectile : MonoBehaviour
         rogueAttackCollider.enabled = false;
         witchAttackCollider.enabled = false;
 
-        if (thisPlayer.tierTwo)
+        if (thisPlayer.tierTwo && !isKnightProjectile)
         {
             tierTwo = true;
         }
@@ -110,6 +116,12 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         distanceMoved = rb.position - startPoint;
+
+        if (tierTwo)
+        {
+            transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+        }
+
     }
 
     private void FixedUpdate()
@@ -188,6 +200,7 @@ public class Projectile : MonoBehaviour
                         {
                             classNumber = 3;
                         }
+                        ps.lastPlayerThatHitThis = this.playerNum;
                         ps.StartCoroutine(ps.GetHit(classNumber));
                         ps.knockbackDirection = this.direction;
                         if (!tierTwo)
@@ -224,6 +237,11 @@ public class Projectile : MonoBehaviour
             explosion.GetComponent<MagicExplosion>().playerNum = this.playerNum;
             explosion.GetComponent<SpriteRenderer>().color = projectileColor;
             explosion.GetComponent<MagicExplosion>().tierTwo = true;
+
+            var extraExplosion = Instantiate(starExplosion, transform.position, Quaternion.identity);
+            var extraExplosionMain = extraExplosion.GetComponent<ParticleSystem>().main; 
+            extraExplosionMain.startColor = outlineColors[thisPlayer.goopColor];
+
         }
     }
 
