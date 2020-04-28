@@ -30,7 +30,7 @@ public class CursorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class CursorController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + velocity * Time.deltaTime);
+        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
     }
 
     //[REWIRED METHODS]

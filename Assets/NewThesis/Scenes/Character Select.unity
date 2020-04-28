@@ -687,6 +687,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70818249}
   m_CullTransparentMesh: 0
+--- !u!1001 &185300206
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4175782807509571826, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_Name
+      value: Rewired Input Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571836, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571836, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571836, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571836, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571836, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571836, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571836, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571836, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571836, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571836, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571836, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee0f0b7b42a47dd43963cd6874e251fb, type: 3}
 --- !u!1 &191004306
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,7 +914,6 @@ GameObject:
   - component: {fileID: 258980051}
   - component: {fileID: 258980050}
   - component: {fileID: 258980049}
-  - component: {fileID: 258980048}
   m_Layer: 5
   m_Name: Player4Goop
   m_TagString: Untagged
@@ -872,22 +940,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &258980048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 258980046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be1dc4e525749440bcd4c973e86684d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  sr: {fileID: 258980049}
-  thisImage: {fileID: 258980051}
-  anim: {fileID: 258980050}
 --- !u!212 &258980049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1711,7 +1763,6 @@ GameObject:
   - component: {fileID: 378613888}
   - component: {fileID: 378613887}
   - component: {fileID: 378613886}
-  - component: {fileID: 378613885}
   m_Layer: 5
   m_Name: Player3Goop
   m_TagString: Untagged
@@ -1738,22 +1789,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &378613885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378613883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be1dc4e525749440bcd4c973e86684d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  sr: {fileID: 378613886}
-  thisImage: {fileID: 378613888}
-  anim: {fileID: 378613887}
 --- !u!212 &378613886
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2053,6 +2088,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430120172}
   m_CullTransparentMesh: 0
+--- !u!1 &443898606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 443898607}
+  m_Layer: 0
+  m_Name: CharacterSelectControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &443898607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443898606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.75318, y: -3.1521194, z: -134.81488}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &448375108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,6 +2359,8 @@ GameObject:
   - component: {fileID: 500422710}
   - component: {fileID: 500422712}
   - component: {fileID: 500422711}
+  - component: {fileID: 500422713}
+  - component: {fileID: 500422714}
   m_Layer: 5
   m_Name: P1 Pointer
   m_TagString: Untagged
@@ -2358,6 +2425,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500422709}
   m_CullTransparentMesh: 0
+--- !u!50 &500422713
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500422709}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &500422714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500422709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f868b028d848d84d8213d4f148337b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNum: 1
+  speed: 10
 --- !u!1 &540571407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2730,7 +2832,6 @@ GameObject:
   - component: {fileID: 683252853}
   - component: {fileID: 683252852}
   - component: {fileID: 683252851}
-  - component: {fileID: 683252850}
   m_Layer: 5
   m_Name: Player1Goop
   m_TagString: Untagged
@@ -2757,22 +2858,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &683252850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683252848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be1dc4e525749440bcd4c973e86684d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  sr: {fileID: 683252851}
-  thisImage: {fileID: 683252853}
-  anim: {fileID: 683252852}
 --- !u!212 &683252851
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3233,7 +3318,6 @@ GameObject:
   - component: {fileID: 918525290}
   - component: {fileID: 918525289}
   - component: {fileID: 918525288}
-  - component: {fileID: 918525287}
   m_Layer: 5
   m_Name: Player2Goop
   m_TagString: Untagged
@@ -3260,22 +3344,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &918525287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918525285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be1dc4e525749440bcd4c973e86684d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  sr: {fileID: 918525288}
-  thisImage: {fileID: 918525290}
-  anim: {fileID: 918525289}
 --- !u!212 &918525288
 SpriteRenderer:
   m_ObjectHideFlags: 0
