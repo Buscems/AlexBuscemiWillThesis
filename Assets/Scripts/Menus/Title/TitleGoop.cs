@@ -13,7 +13,7 @@ public class TitleGoop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 60);
+        Destroy(gameObject, 180);
         speed = Random.Range(speedMin, speedMax);
     }
 

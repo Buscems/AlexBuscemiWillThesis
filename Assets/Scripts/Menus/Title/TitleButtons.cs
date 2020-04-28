@@ -15,6 +15,10 @@ public class TitleButtons : MonoBehaviour
     public Animator fadeGame;
     public Animator fadeQuit;
 
+    public Animator camAnimator;
+
+    public GameObject cText, rText, oText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +36,11 @@ public class TitleButtons : MonoBehaviour
 
     public void StartButton()
     {
+        camAnimator.SetBool("Move", true);
+        //fadeGame.SetTrigger("Fade");
+    }
+
+    public void SetFade(){
         fadeGame.SetTrigger("Fade");
     }
 
@@ -42,7 +51,17 @@ public class TitleButtons : MonoBehaviour
 
     public void GoToGame()
     {
-        SceneManager.LoadScene("Pablo");
+        SceneManager.LoadScene("GameplayScene");
+    }
+
+    public void GoToRandomGame()
+    {
+        SceneManager.LoadScene("GameplayScene");
+    }
+
+    public void GoToOneForAllGame()
+    {
+        SceneManager.LoadScene("GameplayScene");
     }
 
     public void QuitGame()
@@ -63,7 +82,27 @@ public class TitleButtons : MonoBehaviour
 
     public void RestartGameScene()
     {
-        SceneManager.LoadScene("Pablo");
+        SceneManager.LoadScene("GameplayScene");
+    }
+
+    public void SetTextClassic(){
+        cText.SetActive(true);
+        rText.SetActive(false);
+        oText.SetActive(false);
+    }
+
+    public void SetTextRandom()
+    {
+        cText.SetActive(false);
+        rText.SetActive(true);
+        oText.SetActive(false);
+    }
+
+    public void SetTextOne()
+    {
+        cText.SetActive(false);
+        rText.SetActive(false);
+        oText.SetActive(true);
     }
 
 }
