@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 48882308}
   m_Layer: 0
   m_Name: Green
-  m_TagString: Untagged
+  m_TagString: Goop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +225,7 @@ Animator:
   m_GameObject: {fileID: 48882304}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 37354e4513ea9444281a2529fc5eb792, type: 2}
+  m_Controller: {fileID: 9100000, guid: 75c513fceb7954a91ac875b075c447f7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1689,7 +1689,7 @@ GameObject:
   - component: {fileID: 369086545}
   m_Layer: 0
   m_Name: Purple
-  m_TagString: Untagged
+  m_TagString: Goop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1704,7 +1704,7 @@ Animator:
   m_GameObject: {fileID: 369086541}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 506e28926b97544eea9bf81ed74f2ae8, type: 2}
+  m_Controller: {fileID: 9100000, guid: df2cfc451d1bb4b11845c9e1d3858d2f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2195,6 +2195,7 @@ MonoBehaviour:
   - {fileID: 1080943219}
   - {fileID: 682714980}
   - {fileID: 871282803}
+  readyText: {fileID: 52944476}
 --- !u!1 &448375108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,6 +2542,8 @@ MonoBehaviour:
   characterSelect: {fileID: 443898608}
   thisImage: {fileID: 500422711}
   thisText: {fileID: 1897753378}
+  currentGoopBox: {fileID: 0}
+  isReady: 0
 --- !u!58 &500422715
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2753,7 +2756,7 @@ GameObject:
   - component: {fileID: 647064406}
   m_Layer: 0
   m_Name: Pink
-  m_TagString: Untagged
+  m_TagString: Goop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2768,7 +2771,7 @@ Animator:
   m_GameObject: {fileID: 647064402}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ca12e881f885a45bb8fc31ef2a03cb65, type: 2}
+  m_Controller: {fileID: 9100000, guid: 58dcd23a9b0564f10a662c309d388732, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2963,6 +2966,8 @@ MonoBehaviour:
   characterSelect: {fileID: 0}
   thisImage: {fileID: 682714978}
   thisText: {fileID: 314553194}
+  currentGoopBox: {fileID: 0}
+  isReady: 0
 --- !u!50 &682714981
 Rigidbody2D:
   serializedVersion: 4
@@ -3524,6 +3529,8 @@ MonoBehaviour:
   characterSelect: {fileID: 0}
   thisImage: {fileID: 871282801}
   thisText: {fileID: 70818251}
+  currentGoopBox: {fileID: 0}
+  isReady: 0
 --- !u!50 &871282804
 Rigidbody2D:
   serializedVersion: 4
@@ -4177,6 +4184,8 @@ MonoBehaviour:
   characterSelect: {fileID: 0}
   thisImage: {fileID: 1080943217}
   thisText: {fileID: 1503419650}
+  currentGoopBox: {fileID: 0}
+  isReady: 0
 --- !u!50 &1080943220
 Rigidbody2D:
   serializedVersion: 4
@@ -4228,7 +4237,7 @@ GameObject:
   - component: {fileID: 1165402128}
   m_Layer: 0
   m_Name: Blue
-  m_TagString: Untagged
+  m_TagString: Goop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4243,7 +4252,7 @@ Animator:
   m_GameObject: {fileID: 1165402124}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eeb001b47101b4ea28c04e14399c129b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 02deaef51ae414f3c80bafeaf953acf6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4513,7 +4522,7 @@ GameObject:
   - component: {fileID: 1204475230}
   m_Layer: 0
   m_Name: Yellow
-  m_TagString: Untagged
+  m_TagString: Goop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4528,7 +4537,7 @@ Animator:
   m_GameObject: {fileID: 1204475226}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fedd1a1bc825e483d9059b1f7e2fa525, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0923143508c9045b390fd5c5ec288348, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4642,7 +4651,7 @@ GameObject:
   - component: {fileID: 1219857695}
   m_Layer: 0
   m_Name: Red
-  m_TagString: Untagged
+  m_TagString: Goop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4657,7 +4666,7 @@ Animator:
   m_GameObject: {fileID: 1219857691}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 10326c1f767bf4843aece97e16463dc2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 99cf392f74e0448f4a6c71572a4f4a68, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6235,7 +6244,7 @@ GameObject:
   - component: {fileID: 2034223518}
   m_Layer: 0
   m_Name: White
-  m_TagString: Untagged
+  m_TagString: Goop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6250,7 +6259,7 @@ Animator:
   m_GameObject: {fileID: 2034223514}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 236b477112bec4f8db3e5e7d6703a55c, type: 2}
+  m_Controller: {fileID: 9100000, guid: c0b9657fa6428456986e238d145c5ad4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6509,7 +6518,7 @@ GameObject:
   - component: {fileID: 2069590478}
   m_Layer: 0
   m_Name: Orange
-  m_TagString: Untagged
+  m_TagString: Goop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6524,7 +6533,7 @@ Animator:
   m_GameObject: {fileID: 2069590474}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aa9ae420644fd4ef8bb7cc8018b46ab8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 347009d26aeda4d1c9ac9789b84a09ff, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

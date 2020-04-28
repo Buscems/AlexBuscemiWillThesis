@@ -28,6 +28,12 @@ public class CursorController : MonoBehaviour
 
     GameObject currentGoop;
 
+    public BoxCollider2D currentGoopBox;
+
+    bool hasSelected;
+
+    public bool isReady;
+
     private void Awake()
     {
         //Rewired Code + Goop bois
@@ -56,29 +62,47 @@ public class CursorController : MonoBehaviour
             thisText.enabled = true;
         }
 
-        if(myPlayer.GetButtonDown("Select") && currentGoop != null)
+        if(myPlayer.GetButtonDown("Select") && currentGoop != null && !hasSelected)
         {
+            hasSelected = true;
+            this.transform.position = currentGoop.transform.position;
             characterSelect.SetCharacter(playerNum, currentGoop);
-            thisImage.enabled = false;
-            thisText.enabled = false;
-            Debug.Log("Ye");
+            currentGoopBox.enabled = false;
+        }
+        if (myPlayer.GetButtonDown("Back") && hasSelected)
+        {
+            characterSelect.UnSetCharacter(playerNum);
+            currentGoopBox.enabled = true;
+            hasSelected = false;
         }
 
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        if (!hasSelected)
+        {
+            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        currentGoop = collision.gameObject;
+        if (collision.gameObject.tag == "Goop")
+        {
+            currentGoop = collision.gameObject;
+            currentGoopBox = collision.GetComponent<BoxCollider2D>();
+            characterSelect.SetAnimator(playerNum, currentGoop);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         currentGoop = null;
+        if (!hasSelected)
+        {
+            currentGoopBox = null;
+        }
     }
 
     //[REWIRED METHODS]

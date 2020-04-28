@@ -11,6 +11,8 @@ public class CharacterSelectScreen : MonoBehaviour
 
     public CursorController[] players;
 
+    public GameObject readyText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,18 +20,48 @@ public class CharacterSelectScreen : MonoBehaviour
         {
             playerImages[i].enabled = false;
         }
+
+        readyText.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        int howManyAreReady = 0;
+        for(int i = 0; i < players.Length; i++)
+        {
+            if (players[i].isReady)
+            {
+                howManyAreReady++;
+            }
+        }
+
+        if(howManyAreReady >= 2)
+        {
+            readyText.SetActive(true);
+        }
+        else
+        {
+            readyText.SetActive(false);
+        }
+
+    }
+
+    public void SetAnimator(int playerNum, GameObject goop)
+    {
+        playerImages[playerNum - 1].gameObject.GetComponent<Animator>().runtimeAnimatorController = goop.GetComponent<Animator>().runtimeAnimatorController;
     }
 
     public void SetCharacter(int playerNum, GameObject goop)
     {
         playerImages[playerNum - 1].enabled = true;
-        playerImages[playerNum - 1].gameObject.GetComponent<Animator>().runtimeAnimatorController = goop.GetComponent<Animator>().runtimeAnimatorController;
+        PlayerPrefs.SetString("Player"+playerNum+"Color", goop.name);
+    }
+
+    public void UnSetCharacter(int playerNum)
+    {
+        playerImages[playerNum - 1].enabled = false;
     }
 
 }

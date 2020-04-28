@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boundaries
   - Attack
+  - Goop
   layers:
   - Default
   - TransparentFX
