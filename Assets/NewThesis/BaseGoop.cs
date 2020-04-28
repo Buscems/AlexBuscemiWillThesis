@@ -1264,7 +1264,7 @@ public class BaseGoop : MonoBehaviour
             tierTwo = false;
         }
         //adding kills to a player
-        if (gameHasStarted)
+        if (gameHasStarted && !lost)
         {
             killSections[lastPlayerThatHitThis - 1].transform.GetChild(players[lastPlayerThatHitThis - 1].currentKills).GetComponent<Image>().color = basicProjectile.GetComponent<Projectile>().colors[goopColor];
             killSections[lastPlayerThatHitThis - 1].transform.GetChild(players[lastPlayerThatHitThis - 1].currentKills).transform.GetChild(1).GetComponent<ParticleSystem>().Play();

@@ -12,12 +12,20 @@ public class GameplayController : MonoBehaviour
 
     public BaseGoop[] playersInGame;
 
+    public Camera playerCamera;
+
+    public GameObject confetti;
+
     [HideInInspector]
     public float distance;
 
     public float cameraSpeed;
 
+    public float cameraZoomSpeed;
+
     public float radius;
+
+    public int maxAmountOfKills;
 
     public Animator textFade;
 
@@ -43,6 +51,8 @@ public class GameplayController : MonoBehaviour
 
         origScale = transform.localScale.x;
 
+        confetti.SetActive(false);
+
         StartCoroutine(Countdown());
     }
 
@@ -67,7 +77,7 @@ public class GameplayController : MonoBehaviour
 
         for(int i = 0; i < playersInGame.Length; i++)
         {
-            if (playersInGame[i].currentKills >= 15)
+            if (playersInGame[i].currentKills >= maxAmountOfKills)
             {
                 gameEnd = true;
                 winningGoop = playersInGame[i];
@@ -105,38 +115,58 @@ public class GameplayController : MonoBehaviour
 
     void WinState(Transform player)
     {
-        canvasAnimator.SetTrigger("CanvasFade");
+        canvasAnimator.SetTrigger("FadeCanvas");
 
-        Debug.Log(player.gameObject.name);
-
-        for(int i = 0; i < playersInGame.Length; i++)
+        if (!confetti.activeSelf)
         {
-            if(playersInGame[i] != winningGoop)
+            confetti.SetActive(true);
+        }
+
+        for (int i = 0; i < playersInGame.Length; i++)
+        {
+            if (playersInGame[i] != winningGoop)
             {
                 playersInGame[i].lost = true;
-                playersInGame[i].StartCoroutine(playersInGame[i].SpawnPlayer());
+                if (!playersInGame[i].isSpawning)
+                {
+                    playersInGame[i].StartCoroutine(playersInGame[i].SpawnPlayer());
+                }
             }
         }
 
-        /*
+        
         Vector3 playerPos = player.position;
         distance = Vector2.Distance(playerPos, Camera.main.transform.position);
+
+        if(playerCamera.orthographicSize > 3)
+        {
+            playerCamera.orthographicSize -= cameraZoomSpeed * Time.deltaTime;
+        }
+        else
+        {
+            playerCamera.orthographicSize = 3;
+        }
 
         if (Mathf.Abs(distance) >= radius)
         {
 
             playerPos.z = -10;
-            Vector3 currentPos = transform.position;
+            Vector3 currentPos = Camera.main.transform.position;
             currentPos.z = -10;
 
-            transform.position = Vector3.Slerp(currentPos, playerPos, player.transform.parent.transform.parent.GetComponent<BaseGoop>().speed * cameraSpeed * Time.fixedDeltaTime);
+            playerCamera.transform.position = Vector3.Slerp(currentPos, playerPos, player.GetComponent<BaseGoop>().speed * cameraSpeed * Time.fixedDeltaTime);
         }
-        */
+
+        countdown.color = winningGoop.basicProjectile.GetComponent<Projectile>().colors[winningGoop.goopColor];
+        countdown.text = "Player " + winningGoop.playerNum + " Wins";
+        //equationTime = 0;
+        textFade.SetTrigger("FadeIn");
+        
     }
 
     void TurnThisOff()
     {
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
 
 }
