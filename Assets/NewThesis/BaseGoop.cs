@@ -170,6 +170,9 @@ public class BaseGoop : MonoBehaviour
     [HideInInspector]
     public int currentKills;
 
+    [HideInInspector]
+    public bool lost;
+
     private void Awake()
     {
         //Rewired Code + Goop bois
@@ -1248,7 +1251,7 @@ public class BaseGoop : MonoBehaviour
         slashHitSprite.SetActive(false);
     }
 
-    IEnumerator SpawnPlayer()
+    public IEnumerator SpawnPlayer()
     {   
         isSpawning = true;
         if (tierTwo)
@@ -1272,6 +1275,10 @@ public class BaseGoop : MonoBehaviour
         mana -= manaLossOnDeath;
         anim.SetInteger("Class", 3);
         flashAnim.SetBool("Spawn", true);
+        while (lost)
+        {
+            yield return null;
+        }
         if (gameHasStarted)
         {
             yield return new WaitForSeconds(spawnTime);

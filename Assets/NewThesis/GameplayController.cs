@@ -12,6 +12,13 @@ public class GameplayController : MonoBehaviour
 
     public BaseGoop[] playersInGame;
 
+    [HideInInspector]
+    public float distance;
+
+    public float cameraSpeed;
+
+    public float radius;
+
     public Animator textFade;
 
     public Animator canvasAnimator;
@@ -24,6 +31,10 @@ public class GameplayController : MonoBehaviour
 
     float equationTime;
     float origScale;
+
+    bool gameEnd;
+
+    BaseGoop winningGoop;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +64,21 @@ public class GameplayController : MonoBehaviour
         {
             transform.localScale = new Vector2(origScale + (equationAdd / 1.8f), 0.5f);
         }
+
+        for(int i = 0; i < playersInGame.Length; i++)
+        {
+            if (playersInGame[i].currentKills >= 15)
+            {
+                gameEnd = true;
+                winningGoop = playersInGame[i];
+            }
+        }
+
+        if (gameEnd)
+        {
+            WinState(winningGoop.transform);
+        }
+
     }
 
     IEnumerator Countdown()
@@ -77,9 +103,35 @@ public class GameplayController : MonoBehaviour
         textFade.SetTrigger("Fade");
     }
 
-    void WinCamera(int playerNumber)
+    void WinState(Transform player)
     {
         canvasAnimator.SetTrigger("CanvasFade");
+
+        Debug.Log(player.gameObject.name);
+
+        for(int i = 0; i < playersInGame.Length; i++)
+        {
+            if(playersInGame[i] != winningGoop)
+            {
+                playersInGame[i].lost = true;
+                playersInGame[i].StartCoroutine(playersInGame[i].SpawnPlayer());
+            }
+        }
+
+        /*
+        Vector3 playerPos = player.position;
+        distance = Vector2.Distance(playerPos, Camera.main.transform.position);
+
+        if (Mathf.Abs(distance) >= radius)
+        {
+
+            playerPos.z = -10;
+            Vector3 currentPos = transform.position;
+            currentPos.z = -10;
+
+            transform.position = Vector3.Slerp(currentPos, playerPos, player.transform.parent.transform.parent.GetComponent<BaseGoop>().speed * cameraSpeed * Time.fixedDeltaTime);
+        }
+        */
     }
 
     void TurnThisOff()
