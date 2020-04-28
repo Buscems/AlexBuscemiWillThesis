@@ -209,6 +209,7 @@ public class BaseGoop : MonoBehaviour
 
         //poof timer
         currentPoofTimer = maxPoofTime;
+
     }
 
     // Update is called once per frame
@@ -443,7 +444,7 @@ public class BaseGoop : MonoBehaviour
                 anim.SetInteger("Class", 2);
                 break;
         }
-        if (!isSwitching)
+        if (!isSwitching && GameplayController.classic)
         {
             if (myPlayer.GetButtonDown("SwitchRight"))
             {
@@ -487,6 +488,25 @@ public class BaseGoop : MonoBehaviour
             tierTwo = false;
         }
 
+    }
+
+    public void SwitchRandomClass(int newClass)
+    {
+        switch (newClass)
+        {
+            case 0:
+                currentClass = Class.Knight;
+                break;
+            case 1:
+                currentClass = Class.Rogue;
+                break;
+            case 2:
+                currentClass = Class.Witch;
+                break;
+        }
+        var poof = Instantiate(swapPuff, transform.position, Quaternion.identity);
+        var poofMain = poof.GetComponent<ParticleSystem>().main;
+        poofMain.startColor = basicProjectile.GetComponent<Projectile>().colors[goopColor];
     }
 
     IEnumerator SwitchClass(int direction)
@@ -1291,18 +1311,52 @@ public class BaseGoop : MonoBehaviour
             }
         }
         flashAnim.SetBool("Spawn", false);
-        int rand = Random.Range(0, 3);
-        switch (rand)
+        if (GameplayController.classic)
         {
-            case 0:
-                currentClass = Class.Knight;
-                break;
-            case 1:
-                currentClass = Class.Rogue;
-                break;
-            case 2:
-                currentClass = Class.Witch;
-                break;
+            int rand = Random.Range(0, 3);
+            switch (rand)
+            {
+                case 0:
+                    currentClass = Class.Knight;
+                    break;
+                case 1:
+                    currentClass = Class.Rogue;
+                    break;
+                case 2:
+                    currentClass = Class.Witch;
+                    break;
+            }
+        }
+        else
+        {
+            switch (GameplayController.gameClass)
+            {
+                case 0:
+                    currentClass = Class.Knight;
+                    break;
+                case 1:
+                    currentClass = Class.Rogue;
+                    break;
+                case 2:
+                    currentClass = Class.Witch;
+                    break;
+            }
+        }
+        if(GameplayController.random && !gameHasStarted)
+        {
+            int rand = Random.Range(0, 3);
+            switch (rand)
+            {
+                case 0:
+                    currentClass = Class.Knight;
+                    break;
+                case 1:
+                    currentClass = Class.Rogue;
+                    break;
+                case 2:
+                    currentClass = Class.Witch;
+                    break;
+            }
         }
         health = maxHealth;
         currentSpeed = speed;

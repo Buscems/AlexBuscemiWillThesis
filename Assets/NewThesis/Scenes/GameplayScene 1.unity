@@ -25560,7 +25560,7 @@ MonoBehaviour:
   minCameraSize: 6
   maxCameraSize: 16
   radius: 1
-  maxAmountOfKills: 1
+  maxAmountOfKills: 10
   textFade: {fileID: 470630616}
   winTextFade: {fileID: 532753382}
   fadeToTitle: {fileID: 1607600037}

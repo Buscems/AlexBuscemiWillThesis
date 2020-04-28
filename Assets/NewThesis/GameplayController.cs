@@ -62,6 +62,11 @@ public class GameplayController : MonoBehaviour
 
     BaseGoop winningGoop;
 
+    public static bool classic;
+    public static bool random;
+    public static bool oneForAll;
+    public static int gameClass;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,6 +87,11 @@ public class GameplayController : MonoBehaviour
                 playerUI[i].SetActive(false);
             }
         }
+
+        classic = false;
+        random = true;
+        oneForAll = false;
+        gameClass = 0;
 
         StartCoroutine(Countdown());
     }
@@ -156,9 +166,51 @@ public class GameplayController : MonoBehaviour
         equationTime = 0;
         countdown.text = "Fight";
         countdown.color = playersInGame[0].basicProjectile.GetComponent<Projectile>().colors[playersInGame[0].goopColor];
+
         countdownOver = true;
         yield return new WaitForSeconds(.25f);
+
         textFade.SetTrigger("Fade");
+
+        if (random)
+        {
+            StartCoroutine(RandomClassChange());
+        }
+
+    }
+
+    IEnumerator RandomClassChange()
+    {
+        yield return new WaitForSeconds(7);
+        textFade.SetTrigger("FadeIn");
+        equationTime = 0;
+        countdown.text = "3";
+        if (amountOfPlayers > 3)
+        {
+            countdown.color = playersInGame[3].basicProjectile.GetComponent<Projectile>().colors[playersInGame[3].goopColor];
+        }
+        yield return new WaitForSeconds(1);
+        equationTime = 0;
+        countdown.text = "2";
+        if (amountOfPlayers > 2)
+        {
+            countdown.color = playersInGame[2].basicProjectile.GetComponent<Projectile>().colors[playersInGame[2].goopColor];
+        }
+        yield return new WaitForSeconds(1);
+        equationTime = 0;
+        countdown.text = "1";
+        countdown.color = playersInGame[1].basicProjectile.GetComponent<Projectile>().colors[playersInGame[1].goopColor];
+        yield return new WaitForSeconds(1);
+        equationTime = 0;
+        countdown.text = "Switch";
+        countdown.color = playersInGame[0].basicProjectile.GetComponent<Projectile>().colors[playersInGame[0].goopColor];
+        for(int i = 0; i < amountOfPlayers; i++)
+        {
+            gameClass = Random.Range(0, 3);
+            playersInGame[i].SwitchRandomClass(gameClass);
+        }
+        textFade.SetTrigger("Fade");
+        StartCoroutine(RandomClassChange());
     }
 
     void WinState(Transform player)
