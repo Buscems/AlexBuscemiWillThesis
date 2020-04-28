@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using Rewired.ControllerExtensions;
+using UnityEngine.UI;
+using TMPro;
 
 public class CursorController : MonoBehaviour
 {
@@ -19,6 +21,13 @@ public class CursorController : MonoBehaviour
     public float speed;
     Vector2 velocity;
 
+    public CharacterSelectScreen characterSelect;
+
+    public Image thisImage;
+    public TextMeshProUGUI thisText;
+
+    GameObject currentGoop;
+
     private void Awake()
     {
         //Rewired Code + Goop bois
@@ -30,6 +39,8 @@ public class CursorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        thisImage.enabled = false;
+        thisText.enabled = false;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -39,11 +50,34 @@ public class CursorController : MonoBehaviour
 
         velocity = new Vector2(myPlayer.GetAxis("MoveHorizontal"), myPlayer.GetAxis("MoveVertical")) * speed;
         
+        if(Mathf.Abs(velocity.x) > 0 || Mathf.Abs(velocity.y) > 0 && !thisText.enabled)
+        {
+            thisImage.enabled = true;
+            thisText.enabled = true;
+        }
+
+        if(myPlayer.GetButtonDown("Select") && currentGoop != null)
+        {
+            characterSelect.SetCharacter(playerNum, currentGoop);
+            thisImage.enabled = false;
+            thisText.enabled = false;
+        }
+
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        currentGoop = collision.gameObject;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        currentGoop = null;
     }
 
     //[REWIRED METHODS]

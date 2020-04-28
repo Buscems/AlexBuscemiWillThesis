@@ -14,6 +14,8 @@ public class UIGoop : MonoBehaviour
 
     public Animator anim;
 
+    public bool characterSelect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +25,15 @@ public class UIGoop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        anim.runtimeAnimatorController = player.thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController;
-
-        if (!player.tierTwo)
+        if (!characterSelect)
         {
-            anim.SetInteger("Class", player.thisTierOneGoop.GetComponent<Animator>().GetInteger("Class"));
-        }
+            anim.runtimeAnimatorController = player.thisTierOneGoop.GetComponent<Animator>().runtimeAnimatorController;
 
+            if (!player.tierTwo)
+            {
+                anim.SetInteger("Class", player.thisTierOneGoop.GetComponent<Animator>().GetInteger("Class"));
+            }
+        }
         thisImage.sprite = sr.sprite;
     }
 }
