@@ -11,6 +11,7 @@ public class TitleButtons : MonoBehaviour
 
     public EventSystem es;
     public GameObject startButton;
+    public GameObject classicButton;
 
     public Animator fadeGame;
     public Animator fadeQuit;
@@ -51,17 +52,17 @@ public class TitleButtons : MonoBehaviour
 
     public void GoToGame()
     {
-        SceneManager.LoadScene("GameplayScene");
+        SceneManager.LoadScene("GameplayScene 1");
     }
 
     public void GoToRandomGame()
     {
-        SceneManager.LoadScene("GameplayScene");
+        SceneManager.LoadScene("GameplayScene 1");
     }
 
     public void GoToOneForAllGame()
     {
-        SceneManager.LoadScene("GameplayScene");
+        SceneManager.LoadScene("GameplayScene 1");
     }
 
     public void QuitGame()
@@ -74,6 +75,16 @@ public class TitleButtons : MonoBehaviour
         es.SetSelectedGameObject(startButton);
     }
 
+    public void SetButtonNull()
+    {
+        es.SetSelectedGameObject(null);
+    }
+
+    public void SetButtonClassic()
+    {
+        es.SetSelectedGameObject(classicButton);
+    }
+
     public void QuitToMenu()
     {
         Time.timeScale = 1;
@@ -82,7 +93,7 @@ public class TitleButtons : MonoBehaviour
 
     public void RestartGameScene()
     {
-        SceneManager.LoadScene("GameplayScene");
+        SceneManager.LoadScene("GameplayScene 1");
     }
 
     public void SetTextClassic(){
@@ -105,4 +116,15 @@ public class TitleButtons : MonoBehaviour
         oText.SetActive(true);
     }
 
+    public void HowToPlayOn(){
+        camAnimator.SetBool("HowToPlay", true);
+    }
+    public void HowToPlayOff()
+    {
+        camAnimator.SetBool("HowToPlay", false);
+    }
+
+    public void MoveOff(){
+        camAnimator.SetBool("Move", false);
+    }
 }
