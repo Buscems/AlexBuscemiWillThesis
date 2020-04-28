@@ -295,6 +295,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   isMoving: 0
+  anim: {fileID: 0}
   speed: 7
   tierTwoSpeed: 9
   reviveSpeed: 2
@@ -334,6 +335,7 @@ MonoBehaviour:
   tierTwo: 0
   tierTwoStars: {fileID: 184692645253645080}
   switchCooldown: 3
+  isSwitching: 0
   maxHealth: 100
   invincibilityTime: 0.8
   killSections:

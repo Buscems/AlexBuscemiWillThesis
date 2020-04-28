@@ -14,6 +14,8 @@ public class GameplayController : MonoBehaviour
 
     public Animator textFade;
 
+    public Animator canvasAnimator;
+
     [Header("Easing Variables")]
     public float rippleSpeed;
     public float lengthOfRipple;
@@ -75,9 +77,9 @@ public class GameplayController : MonoBehaviour
         textFade.SetTrigger("Fade");
     }
 
-    void WinCamera()
+    void WinCamera(int playerNumber)
     {
-
+        canvasAnimator.SetTrigger("CanvasFade");
     }
 
     void TurnThisOff()

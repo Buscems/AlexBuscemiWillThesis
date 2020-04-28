@@ -39,7 +39,8 @@ public class BaseGoop : MonoBehaviour
     public Vector2 velocity;
     [HideInInspector]
     public bool isMoving;
-    Animator anim;
+    [HideInInspector]
+    public Animator anim;
     public float speed;
     public float tierTwoSpeed;
     public float reviveSpeed;
@@ -97,7 +98,8 @@ public class BaseGoop : MonoBehaviour
 
     [Header("Switching Classes")]
     public float switchCooldown;
-    bool isSwitching;
+    [HideInInspector]
+    public bool isSwitching;
 
     [Header("Getting Hit")]
     public int maxHealth;
