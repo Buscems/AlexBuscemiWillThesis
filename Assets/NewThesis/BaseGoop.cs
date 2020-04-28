@@ -1320,7 +1320,6 @@ public class BaseGoop : MonoBehaviour
 
     public IEnumerator PlayHitParticles()
     {
-        Debug.Log(playerNum);
         hitParticles.transform.SetParent(null);
         var partMain = hitParticles.main;
         partMain.startColor = basicProjectile.GetComponent<Projectile>().colors[goopColor];

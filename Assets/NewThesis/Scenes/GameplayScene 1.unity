@@ -6465,8 +6465,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6574,12 +6574,23 @@ MonoBehaviour:
   - {fileID: 1857203072}
   - {fileID: 1069190852}
   - {fileID: 1455126356}
+  amountOfPlayers: 4
+  playerUI:
+  - {fileID: 1798384981}
+  - {fileID: 265197751}
+  - {fileID: 1610855835}
+  - {fileID: 1809009164}
   playerCamera: {fileID: 52642295}
   confetti: {fileID: 991457048}
   distance: 0
+  lowPos: {x: 0, y: 0}
+  highPos: {x: 0, y: 0}
+  posX: []
+  posY: []
   cameraSpeed: 0.5
+  cameraWinSpeed: 0.1
   cameraZoomSpeed: 8
-  radius: 0.2
+  radius: 1
   maxAmountOfKills: 1
   textFade: {fileID: 470630616}
   canvasAnimator: {fileID: 35381937}

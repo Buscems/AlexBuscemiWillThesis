@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class GameplayController : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameplayController : MonoBehaviour
     public static bool countdownOver;
 
     public BaseGoop[] playersInGame;
+    public int amountOfPlayers;
+
+    public GameObject[] playerUI;
 
     public Camera playerCamera;
 
@@ -19,7 +23,12 @@ public class GameplayController : MonoBehaviour
     [HideInInspector]
     public float distance;
 
+    public Vector2 lowPos, highPos;
+    public float[] posX;
+    public float[] posY;
+
     public float cameraSpeed;
+    public float cameraWinSpeed;
 
     public float cameraZoomSpeed;
 
@@ -52,6 +61,18 @@ public class GameplayController : MonoBehaviour
         origScale = transform.localScale.x;
 
         confetti.SetActive(false);
+
+        posX = new float[amountOfPlayers];
+        posY = new float[amountOfPlayers];
+
+        for(int i = 0; i < playersInGame.Length; i++)
+        {
+            if(i > amountOfPlayers - 1)
+            {
+                playersInGame[i].gameObject.SetActive(false);
+                playerUI[i].SetActive(false);
+            }
+        }
 
         StartCoroutine(Countdown());
     }
@@ -88,6 +109,10 @@ public class GameplayController : MonoBehaviour
         {
             WinState(winningGoop.transform);
         }
+        else
+        {
+            DynamicCamera();
+        }
 
     }
 
@@ -95,11 +120,17 @@ public class GameplayController : MonoBehaviour
     {
         equationTime = 0;
         countdown.text = "3";
-        countdown.color = playersInGame[3].basicProjectile.GetComponent<Projectile>().colors[playersInGame[3].goopColor];
+        if (amountOfPlayers > 3)
+        {
+            countdown.color = playersInGame[3].basicProjectile.GetComponent<Projectile>().colors[playersInGame[3].goopColor];
+        }
         yield return new WaitForSeconds(1);
         equationTime = 0;
         countdown.text = "2";
-        countdown.color = playersInGame[2].basicProjectile.GetComponent<Projectile>().colors[playersInGame[2].goopColor];
+        if (amountOfPlayers > 2)
+        {
+            countdown.color = playersInGame[2].basicProjectile.GetComponent<Projectile>().colors[playersInGame[2].goopColor];
+        }
         yield return new WaitForSeconds(1);
         equationTime = 0;
         countdown.text = "1";
@@ -122,7 +153,7 @@ public class GameplayController : MonoBehaviour
             confetti.SetActive(true);
         }
 
-        for (int i = 0; i < playersInGame.Length; i++)
+        for (int i = 0; i < amountOfPlayers; i++)
         {
             if (playersInGame[i] != winningGoop)
             {
@@ -138,29 +169,53 @@ public class GameplayController : MonoBehaviour
         Vector3 playerPos = player.position;
         distance = Vector2.Distance(playerPos, Camera.main.transform.position);
 
-        if(playerCamera.orthographicSize > 3)
+        if(playerCamera.orthographicSize > 5)
         {
             playerCamera.orthographicSize -= cameraZoomSpeed * Time.deltaTime;
         }
         else
         {
-            playerCamera.orthographicSize = 3;
+            playerCamera.orthographicSize = 5;
         }
 
         if (Mathf.Abs(distance) >= radius)
         {
-
             playerPos.z = -10;
             Vector3 currentPos = Camera.main.transform.position;
             currentPos.z = -10;
 
-            playerCamera.transform.position = Vector3.Slerp(currentPos, playerPos, player.GetComponent<BaseGoop>().speed * cameraSpeed * Time.fixedDeltaTime);
+            playerCamera.transform.position = Vector3.Slerp(currentPos, playerPos, cameraWinSpeed * Time.fixedDeltaTime);
         }
+        
 
         countdown.color = winningGoop.basicProjectile.GetComponent<Projectile>().colors[winningGoop.goopColor];
         countdown.text = "Player " + winningGoop.playerNum + " Wins";
         //equationTime = 0;
         textFade.SetTrigger("FadeIn");
+    }
+
+    void DynamicCamera()
+    {
+
+        for (int i = 0; i < amountOfPlayers; i++)
+        {
+
+            posX[i] = playersInGame[i].transform.position.x;
+            posY[i] = playersInGame[i].transform.position.y;
+
+        }
+
+        float middleX = ((posX.Max() - posX.Min()) / 2) + posX.Min();
+        float middleY = ((posY.Max() - posY.Min()) / 2) + posY.Min();
+
+
+        Vector3 newPos = new Vector2(middleX, middleY);
+
+        newPos.z = -10;
+        Vector3 currentPos = Camera.main.transform.position;
+        currentPos.z = -10;
+
+        playerCamera.transform.position = Vector3.Slerp(currentPos, newPos, cameraSpeed * Time.fixedDeltaTime);
         
     }
 
