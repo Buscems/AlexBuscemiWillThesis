@@ -263,7 +263,7 @@ public class BaseGoop : MonoBehaviour
             }
         }
 
-        if (GameplayController.countdownOver)
+        if (GameplayController.countdownOver && !GameplayController.gameEnd)
         {
             Pause();
         }

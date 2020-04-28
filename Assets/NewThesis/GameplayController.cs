@@ -4,11 +4,13 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 public class GameplayController : MonoBehaviour
 {
 
     public TextMeshProUGUI countdown;
+    public TextMeshProUGUI winText;
 
     public static bool countdownOver;
 
@@ -42,6 +44,8 @@ public class GameplayController : MonoBehaviour
     public int maxAmountOfKills;
 
     public Animator textFade;
+    public Animator winTextFade;
+    public Animator fadeToTitle;
 
     public Animator canvasAnimator;
 
@@ -54,7 +58,7 @@ public class GameplayController : MonoBehaviour
     float equationTime;
     float origScale;
 
-    bool gameEnd;
+    public static bool gameEnd;
 
     BaseGoop winningGoop;
 
@@ -179,8 +183,17 @@ public class GameplayController : MonoBehaviour
         }
         countdown.color = winningGoop.basicProjectile.GetComponent<Projectile>().colors[winningGoop.goopColor];
         countdown.text = "Player " + winningGoop.playerNum + " Wins";
+        winText.color = winningGoop.basicProjectile.GetComponent<Projectile>().colors[winningGoop.goopColor];
+        winText.text = "Press Start to go back to title";
         //equationTime = 0;
         textFade.SetTrigger("FadeIn");
+        winTextFade.SetTrigger("Fade");
+
+        if (winningGoop.myPlayer.GetButtonDown("Pause"))
+        {
+            fadeToTitle.SetTrigger("Fade");
+        }
+
     }
 
     void WinStateFixed(Transform player)

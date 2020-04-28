@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: sjonarbok_classic
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -498645290
   material: {fileID: -5981719181107171022}
-  materialHashCode: 0
+  materialHashCode: -1994818147
   m_Version: 1.1.0
   m_SourceFontFileGUID: 5e3126d10ff864342b4fc02d61fb0d1b
   m_SourceFontFile_EditorRef: {fileID: 0}
@@ -78,7 +78,7 @@ MonoBehaviour:
     m_SubscriptSize: 0.5
     m_UnderlineOffset: 8.196289
     m_UnderlineThickness: 5.428711
-    m_StrikethroughOffset: 0
+    m_StrikethroughOffset: 19.2
     m_StrikethroughThickness: 5.428711
     m_TabWidth: 14
   m_GlyphTable:
