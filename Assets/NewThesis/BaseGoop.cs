@@ -920,10 +920,12 @@ public class BaseGoop : MonoBehaviour
     void GoopSetter()
     {
         //for test
+        /*
         PlayerPrefs.SetString("Player1Color", "Red");
         PlayerPrefs.SetString("Player2Color", "Green");
         PlayerPrefs.SetString("Player3Color", "Blue");
         PlayerPrefs.SetString("Player4Color", "Yellow");
+        */
         switch (playerNum)
         {
             case 1:

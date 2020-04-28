@@ -88,9 +88,24 @@ public class GameplayController : MonoBehaviour
             }
         }
 
-        classic = false;
-        random = true;
-        oneForAll = false;
+        switch (PlayerPrefs.GetInt("GameMode"))
+        {
+            case 0:
+                classic = true;
+                random = false;
+                oneForAll = false;
+                break;
+            case 1:
+                classic = false;
+                random = true;
+                oneForAll = false;
+                break;
+            case 2:
+                classic = false;
+                random = false;
+                oneForAll = true;
+                break;
+        }
         gameClass = 0;
 
         StartCoroutine(Countdown());
