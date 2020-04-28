@@ -33,7 +33,11 @@ public class UIGoop : MonoBehaviour
             {
                 anim.SetInteger("Class", player.thisTierOneGoop.GetComponent<Animator>().GetInteger("Class"));
             }
+            thisImage.sprite = sr.sprite;
         }
-        thisImage.sprite = sr.sprite;
+        else
+        {
+            thisImage.sprite = sr.sprite;
+        }
     }
 }

@@ -20827,7 +20827,6 @@ GameObject:
   m_Component:
   - component: {fileID: 220825030}
   - component: {fileID: 220825031}
-  - component: {fileID: 220825032}
   m_Layer: 17
   m_Name: PostProcessing
   m_TagString: Untagged
@@ -20866,25 +20865,6 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
---- !u!95 &220825032
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220825029}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 09a003dd19546784ca9071ff2f9e971b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &222798072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22698,6 +22678,7 @@ MonoBehaviour:
   sr: {fileID: 377350220}
   thisImage: {fileID: 377350217}
   anim: {fileID: 377350219}
+  characterSelect: 0
 --- !u!1001 &378965795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26462,6 +26443,7 @@ MonoBehaviour:
   sr: {fileID: 663483146}
   thisImage: {fileID: 663483148}
   anim: {fileID: 663483147}
+  characterSelect: 0
 --- !u!212 &663483146
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42944,6 +42926,7 @@ MonoBehaviour:
   sr: {fileID: 1065907430}
   thisImage: {fileID: 1065907432}
   anim: {fileID: 1065907431}
+  characterSelect: 0
 --- !u!212 &1065907430
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -45831,6 +45814,7 @@ MonoBehaviour:
   sr: {fileID: 1327819459}
   thisImage: {fileID: 1327819461}
   anim: {fileID: 1327819460}
+  characterSelect: 0
 --- !u!212 &1327819459
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: VeniceClassic Material
-  m_Shader: {fileID: 4800000, guid: 48bb5f55d8670e349b6e614913f9d910, type: 3}
+  m_Shader: {fileID: 4800000, guid: 128e987d567d4e2c824d754223b3f3b0, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

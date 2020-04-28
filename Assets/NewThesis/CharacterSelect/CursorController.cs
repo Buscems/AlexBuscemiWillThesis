@@ -61,6 +61,7 @@ public class CursorController : MonoBehaviour
             characterSelect.SetCharacter(playerNum, currentGoop);
             thisImage.enabled = false;
             thisText.enabled = false;
+            Debug.Log("Ye");
         }
 
     }
