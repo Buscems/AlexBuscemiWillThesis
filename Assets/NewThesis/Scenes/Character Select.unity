@@ -941,6 +941,7 @@ GameObject:
   - component: {fileID: 258980051}
   - component: {fileID: 258980050}
   - component: {fileID: 258980049}
+  - component: {fileID: 258980048}
   m_Layer: 5
   m_Name: Player4Goop
   m_TagString: Untagged
@@ -967,6 +968,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &258980048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258980046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be1dc4e525749440bcd4c973e86684d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  sr: {fileID: 258980049}
+  thisImage: {fileID: 258980051}
+  anim: {fileID: 0}
+  characterSelect: 1
 --- !u!212 &258980049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1391,7 +1409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &338725055
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1817,6 +1835,7 @@ GameObject:
   - component: {fileID: 378613888}
   - component: {fileID: 378613887}
   - component: {fileID: 378613886}
+  - component: {fileID: 378613885}
   m_Layer: 5
   m_Name: Player3Goop
   m_TagString: Untagged
@@ -1843,6 +1862,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &378613885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378613883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be1dc4e525749440bcd4c973e86684d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  sr: {fileID: 378613886}
+  thisImage: {fileID: 378613888}
+  anim: {fileID: 0}
+  characterSelect: 1
 --- !u!212 &378613886
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2195,7 +2231,7 @@ MonoBehaviour:
   - {fileID: 1080943219}
   - {fileID: 682714980}
   - {fileID: 871282803}
-  readyText: {fileID: 52944476}
+  readyText: {fileID: 52944474}
 --- !u!1 &448375108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,6 +2580,7 @@ MonoBehaviour:
   thisText: {fileID: 1897753378}
   currentGoopBox: {fileID: 0}
   isReady: 0
+  readyText: {fileID: 963279790}
 --- !u!58 &500422715
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2963,11 +3000,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: 3
   speed: 10
-  characterSelect: {fileID: 0}
+  characterSelect: {fileID: 443898608}
   thisImage: {fileID: 682714978}
   thisText: {fileID: 314553194}
   currentGoopBox: {fileID: 0}
   isReady: 0
+  readyText: {fileID: 338725054}
 --- !u!50 &682714981
 Rigidbody2D:
   serializedVersion: 4
@@ -3222,7 +3260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &811173787
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3526,11 +3564,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: 4
   speed: 10
-  characterSelect: {fileID: 0}
+  characterSelect: {fileID: 443898608}
   thisImage: {fileID: 871282801}
   thisText: {fileID: 70818251}
   currentGoopBox: {fileID: 0}
   isReady: 0
+  readyText: {fileID: 1608389664}
 --- !u!50 &871282804
 Rigidbody2D:
   serializedVersion: 4
@@ -3581,6 +3620,7 @@ GameObject:
   - component: {fileID: 918525290}
   - component: {fileID: 918525289}
   - component: {fileID: 918525288}
+  - component: {fileID: 918525287}
   m_Layer: 5
   m_Name: Player2Goop
   m_TagString: Untagged
@@ -3607,6 +3647,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &918525287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918525285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be1dc4e525749440bcd4c973e86684d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  sr: {fileID: 918525288}
+  thisImage: {fileID: 918525290}
+  anim: {fileID: 0}
+  characterSelect: 1
 --- !u!212 &918525288
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3730,7 +3787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &963279791
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4181,11 +4238,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: 2
   speed: 10
-  characterSelect: {fileID: 0}
+  characterSelect: {fileID: 443898608}
   thisImage: {fileID: 1080943217}
   thisText: {fileID: 1503419650}
   currentGoopBox: {fileID: 0}
   isReady: 0
+  readyText: {fileID: 811173786}
 --- !u!50 &1080943220
 Rigidbody2D:
   serializedVersion: 4
@@ -5267,7 +5325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1608389665
 RectTransform:
   m_ObjectHideFlags: 0

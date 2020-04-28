@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharacterSelectScreen : MonoBehaviour
@@ -40,6 +41,13 @@ public class CharacterSelectScreen : MonoBehaviour
         if(howManyAreReady >= 2)
         {
             readyText.SetActive(true);
+            for(int i = 0; i < players.Length; i++)
+            {
+                if (players[i].myPlayer.GetButtonDown("Pause"))
+                {
+                    SceneManager.LoadScene("GameplayScene 1");
+                }
+            }
         }
         else
         {

@@ -34,6 +34,8 @@ public class CursorController : MonoBehaviour
 
     public bool isReady;
 
+    public GameObject readyText;
+
     private void Awake()
     {
         //Rewired Code + Goop bois
@@ -48,6 +50,7 @@ public class CursorController : MonoBehaviour
         thisImage.enabled = false;
         thisText.enabled = false;
         rb = GetComponent<Rigidbody2D>();
+        readyText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -67,12 +70,16 @@ public class CursorController : MonoBehaviour
             hasSelected = true;
             this.transform.position = currentGoop.transform.position;
             characterSelect.SetCharacter(playerNum, currentGoop);
+            readyText.SetActive(true);
+            isReady = true;
             currentGoopBox.enabled = false;
         }
         if (myPlayer.GetButtonDown("Back") && hasSelected)
         {
             characterSelect.UnSetCharacter(playerNum);
             currentGoopBox.enabled = true;
+            readyText.SetActive(false);
+            isReady = false;
             hasSelected = false;
         }
 
