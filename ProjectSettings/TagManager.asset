@@ -24,7 +24,7 @@ TagManager:
   - VerticalWall
   - VerticalProjectile
   - HorizontalProjectile
-  - 
+  - PostProcessing
   - 
   - 
   - 

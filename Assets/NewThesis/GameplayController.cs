@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.PlayerLoop;
 
 public class GameplayController : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class GameplayController : MonoBehaviour
     public float cameraWinSpeed;
 
     public float cameraZoomSpeed;
+    public float cameraWinZoomSpeed;
+
+    public float minCameraSize;
+    public float maxCameraSize;
 
     public float radius;
 
@@ -109,11 +114,19 @@ public class GameplayController : MonoBehaviour
         {
             WinState(winningGoop.transform);
         }
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (gameEnd)
+        {
+            WinStateFixed(winningGoop.transform);
+        }
         else
         {
             DynamicCamera();
         }
-
     }
 
     IEnumerator Countdown()
@@ -164,14 +177,20 @@ public class GameplayController : MonoBehaviour
                 }
             }
         }
+        countdown.color = winningGoop.basicProjectile.GetComponent<Projectile>().colors[winningGoop.goopColor];
+        countdown.text = "Player " + winningGoop.playerNum + " Wins";
+        //equationTime = 0;
+        textFade.SetTrigger("FadeIn");
+    }
 
-        
+    void WinStateFixed(Transform player)
+    {
         Vector3 playerPos = player.position;
         distance = Vector2.Distance(playerPos, Camera.main.transform.position);
 
-        if(playerCamera.orthographicSize > 5)
+        if (playerCamera.orthographicSize > 5)
         {
-            playerCamera.orthographicSize -= cameraZoomSpeed * Time.deltaTime;
+            playerCamera.orthographicSize -= cameraWinZoomSpeed * Time.fixedDeltaTime;
         }
         else
         {
@@ -186,12 +205,6 @@ public class GameplayController : MonoBehaviour
 
             playerCamera.transform.position = Vector3.Slerp(currentPos, playerPos, cameraWinSpeed * Time.fixedDeltaTime);
         }
-        
-
-        countdown.color = winningGoop.basicProjectile.GetComponent<Projectile>().colors[winningGoop.goopColor];
-        countdown.text = "Player " + winningGoop.playerNum + " Wins";
-        //equationTime = 0;
-        textFade.SetTrigger("FadeIn");
     }
 
     void DynamicCamera()
@@ -205,9 +218,14 @@ public class GameplayController : MonoBehaviour
 
         }
 
+
+        if (new Vector2(posX.Max() - posX.Min(), posY.Max() - posY.Min()).magnitude > minCameraSize && new Vector2(posX.Max() - posX.Min(), posY.Max() - posY.Min()).magnitude < maxCameraSize)
+        {
+            playerCamera.orthographicSize = Mathf.Lerp(playerCamera.orthographicSize, new Vector2(posX.Max() - posX.Min(), posY.Max() - posY.Min()).magnitude, cameraZoomSpeed * Time.fixedDeltaTime);
+        }
+
         float middleX = ((posX.Max() - posX.Min()) / 2) + posX.Min();
         float middleY = ((posY.Max() - posY.Min()) / 2) + posY.Min();
-
 
         Vector3 newPos = new Vector2(middleX, middleY);
 
