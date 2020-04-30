@@ -53,6 +53,7 @@ public class CharacterSelectScreen : MonoBehaviour
         {
             readyText.SetActive(false);
         }
+        PlayerPrefs.SetInt("amountOfPlayers", howManyAreReady);
 
     }
 

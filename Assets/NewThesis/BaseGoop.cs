@@ -4,11 +4,11 @@ using UnityEngine;
 using Rewired;
 using Rewired.ControllerExtensions;
 using UnityEditor;
-using UnityEditor.Animations;
 using JetBrains.Annotations;
 using UnityEngine.UI;
 using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
+using UnityEngine.SceneManagement;
 
 public class BaseGoop : MonoBehaviour
 {
@@ -26,9 +26,9 @@ public class BaseGoop : MonoBehaviour
     public Color[] controllerColors;
 
     [Tooltip("0 = Red\n1 = Green\n2 = Blue\n3 = Yellow\n4 = Pink\n5 = Purple\n6 = Orange\n7 = White")]
-    public AnimatorController[] tierOneGoopColor;
+    public RuntimeAnimatorController[] tierOneGoopColor;
     [Tooltip("0 = Red\n1 = Green\n2 = Blue\n3 = Yellow\n4 = Pink\n5 = Purple\n6 = Orange\n7 = White")]
-    public AnimatorController[] tierTwoGoopColor;
+    public RuntimeAnimatorController[] tierTwoGoopColor;
     [HideInInspector]
     public int goopColor;
 
@@ -426,6 +426,14 @@ public class BaseGoop : MonoBehaviour
                 pauseText.color = new Color(1, 1, 1, pauseText.color.a);
                 Time.timeScale = 1;
                 isPaused = false;
+            }
+        }
+        if (isPaused && pauseNumber == this.playerNum)
+        {
+            if (myPlayer.GetButtonDown("Back"))
+            {
+                Time.timeScale = 1;
+                SceneManager.LoadScene("Title");
             }
         }
     }

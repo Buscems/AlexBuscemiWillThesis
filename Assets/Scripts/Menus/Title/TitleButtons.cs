@@ -170,6 +170,7 @@ public class TitleButtons : MonoBehaviour
     }
     void CheckController(Player player)
     {
+        /*
         foreach (Joystick joyStick in player.controllers.Joysticks)
         {
             var ds4 = joyStick.GetExtension<DualShock4Extension>();
@@ -195,5 +196,6 @@ public class TitleButtons : MonoBehaviour
                     break;
             }
         }
+        */
     }
 }

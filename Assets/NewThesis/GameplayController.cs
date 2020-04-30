@@ -70,6 +70,9 @@ public class GameplayController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        amountOfPlayers = PlayerPrefs.GetInt("amountOfPlayers");
+
         countdownOver = false;
 
         origScale = transform.localScale.x;

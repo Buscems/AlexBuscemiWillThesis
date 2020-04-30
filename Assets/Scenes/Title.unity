@@ -8124,6 +8124,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4175782807509571837, guid: ee0f0b7b42a47dd43963cd6874e251fb,
+        type: 3}
+      propertyPath: _dontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee0f0b7b42a47dd43963cd6874e251fb, type: 3}
 --- !u!114 &585703625 stripped
@@ -9595,8 +9600,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 912782309}
-        m_MethodName: GoToOneForAllGame
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10111,7 +10116,7 @@ MonoBehaviour:
   cText: {fileID: 304547066}
   rText: {fileID: 323949526}
   oText: {fileID: 1193661086}
-  playerNum: 0
+  playerNum: 1
 --- !u!1 &920525940
 GameObject:
   m_ObjectHideFlags: 0
@@ -10963,14 +10968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'EVERYONE VOTES ON A CLASS!
-
-    NO SWITCHING! EVERYONE IS THE SAME!
-
-    FIRST
-    TO 10 KILLS WINS!
-
-'
+  m_text: COMING SOON!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 42417201f1718448988ce43d89fb72bb, type: 2}
   m_sharedMaterial: {fileID: -6523775272336785915, guid: 42417201f1718448988ce43d89fb72bb,
@@ -12787,7 +12785,7 @@ MonoBehaviour:
   cText: {fileID: 0}
   rText: {fileID: 0}
   oText: {fileID: 0}
-  playerNum: 0
+  playerNum: 1
 --- !u!1 &1663613609
 GameObject:
   m_ObjectHideFlags: 0
@@ -14887,7 +14885,7 @@ MonoBehaviour:
   cText: {fileID: 0}
   rText: {fileID: 0}
   oText: {fileID: 0}
-  playerNum: 0
+  playerNum: 1
 --- !u!95 &2130752186
 Animator:
   serializedVersion: 3
